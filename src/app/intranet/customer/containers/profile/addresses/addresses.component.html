@@ -33,7 +33,11 @@
                             <div class="info-save">
                                 <p class="d-inline fw-light" style="text-align: justify;">{{address.address}}</p>
                             </div>
-                            <a class="btn icon-edit" [routerLink]="['/account/editaddress',address.address_id]"><i class="bi bi-pencil-square fs-3"></i></a>
+                           
+                            <div class="actionsgroup">
+                                <a class="btn icon-edit" [routerLink]="['/account/editaddress',address.address_id]"><i class="bi bi-pencil-square fs-3"></i></a>
+                                <button type="button" class="btn icon-drop" (click)="deleteAddress(address.address_id)" *ngIf=" address.default_address !== 'TRUE'"><i class="bi bi-trash fs-3"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>

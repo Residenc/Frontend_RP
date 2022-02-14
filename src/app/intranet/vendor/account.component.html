@@ -9,22 +9,22 @@
                 </div>
                 <ul class="nav menu d-flex d-sm-block justify-content-center flex-wrap" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/account-vendor/account-home']" style="cursor: pointer;"><i class="fas fa-home me-4" ></i><span>Inicio</span></a>
+                        <a class="nav-link" [routerLink]="['/account-vendor/account-home']" [routerLinkActive]="'active'" style="cursor: pointer;"><i class="fas fa-home me-4" ></i><span>Inicio</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/account-vendor/editprofile']" style="cursor: pointer;"><i class="fas fa-address-card me-4"></i><span>Editar Información Personal</span></a>
+                        <a class="nav-link" [routerLink]="['/account-vendor/editprofile']" [routerLinkActive]="'active'" style="cursor: pointer;"><i class="fas fa-address-card me-4"></i><span>Editar Información Personal</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/account-vendor/editbusiness']" style="cursor: pointer;"><i class="fas fa-briefcase me-4"></i><span>Editar Informacion Empresarial</span></a>
+                        <a class="nav-link" [routerLink]="['/account-vendor/editbusiness']" [routerLinkActive]="'active'" style="cursor: pointer;"><i class="fas fa-briefcase me-4"></i><span>Editar Informacion Empresarial</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/account-vendor/products']" style="cursor: pointer;"><i class="fas fa-tshirt me-4"></i><span>Productos</span></a>
+                        <a class="nav-link" [routerLink]="['/account-vendor/products']" [routerLinkActive]="'active'" style="cursor: pointer;"><i class="fas fa-tshirt me-4"></i><span>Productos</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/account-vendor/shoppinghistory']" style="cursor: pointer;"><i class="fas fa-shopping-cart me-4"></i><span>Historial De Compras</span></a>
+                        <a class="nav-link" [routerLink]="['/account-vendor/shoppinghistory']" [routerLinkActive]="'active'" style="cursor: pointer;"><i class="fas fa-shopping-cart me-4"></i><span>Historial De Compras</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/account-vendor/saleshistory']" style="cursor: pointer;"><i class="fas fa-cash-register me-4"></i><span>Historial De Ventas</span></a>
+                        <a class="nav-link" [routerLink]="['/account-vendor/saleshistory']" [routerLinkActive]="'active'" style="cursor: pointer;"><i class="fas fa-cash-register me-4"></i><span>Historial De Ventas</span></a>
                     </li>
                     <li class="nav-item">
                         <a (click)="logout()" class="nav-link" style="cursor: pointer;"><i class="fas fa-sign-out-alt me-4" ></i><span>Salir</span></a>

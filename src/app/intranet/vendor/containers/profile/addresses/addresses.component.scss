@@ -46,3 +46,20 @@ form{
     font-size: 18px;
     font-weight: 700;
 }
+
+.icon-edit{
+    font-size: 20px;
+    color: rgb(210,210,210);
+    transition: color .2s ease-in-out;
+    &:hover{
+        color: rgb(150,150,150);
+    }
+}
+.icon-drop{
+    font-size: 20px;
+    color: rgb(210,210,210);
+    transition: color .2s ease-in-out;
+    &:hover{
+        color: rgb(182, 1, 1);
+    }
+}

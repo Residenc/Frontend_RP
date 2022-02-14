@@ -52,6 +52,25 @@ export class AddressesComponent implements OnInit {
         });
     }
 
+    deleteAddress(address_id : string){
+        this.userService.deleteCustomerAddress(address_id).subscribe(result =>{
+            if(!result['delete']){
+                Swal.fire({
+                    title: 'Error Intenta De Nuevo',
+                    icon:'error'
+                })
+            }
+            else{
+                Swal.fire({
+                    title: 'Direccion Eliminada',
+                    icon:'success'
+                }).then(() => {
+                    this.reloadPage();
+                });
+            }
+        });
+    }
+
     reloadPage(){
         window.location.reload();
     }

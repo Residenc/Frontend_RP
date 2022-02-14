@@ -69,6 +69,18 @@ export class UsersService {
     updateInfoBusiness(business:any): Observable<any>{
         return this.http.put(`http://localhost/Backend_RP/api php/routes-vendors/updateInfoBusiness.php`, JSON.stringify(business));
     }
+    updateVendorAddress(address:any): Observable<any>{ 
+        return this.http.put(`http://localhost/Backend_RP/api php/routes-vendors/updateAddressVendor.php`, JSON.stringify(address));
+    }
+    deleteVendorAddress(address_id:string): Observable<any>{ 
+        return this.http.delete(`http://localhost/Backend_RP/api php/routes-vendors/deleteAddressVendor.php?id=`+address_id);
+    }
+    
+
+    //? PUT PARA ACTUALIZAR CREDENCIALES DE VENDORS
+    updateCredentialsVendor(user:any): Observable<any>{
+        return this.http.put(`http://localhost/Backend_RP/api php/routes-vendors/updateCredentials.php`, JSON.stringify(user));
+    }
 
 
 
@@ -104,18 +116,21 @@ export class UsersService {
     updateInfoCustomer(user:any): Observable<any>{
         return this.http.put(`http://localhost/Backend_RP/api php/routes-customers/updateInfoCustomer.php`, JSON.stringify(user));
     }
+    updateCustomerAddress(address:any): Observable<any>{ 
+        return this.http.put(`http://localhost/Backend_RP/api php/routes-customers/updateAddressCustomer.php`, JSON.stringify(address));
+    }
+    deleteCustomerAddress(address_id:string): Observable<any>{ 
+        return this.http.delete(`http://localhost/Backend_RP/api php/routes-customers/deleteAddressCustomer.php?id=`+address_id);
+    }
 
 
 
-    //? PUT PARA ACTUALIZAR CREDENCIALES DE USUARIOS
+    //? PUT PARA ACTUALIZAR CREDENCIALES DE CUSTOMERS
     updateCredentialsCustomer(user:any): Observable<any>{
         return this.http.put(`http://localhost/Backend_RP/api php/routes-customers/updateCredentials.php`, JSON.stringify(user));
     }
 
-    //? PUT PARA ACTUALIZAR CREDENCIALES DE USUARIOS
-    updateCredentialsVendor(user:any): Observable<any>{
-        return this.http.put(`http://localhost/Backend_RP/api php/routes-vendors/updateCredentials.php`, JSON.stringify(user));
-    }
+
 
 
 

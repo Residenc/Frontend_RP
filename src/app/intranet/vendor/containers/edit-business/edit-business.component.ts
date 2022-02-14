@@ -2,6 +2,7 @@ import { Component, Directive, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Business } from 'src/app/core/shared/models/business.model';
 import { Vendor } from 'src/app/core/shared/models/vendor.model';
+import { CookiesTokenService } from 'src/app/core/shared/services/cookies-token/cookiestoken.service';
 import { UsersService } from 'src/app/core/shared/services/users/users.service';
 import Swal from 'sweetalert2';
 
@@ -17,7 +18,7 @@ import Swal from 'sweetalert2';
 export class EditbusinessComponent implements OnInit {
 
 
-    constructor(private fb:FormBuilder, private userService: UsersService) { }
+    constructor(private fb:FormBuilder, private userService: UsersService, private cookietoken: CookiesTokenService) { }
 
     currentVendor: Vendor | any;
     currentBusiness: Business | any;
@@ -27,7 +28,7 @@ export class EditbusinessComponent implements OnInit {
     ngOnInit() {
         this.loadCurrentBusiness()
         this.businessInfoForm = this.fb.group({
-            business_id: ['', Validators.required ],
+            vendor_id: this.cookietoken.getUser().vend,
             name: ['', Validators.required ],
             address: ['', Validators.required ],
             about: ['', Validators.required ],
@@ -40,7 +41,7 @@ export class EditbusinessComponent implements OnInit {
 
     updateBusiness(){
         this.userService.updateInfoBusiness(this.businessInfoForm.value).subscribe(result =>{
-            if(!result['update']){
+            if(!result['updatebusiness']){
                 Swal.fire({
                     title: 'No Se Detecto Ningun Cambio',
                     icon:'error'
@@ -48,7 +49,7 @@ export class EditbusinessComponent implements OnInit {
             }
             else{
                 Swal.fire({
-                    title: 'Datos Actualizados',
+                    title: 'Datos Empresariales Actualizados',
                     icon:'success'
                 }).then(() => {
                     this.reloadPage();
@@ -59,10 +60,7 @@ export class EditbusinessComponent implements OnInit {
 
 
     loadCurrentBusiness(){
-        this.userService.getVendor().subscribe(res=>{
-            this.currentVendor = res[0];
-            this.userService.getBusiness().subscribe(business => this.currentBusiness = business[0]);
-        });
+        this.userService.getBusiness().subscribe(business => this.currentBusiness = business[0]);
     }
 
 

@@ -1,7 +1,13 @@
 .barra-lateral{
     min-height: 100vh;
-    .nav-link{
-        color: rgb(50, 50, 50);
+    .nav-item{
+        .nav-link{
+            color: rgb(80, 80, 80);
+        }
+    }
+    .nav-item .active{
+        background: rgb(121, 20, 204);
+        color: rgb(255, 255, 255);
     }
 }
 

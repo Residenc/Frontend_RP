@@ -1,6 +1,5 @@
 <section class="animate__animated animate__zoomIn animate__faster">
     <form class="py-5 px-0 px-sm-1 px-md-2 px-lg-3 px-xl-5 animate__animated animate__fadeIn" [formGroup]="businessInfoForm" (ngSubmit)="updateBusiness()">
-        <input type="text" [ngModel]="currentBusiness?.business_id"  formControlName="business_id" class="d-none">
         <div class="mb-4">
             <label class="form-label user-label" for="nameBusiness">Nombre De La Empresa</label>
             <input appBlockCopyPaste class="form-control" type="text" id="nameBusiness" name="name" placeholder="Nombre De La Empresa" [ngModel]="currentBusiness?.name" formControlName="name" style="text-transform: capitalize;">

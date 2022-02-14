@@ -17,7 +17,7 @@ interface Category {
 })
 
 export class EditproductComponent implements OnInit {
-    constructor(private productService: ProductsService, private route: ActivatedRoute, private fb: FormBuilder, private router: Router) { }
+    constructor(private productService: ProductsService, private route: ActivatedRoute, private fb: FormBuilder) { }
     currentProduct: Product | any;
     productID: string | any;
 
