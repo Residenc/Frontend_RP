@@ -1,0 +1,165 @@
+<header>
+    <nav class="navbar navbar-expand-sm|md|lg|-xl navbar-dark bar1">
+        <div class="container-fluid bar1-contenido py-2 px-lg-5">
+
+            <a  class="navbar-brand d-inline" routerLink="/">
+                <img src="https://picsum.photos/200/300" alt="" width="50" height="44" class="d-inline me-3 align-middle">
+                <p class="d-inline align-middle">Bootstrap</p>
+            </a>
+            
+            <div class="input-group d-none d-lg-flex">
+                <input type="text" class="form-control searchinput" placeholder="Buscar Algo...">
+                <a href="#" routerLink="/generalview"><button class="btn searchbtn" type="submit"><i class="bi bi-search"></i></button></a>
+            </div>
+
+            <div class="widgets d-flex justify-content-between">
+                <div *ngIf="logged">
+                    <app-user-online class="d-none d-xl-block mt-1" ></app-user-online>
+                </div>
+                <div *ngIf="!logged">
+                    <app-user-offline class="d-none d-xl-block mt-1"></app-user-offline>
+                </div>
+                <app-cart class="mt-1 ms-5 d-none d-xl-block"></app-cart>
+                <button class="navbar-toggler d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse d-xl-none" id="collapsibleNavId">
+                <ul class="navbar-nav mt-2 mt-lg-0 text-end p-2">
+                    <li class="nav-item d-flex justify-content-end mb-2">
+                        <div *ngIf="logged">
+                            <app-user-online></app-user-online>
+                        </div>
+                        <div *ngIf="!logged">
+                            <app-user-offline></app-user-offline>
+                        </div>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <app-cart class="d-inline"></app-cart>
+                        <small class="d-inline" style="color: #ffffff; flex-grow: 0; flex-shrink: 0; padding-left: 2.3rem; font-size: 0.85rem; text-decoration: none !important; white-space: nowrap; margin-left: -0.25rem !important;">Mi Carrito</small>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="bi bi-grid-1x2-fill me-2"></i>Departamentos</a>
+                        <ul class="dropdown-menu text-end ms-auto" style="max-width:200px;">
+                          <li><a class="dropdown-item" href="#">Mas Vendidos</a></li>
+                          <li><a class="dropdown-item" href="#">Recien Llegados</a></li>
+                          <li><a class="dropdown-item" href="#">De Temporada</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex d-lg-none p-2">
+                    <div class="input-group group2">
+                        <input type="text" class="form-control searchinput2" placeholder="Buscar">
+                        <button class="btn searchbtn2" type="submit"><i class="bi bi-search"></i></button>
+                    </div>
+                </form>
+            </div>
+      </div>
+    </nav>
+
+
+    <ul class="yamm nav d-none d-xl-flex justify-content-evenly bar2">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="bi bi-grid-1x2-fill me-2"></i>Departamentos</a>
+          <ul class="dropdown-menu dropdown-animate animate__animated animate__fadeIn animate__faster p-0 border-0">
+            <div class="yamm-content" style="max-width: 1000px;">
+                <div class="row">
+                    <div class="col-sm-3 mb-3 widget">
+                        <a class="card bg-dark text-white" style="cursor: pointer;">
+                            <img src="https://picsum.photos/200/200" class="card-img img-fluid" alt="...">
+                            <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Categoria</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-3 mb-3 widget">
+                        <a class="card bg-dark text-white" style="cursor: pointer;">
+                            <img src="https://picsum.photos/200/200" class="card-img img-fluid" alt="...">
+                            <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Categoria</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-3 mb-3 widget">
+                        <a class="card bg-dark text-white" style="cursor: pointer;">
+                            <img src="https://picsum.photos/200/200" class="card-img img-fluid" alt="...">
+                            <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Categoria</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-3 mb-3 widget">
+                        <a class="card bg-dark text-white" style="cursor: pointer;">
+                            <img src="https://picsum.photos/200/200" class="card-img img-fluid" alt="...">
+                            <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Categoria</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-3 mb-3 widget">
+                        <a class="card bg-dark text-white" style="cursor: pointer;">
+                            <img src="https://picsum.photos/200/200" class="card-img img-fluid" alt="...">
+                            <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Categoria</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-3 mb-3 widget">
+                        <a class="card bg-dark text-white" style="cursor: pointer;">
+                            <img src="https://picsum.photos/200/200" class="card-img img-fluid" alt="...">
+                            <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Categoria</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-3 mb-3 widget">
+                        <a class="card bg-dark text-white" style="cursor: pointer;">
+                            <img src="https://picsum.photos/200/200" class="card-img img-fluid" alt="...">
+                            <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Categoria</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-3 mb-3 widget">
+                        <a class="card bg-dark text-white" style="cursor: pointer;">
+                            <img src="https://picsum.photos/200/200" class="card-img img-fluid" alt="...">
+                            <div class="card-img-overlay d-flex justify-content-center align-items-center">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Categoria</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+              </div>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/viewproducts">Mas Vendidos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/viewproducts">Recien Llegados</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" routerLink="/viewproducts">De Temporada</a>
+        </li>
+    </ul>
+
+</header>
+
+<app-login></app-login>

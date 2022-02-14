@@ -1,0 +1,45 @@
+<div class="container shadow rounded-3 p-3 p-md-5 my-md-5 my-4 animate__animated animate__fadeIn" style="background-color: white;">
+
+    <div class="row d-flex justify-content-center">
+
+        <div class="col-auto me-0 me-md-2 mb-4 mb-md-0 ">
+            <div class="row d-flex justify-content-center">
+                <div class="col-auto border border-1 py-3">
+                    <img class="img-fluid img-product p-3" src="https://picsum.photos/200" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 rounded-3 border border-1 py-5 border-0">
+            <div class="row mb-4 d-flex justify-content-center">
+                <div class="col-4 mb-4">
+                    <h3 class="display-6">{{product.product_name}}</h3>
+                    <div class="info">
+                        <small class="d-block text-end">{{product.category}}</small>
+                        <small class="d-block text-end">Vendedor</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4 d-flex justify-content-center">
+                <div class="col-4 mb-4">
+                    <h5>Descripción:</h5>
+                    <p>{{product.description}}</p>
+                </div>
+            </div>
+            <div class="row mb-4 d-flex justify-content-center">
+                <div class="col-4 mb-4">
+                    <h4>Precio: ${{product.price}}</h4>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-secondary mb-2 d-block w-100">Agregar Al Carrito</button>
+                    <button type="submit" class="btn btn-primary d-block w-100">Comprar Ahora</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+

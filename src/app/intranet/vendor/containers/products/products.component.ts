@@ -1,0 +1,69 @@
+import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/core/shared/models/product.model';
+import { Vendor } from 'src/app/core/shared/models/vendor.model';
+import { ProductsService } from 'src/app/core/shared/services/products/products.service';
+import { UsersService } from 'src/app/core/shared/services/users/users.service';
+import Swal from 'sweetalert2';
+
+@Component({
+    selector: 'app-products',
+    templateUrl: './products.component.html',
+    styleUrls: ['./products.component.scss']
+})
+
+export class ProductsComponent implements OnInit {
+    constructor(private userService:UsersService, private productService:ProductsService) { }
+    currentVendor: Vendor | any;
+    products: Product | any;
+    page: number = 0;
+    ngOnInit() {
+        this.loadProducts()
+    }
+
+    loadProducts(){
+        this.userService.getVendor().subscribe(res=>{
+            this.currentVendor = res[0];
+            this.productService.getAllProductsOfVendor(this.currentVendor.vendor_id).subscribe(products =>this.products = products)
+        });
+    }
+
+    nextPage(){
+        if(this.products != null){
+            this.page += 5; 
+        }
+    }
+    
+    prevPage(){
+        if(this.page > 0){
+            this.page -=5;
+        }
+    }
+    
+    initPage(){
+        this.page = 0; 
+    }
+
+    deleteProduct(product_id : string){
+        this.productService.deleteProduct(product_id).subscribe(result =>{
+            if(!result['delete']){
+                Swal.fire({
+                    title: 'Error Intenta De Nuevo',
+                    icon:'error'
+                })
+            }
+            else{
+                Swal.fire({
+                    title: 'Producto Eliminado',
+                    icon:'success'
+                }).then(() => {
+                    this.reloadPage();
+                });
+            }
+        });
+    }
+
+    reloadPage(){
+        window.location.reload();
+    }
+
+}
