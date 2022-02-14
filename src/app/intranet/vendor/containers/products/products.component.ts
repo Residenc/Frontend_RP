@@ -12,8 +12,7 @@ import Swal from 'sweetalert2';
 })
 
 export class ProductsComponent implements OnInit {
-    constructor(private userService:UsersService, private productService:ProductsService) { }
-    currentVendor: Vendor | any;
+    constructor(private productService:ProductsService) { }
     products: Product | any;
     page: number = 0;
     ngOnInit() {
@@ -21,10 +20,7 @@ export class ProductsComponent implements OnInit {
     }
 
     loadProducts(){
-        this.userService.getVendor().subscribe(res=>{
-            this.currentVendor = res[0];
-            this.productService.getAllProductsOfVendor(this.currentVendor.vendor_id).subscribe(products =>this.products = products)
-        });
+        this.productService.getAllProductsOfVendor().subscribe(products =>this.products = products)
     }
 
     nextPage(){

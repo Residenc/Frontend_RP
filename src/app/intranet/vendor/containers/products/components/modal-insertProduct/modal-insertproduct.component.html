@@ -9,14 +9,12 @@
         <form  [formGroup]="insertProductForm" (ngSubmit)="insertProduct()">
               <div class="col-12">
                   <div class="row mb-5 d-flex justify-content-center align-items-center">
-                      <input type="text" class="d-none" [ngModel]="currentVendor?.vendor_id" formControlName="vendor_id">
-
                       <div class="col-12 col-md-6">
-                          <label>Nombre</label>
+                          <label class="user-label">Nombre</label>
                           <input appBlockCopyPaste type="text" class="form-control" name="product_name" formControlName="product_name">
                       </div>
                       <div class="col-12 col-md-6">
-                        <label>Descripcion</label>
+                        <label class="user-label">Descripcion</label>
                         <textarea appBlockCopyPaste name="description" class="form-control" formControlName="description" rows="6"></textarea>
                       </div>
 
@@ -25,15 +23,15 @@
                   <div class="row mb-5 d-flex justify-content-center align-items-center">
 
                     <div class="col-12 col-md-4">
-                      <label>Precio</label>
+                      <label class="user-label">Precio</label>
                       <input appBlockCopyPaste type="number" name="price" class="form-control" formControlName="price">
                     </div>
                     <div class="col-12 col-md-4">
-                      <label>Marca</label>
+                      <label class="user-label">Marca</label>
                       <input appBlockCopyPaste type="text" name="brand" class="form-control" formControlName="brand">
                     </div>
                     <div class="col-12 col-md-4">
-                      <label>Cantidad</label>
+                      <label class="user-label">Cantidad</label>
                       <input appBlockCopyPaste type="number" name="quantity" class="form-control" formControlName="quantity">
                     </div>
 
@@ -41,7 +39,7 @@
 
                   <div class="row mb-5 d-flex justify-content-center align-items-center">
                       <div class="col-12 col-md-4">
-                        <mat-label>Categoria</mat-label>
+                        <mat-label class="user-label">Categoria</mat-label>
                         <mat-select  name="category" class="form-control" formControlName="category">
                           <mat-option *ngFor="let category of categories" [value]="category.value">{{category.viewValue}}</mat-option>
                         </mat-select>

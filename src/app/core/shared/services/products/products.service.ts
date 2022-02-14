@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CookiesTokenService } from '../cookies-token/cookiestoken.service';
 
 
 @Injectable({providedIn: 'root'})
 export class ProductsService {
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private cookietoken:CookiesTokenService) { }
 
     insertProduct(product:any): Observable<any>{ 
         return this.http.post(`http://localhost/Backend_RP/api php/routes-products/insertProduct.php`,JSON.stringify(product));
@@ -13,7 +14,8 @@ export class ProductsService {
     getAllProducts(): Observable<any>{ 
         return this.http.get(`http://localhost/Backend_RP/api php/routes-products/getProductsGeneral.php`);
     }
-    getAllProductsOfVendor(vendor_id:string): Observable<any>{ 
+    getAllProductsOfVendor(): Observable<any>{ 
+        const vendor_id = this.cookietoken.getUser().vend;
         return this.http.get(`http://localhost/Backend_RP/api php/routes-products/getProductsVendor.php?id=`+ vendor_id);
     }
     getProduct(product_id:string): Observable<any>{ 

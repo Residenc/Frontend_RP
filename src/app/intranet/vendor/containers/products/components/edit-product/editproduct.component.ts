@@ -55,7 +55,7 @@ export class EditproductComponent implements OnInit {
         this.productID = this.route.snapshot.paramMap.get('id');
         this.loadCurrentProduct();
         this.updateProductForm = this.fb.group ({
-            product_id: ['', Validators.required ],
+            product_id: this.productID,
             product_name: ['', Validators.required ],
             description: ['', Validators.required ],
             price: ['', Validators.required ],

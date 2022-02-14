@@ -20,7 +20,7 @@ export class EditprofileComponent implements OnInit {
     ngOnInit() {
         this.loadCurrentUser();
         this.customerInfoForm = this.fb.group ({
-            credential_id: this.cookietoken.getUser().cred,
+            cust_id: this.cookietoken.getUser().cust,
             names: ['', Validators.required ],
             paternal: ['', Validators.required ],
             maternal: ['', Validators.required ],

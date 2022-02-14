@@ -17,7 +17,7 @@ export class UsersService {
 
     //todo INSERT PARA REGISTRO
     insertCustomer(user:any): Observable<any>{ 
-        return this.http.post(`http://localhost/Backend_RP/api php/routes-customer/insertCustomer.php`,JSON.stringify(user));
+        return this.http.post(`http://localhost/Backend_RP/api php/routes-customers/insertCustomer.php`,JSON.stringify(user));
     }
     insertVendor(user:any): Observable<any>{ 
         return this.http.post(`http://localhost/Backend_RP/api php/routes-vendors/insertVendor.php`,JSON.stringify(user));

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Address } from 'src/app/core/shared/models/address.model';
 import { Vendor } from 'src/app/core/shared/models/vendor.model';
+import { CookiesTokenService } from 'src/app/core/shared/services/cookies-token/cookiestoken.service';
 import { UsersService } from 'src/app/core/shared/services/users/users.service';
 import Swal from 'sweetalert2';
 
@@ -12,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 
 export class AddressesComponent implements OnInit {
-    constructor(private userService: UsersService, private fb: FormBuilder) { }
+    constructor(private userService: UsersService, private fb: FormBuilder, private cookietoken:CookiesTokenService) { }
 
     currentVendor: Vendor | any;
     addresses: Address | any;
@@ -20,7 +21,7 @@ export class AddressesComponent implements OnInit {
     ngOnInit() { 
         this.loadAddresses();
         this.addressForm = this.fb.group ({
-            vendor_id: ['', Validators.required ],
+            vendor_id: this.cookietoken.getUser().vend,
             address: ['', Validators.required ]
         });
     }
@@ -34,7 +35,7 @@ export class AddressesComponent implements OnInit {
 
     registerAddress(){
         this.userService.insertVendorAddress(this.addressForm.value).subscribe(result =>{
-            if(!result['insert']){
+            if(!result['insertaddress']){
                 Swal.fire({
                     title: 'Error Al Agregar, Intenta Nuevamente',
                     icon:'error'

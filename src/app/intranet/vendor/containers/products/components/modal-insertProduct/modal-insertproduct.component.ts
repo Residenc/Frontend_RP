@@ -4,6 +4,7 @@ import { Vendor } from 'src/app/core/shared/models/vendor.model';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductsService } from 'src/app/core/shared/services/products/products.service';
+import { CookiesTokenService } from 'src/app/core/shared/services/cookies-token/cookiestoken.service';
 
 
 interface Category {
@@ -20,9 +21,8 @@ interface Category {
 
 export class InsertproductComponent implements OnInit {
     
-    constructor(private userService:UsersService, private productsService:ProductsService ,private fb: FormBuilder) { }
+    constructor(private cookietoken:CookiesTokenService, private productsService:ProductsService ,private fb: FormBuilder) { }
 
-    currentVendor: Vendor | any;
     insertProductForm : FormGroup | any;
 
 
@@ -54,10 +54,9 @@ export class InsertproductComponent implements OnInit {
         {value: 'Otros', viewValue: 'Otros'},
     ];
 
-    ngOnInit() { 
-        this.loadCurrentVendor();    
+    ngOnInit() {    
         this.insertProductForm = this.fb.group ({
-            vendor_id: ['', Validators.required ],
+            vendor_id: this.cookietoken.getUser().vend,
             product_name: ['', Validators.required ],
             description: ['', Validators.required ],
             price: ['', Validators.required ],
@@ -65,12 +64,6 @@ export class InsertproductComponent implements OnInit {
             quantity: ['', Validators.required ],
             category: ['', Validators.required ],
             image: ['', Validators.required ],
-        });
-    }
-
-    loadCurrentVendor(){
-        this.userService.getVendor().subscribe(res=>{
-            this.currentVendor = res[0];
         });
     }
 
