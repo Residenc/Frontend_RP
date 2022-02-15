@@ -36,9 +36,9 @@ body {
 }
 
 .btn-outline-purple {
-  color: #5f5f5f;
+  color: rgb(143, 59, 211);
   background-color: #ffffff;
-  border-color: #919191;
+  border-color: rgb(121, 20, 204);
   border-radius: 0.25rem;
 }
 .btn-outline-purple:hover,
@@ -47,6 +47,7 @@ body {
 .btn-outline-purple.active {
   background: rgb(121, 20, 204);
   color: rgb(255, 255, 255);
+  //border-color: rgb(255, 255, 255);
   box-shadow: 0 0 15px 0 rgba(60, 60, 60, 0.5);
 }
 

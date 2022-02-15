@@ -50,7 +50,9 @@ export class EditaddressComponent implements OnInit {
     }
 
     loadAddress(){
-        this.userService.getVendorAddress(this.addressID).subscribe(res => this.currentAddress = res[0]);
+        this.userService.getVendorAddress(this.addressID).subscribe(res =>{
+            this.currentAddress = res[0];
+        });
     }
     
     reloadPage(){

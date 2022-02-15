@@ -7,12 +7,12 @@
         <form  [formGroup]="updateAddressForm" (ngSubmit)="updateAddress()">
             <div class="col-12">
                 <div class="row mb-5 d-flex justify-content-center align-items-center">
-                    <div class="col-10 col-md-8">
+                    <div class="col-12 col-md-8">
                       <label class="user-label">Direccion</label>
                       <textarea appBlockCopyPaste name="address" class="form-control" [ngModel]="currentAddress?.address" formControlName="address" rows="3"></textarea>
                     </div>
-                    <div class="col-auto">
-                        <textarea appBlockCopyPaste name="default_address" class="form-control" [ngModel]="currentAddress?.default_address" formControlName="default_address" rows="3"></textarea>
+                    <div class="col-auto mt-3 mt-md-0">
+                        <mat-slide-toggle [checked]="currentAddress?.default_address=='1'" name="default_address" formControlName="default_address">Predeterminado</mat-slide-toggle>
                     </div>
                 </div>
 

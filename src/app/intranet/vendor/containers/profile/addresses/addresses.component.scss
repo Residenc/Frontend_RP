@@ -63,3 +63,19 @@ form{
         color: rgb(182, 1, 1);
     }
 }
+
+@media (max-width: 900px) {
+    .icon-edit{
+        font-size: 18px !important;
+
+    }
+    .icon-drop{
+        font-size: 18px !important;
+    }
+    .info-save{
+        font-size: 16px !important;
+    }
+    .icon-save{
+        font-size: 15px !important;
+    }
+}

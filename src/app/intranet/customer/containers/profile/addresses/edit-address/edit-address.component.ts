@@ -18,7 +18,7 @@ export class EditaddressComponent implements OnInit {
     addressID : string | any;
     currentAddress: Address | any;
     updateAddressForm: FormGroup | any;
-
+    
     ngOnInit() { 
         this.addressID = this.route.snapshot.paramMap.get('id');
         this.loadAddress();
@@ -50,7 +50,9 @@ export class EditaddressComponent implements OnInit {
     }
 
     loadAddress(){
-        this.userService.getCustomerAddress(this.addressID).subscribe(res => this.currentAddress = res[0]);
+        this.userService.getCustomerAddress(this.addressID).subscribe(res =>{
+            this.currentAddress = res[0];
+        });
     }
     
 

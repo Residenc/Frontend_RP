@@ -30,3 +30,47 @@
     }
 }
 
+.icon-edit{
+    font-size: 20px;
+    color: rgb(210,210,210);
+    transition: color .2s ease-in-out;
+    &:hover{
+        color: rgb(150,150,150);
+    }
+}
+.icon-drop{
+    font-size: 20px;
+    color: rgb(210,210,210);
+    transition: color .2s ease-in-out;
+    &:hover{
+        color: rgb(182, 1, 1);
+    }
+}
+
+@media (max-width: 900px) {
+    .icon-edit{
+        font-size: 15px !important;
+
+    }
+    .icon-drop{
+        font-size: 15px !important;
+    }
+}
+
+
+
+.productname{
+    font-size: 20px;
+}
+.productcategory{
+    font-size: 18px;
+}
+@media (max-width: 400px) {
+    .productname{
+        font-size: 15px;
+    }
+    .productcategory{
+        font-size: 15px;
+    }
+}
+

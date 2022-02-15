@@ -17,7 +17,7 @@ interface Category {
 })
 
 export class EditproductComponent implements OnInit {
-    constructor(private productService: ProductsService, private route: ActivatedRoute, private fb: FormBuilder) { }
+    constructor(private productService: ProductsService, private route: ActivatedRoute, private fb: FormBuilder, private router: Router) { }
     currentProduct: Product | any;
     productID: string | any;
 
@@ -85,7 +85,7 @@ export class EditproductComponent implements OnInit {
                     title: 'Producto Actualizado!',
                     icon:'success'
                 }).then(() => {
-                    this.reloadPage();
+                    this.router.navigate(['/account-vendor/products']);
                 });
             }
         });
