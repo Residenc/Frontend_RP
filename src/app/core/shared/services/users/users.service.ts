@@ -103,6 +103,14 @@ export class UsersService {
         return this.http.get(`http://localhost/Backend_RP/api php/routes-customers/getCustomerAddresses.php?id=`+cust_id);
     }   
 
+    /*getCartCustomer(): Observable<any>{ 
+        const cust_id = this.cookietoken.getUser().cust;
+        return this.http.get(`http://localhost/Backend_RP/api php/routes-products/getProductsGeneral.php?id=`+ cust_id);
+    }
+    getCartVendor(): Observable<any>{ 
+        const vendor_id = this.cookietoken.getUser().vend;
+        return this.http.get(`http://localhost/Backend_RP/api php/routes-products/getProductsGeneral.php?id=`+ vendor_id);
+    }*/
 
 
     //todo INSERTAR DIRECCIONES PARA USUARIOS CON ROL DE CUSTOMER

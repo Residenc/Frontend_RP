@@ -333,6 +333,11 @@
                                         <div class="description mb-4">
                                             <strong class="product-description-title">Descripcion:</strong>
                                             <p class="product-description mb-2">{{product.description}}</p>
+                                            <input type="number" class="form-control" name="cantidad" #cantidad value="1" min="1" max={{product.quantity}}>
+                                        </div>
+                                        <div class="description mb-4">
+                                            <strong class="product-description-title">Cantidad:</strong>
+                                            <input appBlockWrite type="number" class="form-control" name="cantidad" #cantidad value="1" min="1" max={{product.quantity}}>
                                         </div>
                                         <div class="product-price mb-4">
                                             <span class="price d-block">${{product.price}}</span>
@@ -340,11 +345,11 @@
                                         </div>
                                         <div class="buttonsActions d-none d-xl-block">
                                             <a class="btn btn-sm btn-purple w-100 mb-2 d-block" href="#">Comprar Ahora</a>
-                                            <button class="btn btn-sm btn-outline-success w-100 d-block" type="button"><i class="bi bi-cart-plus me-1"></i>Agregar Al Carrito</button>
+                                            <button class="btn btn-sm btn-outline-success w-100 d-block" type="button" (click)="addCart(product.product_id, cantidad.value)"><i class="bi bi-cart-plus me-1"></i>Agregar Al Carrito</button>
                                         </div>  
                                         <div class="buttonsActions d-block d-xl-none">
                                             <a class="btn btn-sm btn-purple w-100 mb-2 d-block" href="#" >Comprar</a>
-                                            <button class="btn btn-sm btn-outline-success w-100 d-block" type="button"><i class="bi bi-cart-plus me-1"></i>Agregar</button>
+                                            <button class="btn btn-sm btn-outline-success w-100 d-block" type="button" (click)="addCart(product.product_id, cantidad.value)"><i class="bi bi-cart-plus me-1"></i>Agregar</button>
                                         </div> 
                                     </div>
                                 </div>

@@ -24,6 +24,7 @@ import { LoginComponent } from 'src/app/public/login/containers/login.component'
 import { PaginatePipe } from './pipes/paginate.pipe';
 import { PaginateAllPipe } from './pipes/paginate-all.pipe';
 import { BlockCopyPasteDirective } from './directives/block-copy-paste.directive';
+import { BlockWriteDirective } from './directives/block-input.directive';
 
 @NgModule({
     imports: [
@@ -64,7 +65,8 @@ import { BlockCopyPasteDirective } from './directives/block-copy-paste.directive
         LoginComponent,
         PaginatePipe,
         PaginateAllPipe,
-        BlockCopyPasteDirective
+        BlockCopyPasteDirective,
+        BlockWriteDirective
     ],
     declarations: [
         FooterComponent,
@@ -76,7 +78,8 @@ import { BlockCopyPasteDirective } from './directives/block-copy-paste.directive
         LoginComponent,
         PaginatePipe,
         PaginateAllPipe,
-        BlockCopyPasteDirective
+        BlockCopyPasteDirective,
+        BlockWriteDirective
 
     ],
     providers: [],

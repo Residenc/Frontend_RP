@@ -27,5 +27,8 @@ export class ProductsService {
     deleteProduct(product_id:string): Observable<any>{ 
         return this.http.delete(`http://localhost/Backend_RP/api php/routes-products/delete.php?id=`+product_id);
     }
+
+
+
     
 }
