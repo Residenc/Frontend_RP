@@ -43,11 +43,11 @@
             </div>
         </div>    
         <div class="mt-5 row d-flex justify-content-end align-items-center p-0">
-            <div class="col-auto me-3 p-0">
-                <button class="btn btn-sm btn-outline-purple" aria-label="Previous" (click)="prevPage()">Anterior</button>
-            </div>
             <div class="col-auto p-0">
-                <button class="btn btn-sm btn-outline-purple" aria-label="Next" (click)="nextPage()" [disabled]="(products | paginate:page).length === 0">Siguiente</button>
+                <button class="btn btn-outline-purple" aria-label="Previous" (click)="prevPage()" *ngIf="page != 0">Anterior</button>
+            </div>
+            <div class="col-auto p-0 ms-3">
+                <button class="btn btn-outline-purple" aria-label="Next" (click)="nextPage()" *ngIf="(products | paginate:page).length != 0">Siguiente</button>
             </div>
         </div>
 

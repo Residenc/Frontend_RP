@@ -1,4 +1,4 @@
-<div>
+<div #scroll>
     <div class="container-fluid shadow rounded-3" style="background-color: #ffff;">
         <div class="row d-flex justify-content-center gx-5 p-0 p-md-3 p-xl-5">
 
@@ -301,7 +301,7 @@
                     <div class="col-auto">
                         <mat-form-field appearance="fill">
                             <mat-label>Ordenar Por:</mat-label>
-                            <mat-select [(ngModel)]="order">
+                            <mat-select [(ngModel)]="order" (ngModelChange)="initPage()">
                               <mat-option *ngFor="let order of orders" [value]="order.value">
                                 {{order.viewValue}}
                               </mat-option>
@@ -374,7 +374,7 @@
                         </div>
                     </div>
 
-                    <div class="p-5 mb-4 bg-light w-100 rounded-3 animate__animated animate__bounceIn" *ngIf="(products | paginateAll:page).length === 0">
+                    <div class="p-5 mb-4 bg-light w-100 rounded-3 animate__animated animate__bounceIn" *ngIf="(products | orderBy:page).length === 0">
                         <div class="container-fluid py-5">
                             <div class="row d-flex justify-content-center">
                                 <div class="col-12">
@@ -393,10 +393,10 @@
 
                 <div class="mt-5 row d-flex justify-content-end align-items-center p-0">
                     <div class="col-auto p-0">
-                        <button class="btn btn-outline-purple" aria-label="Previous" (click)="prevPage()">Anterior</button>
+                        <button class="btn btn-outline-purple" aria-label="Previous" (click)="prevPage()" *ngIf="page != 0">Anterior</button>
                     </div>
                     <div class="col-auto p-0 ms-3">
-                        <button class="btn btn-outline-purple" aria-label="Next" (click)="nextPage()" *ngIf="(products | paginateAll:page).length != 0">Siguiente</button>
+                        <button class="btn btn-outline-purple" aria-label="Next" (click)="nextPage()" *ngIf="(products | orderBy:page).length != 0">Siguiente</button>
                     </div>
                 </div>
 

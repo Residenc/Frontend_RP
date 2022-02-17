@@ -12,16 +12,41 @@ export class orderByPipe implements PipeTransform {
             return outproducts.slice(page, page+9);
         }
 
+        if(order == 'zyx'){
+            const outproducts = _.sortBy(products, function(product){ return product.product_name; }).reverse()
+            return outproducts.slice(page, page+9);
+        }
+
         if(order == 'recent'){
             const outproducts = _.sortBy(products, function(product){ return product.registration_date; }).reverse()
             return outproducts.slice(page, page+9);
         }
 
         if(order == 'menorpr'){
+            products.sort((a,b) => {
+                let x = parseInt(a.price);
+                let y = parseInt(b.price);
+                if(x<y){
+                  return -1;
+                }
+                else{
+                  return 1;
+                }
+              });
             return products.slice(page, page+9);
         }
 
         if(order == 'mayorpr'){
+            products.sort((a,b) => {
+                let x = parseInt(a.price);
+                let y = parseInt(b.price);
+                if(x>y){
+                  return -1;
+                }
+                else{
+                  return 1;
+                }
+              });
             return products.slice(page, page+9);
         }
         else{

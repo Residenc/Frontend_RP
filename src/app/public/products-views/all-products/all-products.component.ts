@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/core/shared/models/product.model';
@@ -6,6 +6,7 @@ import { CartService } from 'src/app/core/shared/services/cart/cart.service';
 import { CookiesTokenService } from 'src/app/core/shared/services/cookies-token/cookiestoken.service';
 import { ProductsService } from 'src/app/core/shared/services/products/products.service';
 import Swal from 'sweetalert2';
+import { any } from 'underscore';
 
 @Component({
     selector: 'app-allproducts',
@@ -21,7 +22,8 @@ export class AllproductsComponent implements OnInit {
     cartVendorForm: FormGroup | any;
     page: number = 0;
     orders: [] | any= [
-        {value: 'abc', viewValue: 'Alfabetico'},
+        {value: 'abc', viewValue: 'Alfabetico (A, B, C, ...)'},
+        {value: 'zyx', viewValue: 'Alfabetico (Z, X, Y, ...)'},
         {value: 'recent', viewValue: 'Por Fecha'},
         {value: 'menorpr', viewValue: 'Menor Precio'},
         {value: 'mayorpr', viewValue: 'Mayor Precio'},
@@ -144,4 +146,23 @@ export class AllproductsComponent implements OnInit {
         }
 
     }
+}
+
+function observableInterval(interval: number) {
+    throw new Error('Function not implemented.');
+}
+
+
+function scan(arg0: (acc: any, curr: any) => number, scrollTop: any): any {
+    throw new Error('Function not implemented.');
+}
+
+
+function tap(arg0: (position: any) => any): any {
+    throw new Error('Function not implemented.');
+}
+
+
+function takeWhile(arg0: (val: any) => boolean): any {
+    throw new Error('Function not implemented.');
 }
