@@ -1,3 +1,15 @@
+.filters{
+    .nav-item{
+        .nav-link{
+            color: rgb(80, 80, 80);
+        }
+    }
+    .nav-item .active{
+        background: rgb(121, 20, 204);
+        color: rgb(255, 255, 255);
+    }
+}
+
 .productsContenedor{
     .orderContenedor{
         label{
@@ -75,7 +87,7 @@
                     .product-info{
                         font-size: 14px;
                         color: rgb(150,150,150);
-                        .product-subcategory > a, .product-seller > a{
+                        .product-seller > a{
                             transition: color .2s ease-in-out;
                             white-space: nowrap;
                             text-overflow: ellipsis;
@@ -87,6 +99,15 @@
                                 color: rgb(0, 0, 0);
                                 text-decoration: underline;
                             }
+                        }
+                        .product-subcategory{
+                            transition: color .2s ease-in-out;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            display: block;
+                            overflow: hidden;
+                            width: 12ch;
+                            color: rgb(151, 151, 151);
                         }
                     }
                 }

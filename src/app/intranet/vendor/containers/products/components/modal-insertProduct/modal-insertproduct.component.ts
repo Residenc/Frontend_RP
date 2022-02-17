@@ -49,6 +49,7 @@ export class InsertproductComponent implements OnInit {
         {value: 'Ropa Para Niña', viewValue: 'Ropa Para Niña'},
         {value: 'Ropa Para Bebe', viewValue: 'Ropa Para Bebe'},
         {value: 'Salud', viewValue: 'Salud'},
+        {value: 'Servicio', viewValue: 'Servicio'},
         {value: 'Tablets', viewValue: 'Tablets'},
         {value: 'Videojuegos y Consolas', viewValue: 'Videojuegos y Consolas'},
         {value: 'Otros', viewValue: 'Otros'},

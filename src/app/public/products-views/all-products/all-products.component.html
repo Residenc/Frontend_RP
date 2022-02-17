@@ -2,303 +2,133 @@
     <div class="container-fluid shadow rounded-3" style="background-color: #ffff;">
         <div class="row d-flex justify-content-center gx-5 p-0 p-md-3 p-xl-5">
 
-            <!--<div class="col-2 border rounded-3 py-3 animate__animated animate__fadeInLeft animate__faster d-none d-xl-block">
+            <div class="col-3 border rounded-3 py-3 animate__animated animate__fadeInLeft animate__faster d-none d-xl-block">
 
-                <ul class="nav flex-column">
+                <ul class="nav flex-column filters mt-3">
+                    <h4>Ordenar Por:</h4>
+                    <hr>
                     <li class="nav-item">
-                        <h4>Filtros</h4>
-                        <hr>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckA">
-                            <label class="form-check-label filter-name" for="flexCheckA">
-                              Filtro 1
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckA-2">
-                            <label class="form-check-label filter-name" for="flexCheckA-2">
-                              Filtro 2
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckA-3">
-                            <label class="form-check-label filter-name" for="flexCheckA-3">
-                              Filtro 3
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckA-4">
-                            <label class="form-check-label filter-name" for="flexCheckA-4">
-                              Filtro 4
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckA-5">
-                            <label class="form-check-label filter-name" for="flexCheckA-5">
-                              Filtro 5
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckA-6">
-                            <label class="form-check-label filter-name" for="flexCheckA-6">
-                              Filtro 6
-                            </label>
-                        </div>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="orderBy('recent')"><i class="fas fa-history d-none d-xl-inline me-3" ></i><span>Recien Agregados</span></a>
                     </li>
                     <li class="nav-item">
-                        <h4 class="mt-5">Filtros</h4>
-                        <hr>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" id="flexRadioA" name="radiosFiltersA">
-                            <label class="form-check-label" for="flexRadioA">
-                                Opcion 1
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" id="flexRadioA2" name="radiosFiltersA">
-                            <label class="form-check-label" for="flexRadioA2">
-                                Opcion 2
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" id="flexRadioA3" name="radiosFiltersA">
-                            <label class="form-check-label" for="flexRadioA3">
-                                Opcion 3
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" id="flexRadioA4" name="radiosFiltersA">
-                            <label class="form-check-label" for="flexRadioA4">
-                                Opcion 4
-                            </label>
-                        </div>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="orderBy('mayorpr')"><i class="fas fa-sort-numeric-up d-none d-xl-inline me-3"></i><span>Mayor Precio</span></a>
                     </li>
                     <li class="nav-item">
-                        <h4 class="mt-5">Filtros</h4>
-                        <hr>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckB">
-                            <label class="form-check-label filter-name" for="flexCheckB">
-                              Filtro 1
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckB-2">
-                            <label class="form-check-label filter-name" for="flexCheckB-2">
-                              Filtro 2
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckB-3">
-                            <label class="form-check-label filter-name" for="flexCheckB-3">
-                              Filtro 3
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckB-4">
-                            <label class="form-check-label filter-name" for="flexCheckB-4">
-                              Filtro 4
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckB-5">
-                            <label class="form-check-label filter-name" for="flexCheckB-5">
-                              Filtro 5
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckB-6">
-                            <label class="form-check-label filter-name" for="flexCheckB-6">
-                              Filtro 6
-                            </label>
-                        </div>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="orderBy('menorpr')"><i class="fas fa-sort-numeric-up-alt d-none d-xl-inline me-3"></i><span>Menor Precio</span></a>
                     </li>
                     <li class="nav-item">
-                        <h4 class="mt-5">Filtros</h4>
-                        <hr>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" id="flexRadioB" name="radiosFiltersB">
-                            <label class="form-check-label" for="flexRadioB">
-                                Opcion 1
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" id="flexRadioB2" name="radiosFiltersB">
-                            <label class="form-check-label" for="flexRadioB2">
-                                Opcion 2
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" id="flexRadioB3" name="radiosFiltersB">
-                            <label class="form-check-label" for="flexRadioB3">
-                                Opcion 3
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" id="flexRadioB4" name="radiosFiltersB">
-                            <label class="form-check-label" for="flexRadioB4">
-                                Opcion 4
-                            </label>
-                        </div>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="orderBy('abc')"><i class="fas fa-sort-alpha-up-alt d-none d-xl-inline me-3"></i><span>Alfabeticamente (a,b,c,...)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="orderBy('zyx')"><i class="fas fa-sort-alpha-up d-none d-xl-inline me-3"></i><span>Alfabeticamente (z,y,x,...)</span></a>
                     </li>
                 </ul>
 
-            </div>-->
+                <ul class="nav flex-column filters mt-3">
+                    <h4>Categorias:</h4>
+                    <hr>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('')"><span>Todos</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Servicio')"><span>Servicios</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Accesorios de Telefonia y Tablets')"><span>Accesorios de Telefonia y Tablets</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Automotriz y Refacciones')"><span>Automotriz y Refacciones</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Belleza y Cuidado Personal')"><span>Belleza y Cuidado Personal</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Calzado')"><span>Calzado</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Celulares')"><span>Celulares</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Cocina y Electrodomesticos')"><span>Cocina y Electrodomesticos</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Computacion')"><span>Computacion</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Electronica')"><span>Electronica</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Ferreteria y Mejoras Del Hogar')"><span>Ferreteria y Mejoras Del Hogar</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Fiestas')"><span>Fiestas</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Juguetes')"><span>Juguetes</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Linea Blanca')"><span>Linea Blanca</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Maletas y Mochilas')"><span>Maletas y Mochilas</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Mascotas')"><span>Mascotas</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Materia Prima')"><span>Materia Prima</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Muebleria')"><span>Muebleria</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Ropa Para Caballero')"><span>Ropa Para Caballero</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Ropa Para Dama')"><span>Ropa Para Dama</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Ropa Para Niño')"><span>Ropa Para Niño</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Ropa Para Niña')"><span>Ropa Para Niña</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Ropa Para Bebe')"><span>Ropa Para Bebe</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Salud')"><span>Salud</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Tablets')"><span>Tablets</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Videojuegos y Consolas')"><span>Videojuegos y Consolas</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Otros')"><span>Otros</span></a>
+                    </li>
+                </ul>
+
+            </div>
 
 
             <!--Columna de Filtros para Moviles-->
-            <!--<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrolling">
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrolling">
                 <div class="offcanvas-header d-flex justify-content-end">
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                   </div>
                 <div class="offcanvas-body">
-                    <ul class="nav flex-column">
+                    <ul class="nav flex-column filters mt-3">
+                        <h4>Ordenar Por:</h4>
+                        <hr>
                         <li class="nav-item">
-                            <h4>Filtros</h4>
-                            <hr>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckA">
-                                <label class="form-check-label filter-name" for="flexCheckA">
-                                  Filtro 1
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckA-2">
-                                <label class="form-check-label filter-name" for="flexCheckA-2">
-                                  Filtro 2
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckA-3">
-                                <label class="form-check-label filter-name" for="flexCheckA-3">
-                                  Filtro 3
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckA-4">
-                                <label class="form-check-label filter-name" for="flexCheckA-4">
-                                  Filtro 4
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckA-5">
-                                <label class="form-check-label filter-name" for="flexCheckA-5">
-                                  Filtro 5
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckA-6">
-                                <label class="form-check-label filter-name" for="flexCheckA-6">
-                                  Filtro 6
-                                </label>
-                            </div>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="orderBy('recent')"><i class="fas fa-history me-3" ></i><span>Recien Agregados</span></a>
                         </li>
                         <li class="nav-item">
-                            <h4 class="mt-5">Filtros</h4>
-                            <hr>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="flexRadioA" name="radiosFiltersA">
-                                <label class="form-check-label" for="flexRadioA">
-                                    Opcion 1
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="flexRadioA2" name="radiosFiltersA">
-                                <label class="form-check-label" for="flexRadioA2">
-                                    Opcion 2
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="flexRadioA3" name="radiosFiltersA">
-                                <label class="form-check-label" for="flexRadioA3">
-                                    Opcion 3
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="flexRadioA4" name="radiosFiltersA">
-                                <label class="form-check-label" for="flexRadioA4">
-                                    Opcion 4
-                                </label>
-                            </div>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="orderBy('mayorpr')"><i class="fas fa-sort-numeric-up me-3"></i><span>Mayor Precio</span></a>
                         </li>
                         <li class="nav-item">
-                            <h4 class="mt-5">Filtros</h4>
-                            <hr>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckB">
-                                <label class="form-check-label filter-name" for="flexCheckB">
-                                  Filtro 1
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckB-2">
-                                <label class="form-check-label filter-name" for="flexCheckB-2">
-                                  Filtro 2
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckB-3">
-                                <label class="form-check-label filter-name" for="flexCheckB-3">
-                                  Filtro 3
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckB-4">
-                                <label class="form-check-label filter-name" for="flexCheckB-4">
-                                  Filtro 4
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckB-5">
-                                <label class="form-check-label filter-name" for="flexCheckB-5">
-                                  Filtro 5
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckB-6">
-                                <label class="form-check-label filter-name" for="flexCheckB-6">
-                                  Filtro 6
-                                </label>
-                            </div>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="orderBy('menorpr')"><i class="fas fa-sort-numeric-up-alt me-3"></i><span>Menor Precio</span></a>
                         </li>
                         <li class="nav-item">
-                            <h4 class="mt-5">Filtros</h4>
-                            <hr>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="flexRadioB" name="radiosFiltersB">
-                                <label class="form-check-label" for="flexRadioB">
-                                    Opcion 1
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="flexRadioB2" name="radiosFiltersB">
-                                <label class="form-check-label" for="flexRadioB2">
-                                    Opcion 2
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="flexRadioB3" name="radiosFiltersB">
-                                <label class="form-check-label" for="flexRadioB3">
-                                    Opcion 3
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="flexRadioB4" name="radiosFiltersB">
-                                <label class="form-check-label" for="flexRadioB4">
-                                    Opcion 4
-                                </label>
-                            </div>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="orderBy('abc')"><i class="fas fa-sort-alpha-up-alt me-3"></i><span>Alfabeticamente (a,b,c,...)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="orderBy('zyx')"><i class="fas fa-sort-alpha-up me-3"></i><span>Alfabeticamente (z,y,x,...)</span></a>
+                        </li>
+                    </ul>
+    
+                    <ul class="nav flex-column filters mt-3">
+                        <h4>Categorias:</h4>
+                        <hr>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('')"><span>Todos</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Servicio')"><span>Servicios</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Accesorios de Telefonia y Tablets')"><span>Accesorios de Telefonia y Tablets</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Automotriz y Refacciones')"><span>Automotriz y Refacciones</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Belleza y Cuidado Personal')"><span>Belleza y Cuidado Personal</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Calzado')"><span>Calzado</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Celulares')"><span>Celulares</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Cocina y Electrodomesticos')"><span>Cocina y Electrodomesticos</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Computacion')"><span>Computacion</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Electronica')"><span>Electronica</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Ferreteria y Mejoras Del Hogar')"><span>Ferreteria y Mejoras Del Hogar</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Fiestas')"><span>Fiestas</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Juguetes')"><span>Juguetes</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Linea Blanca')"><span>Linea Blanca</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Maletas y Mochilas')"><span>Maletas y Mochilas</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Mascotas')"><span>Mascotas</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Materia Prima')"><span>Materia Prima</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Muebleria')"><span>Muebleria</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Ropa Para Caballero')"><span>Ropa Para Caballero</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Ropa Para Dama')"><span>Ropa Para Dama</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Ropa Para Niño')"><span>Ropa Para Niño</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Ropa Para Niña')"><span>Ropa Para Niña</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Ropa Para Bebe')"><span>Ropa Para Bebe</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Salud')"><span>Salud</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Tablets')"><span>Tablets</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Videojuegos y Consolas')"><span>Videojuegos y Consolas</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="filterBy('Otros')"><span>Otros</span></a>
                         </li>
                     </ul>
                 </div>
-            </div>-->
+            </div>
 
 
 
-            <div class="col-12 col-xl-10 productsContenedor">
+            <div class="col-12 col-xl-9 productsContenedor">
 
                 <div class="row d-flex justify-content-end mb-4 mt-3 orderContenedor">
-                    <div class="col-auto">
+                    <!--<div class="col-auto">
                         <mat-form-field appearance="fill">
                             <mat-label>Ordenar Por:</mat-label>
                             <mat-select [(ngModel)]="order" (ngModelChange)="initPage()">
@@ -307,10 +137,10 @@
                               </mat-option>
                             </mat-select>
                         </mat-form-field>
-                    </div>
-                    <!--<div class="col-auto d-block d-xl-none">
-                        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Filtros</button>
                     </div>-->
+                    <div class="col-auto d-block d-xl-none">
+                        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Filtros</button>
+                    </div>
                     <!--<div class="col-auto d-block d-xl-none">
                         <select class="form-select" id="selectOrder">
                             <option selected>Relevantes</option>
@@ -332,7 +162,7 @@
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 productsContenido">
 
 
-                    <div class="col product animate__animated animate__fadeIn" *ngFor="let product of products | orderBy:page:order">
+                    <div class="col product animate__animated animate__fadeIn" *ngFor="let product of products | orderBy:page:order:category">
                         <div class="card">
                             <a [routerLink]="['/viewproduct',product.product_id]" style="cursor: pointer;"><h5 class="card-header">{{product.product_name}}</h5></a>
                             <div class="row g-0 d-flex justify-content-center">
@@ -367,18 +197,18 @@
                                     </div>
                                 </div>
                                 <div class="product-info px-3 py-2 d-flex justify-content-between">
-                                    <small class="product-subcategory"><a [routerLink]="['/allproducts']" style="cursor: pointer;">{{product.category}}</a></small>
-                                   <small class="product-seller"><a [routerLink]="['/business']" style="cursor: pointer;">Empresa</a></small>
+                                    <small class="product-subcategory">{{product.category}}</small>
+                                    <small class="product-seller"><a [routerLink]="['/business']" style="cursor: pointer;">Empresa</a></small>
                                 </div>  
                             </div>
                         </div>
                     </div>
 
-                    <div class="p-5 mb-4 bg-light w-100 rounded-3 animate__animated animate__bounceIn" *ngIf="(products | orderBy:page).length === 0">
+                    <div class="p-5 mb-4 bg-light w-100 rounded-3 animate__animated animate__bounceIn" *ngIf="(products | orderBy:page:order:category).length === 0">
                         <div class="container-fluid py-5">
                             <div class="row d-flex justify-content-center">
                                 <div class="col-12">
-                                    <h1 class="display-6 fw-normal mb-5 text-center">No Hay Mas Elementos Por Mostrar</h1>
+                                    <h1 class="display-6 fw-normal mb-5 text-center">Uff!!, Parece Que Se Terminaron</h1>
                                 </div>
                             </div>
                             <div class="row d-flex justify-content-center">
@@ -396,7 +226,7 @@
                         <button class="btn btn-outline-purple" aria-label="Previous" (click)="prevPage()" *ngIf="page != 0">Anterior</button>
                     </div>
                     <div class="col-auto p-0 ms-3">
-                        <button class="btn btn-outline-purple" aria-label="Next" (click)="nextPage()" *ngIf="(products | orderBy:page).length != 0">Siguiente</button>
+                        <button class="btn btn-outline-purple" aria-label="Next" (click)="nextPage()" *ngIf="(products | orderBy:page:order:category).length != 0">Siguiente</button>
                     </div>
                 </div>
 
