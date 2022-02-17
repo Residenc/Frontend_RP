@@ -23,12 +23,14 @@ export class EditproductComponent implements OnInit {
 
     categories: Category[] = [
         {value: 'Accesorios de Telefonia y Tablets', viewValue: 'Accesorios de Telefonia y Tablets'},
+        {value: 'Accesorios y Perifericos Computacionales', viewValue: 'Accesorios y Perifericos Computacionales'},
+        {value: 'Audifonos y Bocinas', viewValue: 'Audifonos y Bocinas'},
         {value: 'Automotriz y Refacciones', viewValue: 'Automotriz y Refacciones'},
         {value: 'Belleza y Cuidado Personal', viewValue: 'Belleza y Cuidado Personal'},
         {value: 'Calzado', viewValue: 'Calzado'},
         {value: 'Celulares', viewValue: 'Celulares'},
         {value: 'Cocina y Electrodomesticos', viewValue: 'Cocina y Electrodomesticos'},
-        {value: 'Computacion', viewValue: 'Computacion'},
+        {value: 'Computadoras', viewValue: 'Computadoras'},
         {value: 'Electronica', viewValue: 'Electronica'},
         {value: 'Ferreteria y Mejoras Del Hogar', viewValue: 'Ferreteria y Mejoras Del Hogar'},
         {value: 'Fiestas', viewValue: 'Fiestas'},
@@ -44,6 +46,7 @@ export class EditproductComponent implements OnInit {
         {value: 'Ropa Para Niña', viewValue: 'Ropa Para Niña'},
         {value: 'Ropa Para Bebe', viewValue: 'Ropa Para Bebe'},
         {value: 'Salud', viewValue: 'Salud'},
+        {value: 'Servicio', viewValue: 'Servicio'},
         {value: 'Tablets', viewValue: 'Tablets'},
         {value: 'Videojuegos y Consolas', viewValue: 'Videojuegos y Consolas'},
         {value: 'Otros', viewValue: 'Otros'},
