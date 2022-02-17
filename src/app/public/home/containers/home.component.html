@@ -22,64 +22,25 @@
     </div>
 </section>
 
-<section class="container container-main my-5 p-5">
-    <section class="col-12 col-lg-5 widgets-container"> 
-
-        <div class="row mb-4 widget rounded-3 shadow">
-            <a href="#" routerLink="/allproducts">
-
-                <div class="card bg-dark text-white">
-                    <img src="https://picsum.photos/2000/1500" class="card-img img-fluid" alt="...">
-                    <div class="card-img-overlay d-flex justify-content-center align-items-center">
-                        <h5 class="card-title">Ofertas</h5>
-                    </div>
+<section class="container my-5">
+    <div class="row d-flex justify-content-between">
+        <div class="col-4">
+            <app-widgetcategories></app-widgetcategories>
+        </div>
+        <div class="col-7">
+            <div class="row">
+                <div class="col-12">
+                    <app-productsByDate></app-productsByDate>
                 </div>
-
-            </a>
-        </div>
-
-        <div class="row mb-4 widget rounded-3 shadow">
-            <a href="#" routerLink="/allproducts">
-
-                <div class="card bg-dark text-white">
-                    <img src="https://picsum.photos/2000/1500" class="card-img img-fluid" alt="...">
-                    <div class="card-img-overlay d-flex justify-content-center align-items-center">
-                        <h5 class="card-title">Productos</h5>
-                    </div>
+                <div class="col-12">
+                    <app-productsByName></app-productsByName>
                 </div>
-
-            </a>
+            </div>
         </div>
-
-        <div class="row mb-4 widget rounded-3 shadow">
-            <a href="#" routerLink="/allproducts">
-
-                <div class="card bg-dark text-white">
-                    <img src="https://picsum.photos/2000/1500" class="card-img img-fluid" alt="...">
-                    <div class="card-img-overlay d-flex justify-content-center align-items-center">
-                        <h5 class="card-title">Servicios</h5>
-                    </div>
-                </div>
-
-            </a>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <app-widgetsuscription></app-widgetsuscription>
         </div>
-
-        <div class="row mb-4 widget rounded-3 shadow">
-            <a href="#">
-
-                <div class="card bg-dark text-white">
-                    <img src="https://picsum.photos/2000/1500" class="card-img card-img-special img-fluid" alt="...">
-                    <div class="card-img-overlay card-suscripcion-body">
-                        <h5 class="card-title">Suscripcion</h5>
-                        <p class="card-text">Informacion acerca del sistema de suscripciones de la asoacion Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae ab in facilis unde facere distinctio non minus assumenda at rem.</p>
-                        <div class="text-center">
-                            <button class="btn btn-primary">Suscribirse</button>
-                        </div>
-                    </div>
-                  </div>
-
-            </a>
-        </div>
-
-    </section>
+    </div>
 </section>

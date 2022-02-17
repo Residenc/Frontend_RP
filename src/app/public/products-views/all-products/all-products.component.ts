@@ -20,6 +20,13 @@ export class AllproductsComponent implements OnInit {
     cartCustomerForm: FormGroup | any;
     cartVendorForm: FormGroup | any;
     page: number = 0;
+    orders: [] | any= [
+        {value: 'abc', viewValue: 'Alfabetico'},
+        {value: 'recent', viewValue: 'Por Fecha'},
+        {value: 'menorpr', viewValue: 'Menor Precio'},
+        {value: 'mayorpr', viewValue: 'Mayor Precio'},
+    ];
+    order!: string;
     ngOnInit() {
         this.loadProducts()
     }
@@ -44,7 +51,33 @@ export class AllproductsComponent implements OnInit {
         this.page = 0; 
     }
 
+    orderBy(order: string){
+        this.order = order;
+    }
+
     addCart(product_id:string, quantity:string){
+
+        if(!this.cookietoken.isLogged()){
+            let modalButton : HTMLElement = document.getElementById('modalButton') as HTMLElement;
+            modalButton.click();
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+              })
+              
+              Toast.fire({
+                icon: 'warning',
+                title: 'Inicia Sesion Para Agregar Productos Al Carrito'
+              })
+        }
+
+
         if(this.cookietoken.getUser().cust != null){
             this.cartCustomerForm = this.fb.group ({
                 cust_id: this.cookietoken.getUser().cust,
@@ -59,10 +92,21 @@ export class AllproductsComponent implements OnInit {
                     })
                 }
                 else{
-                    Swal.fire({
-                        title: 'Producto Agregado!',
-                        icon:'success'
-                    })
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 1500,
+                        didOpen: (toast) => {
+                          toast.addEventListener('mouseenter', Swal.stopTimer)
+                          toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                      })
+                      
+                      Toast.fire({
+                        icon: 'success',
+                        title: 'Producto Agregado'
+                      })
                 }
             });
         }
@@ -80,10 +124,21 @@ export class AllproductsComponent implements OnInit {
                     })
                 }
                 else{
-                    Swal.fire({
-                        title: 'Producto Agregado!',
-                        icon:'success'
-                    })
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 1500,
+                        didOpen: (toast) => {
+                          toast.addEventListener('mouseenter', Swal.stopTimer)
+                          toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                      })
+                      
+                      Toast.fire({
+                        icon: 'success',
+                        title: 'Producto Agregado'
+                      })
                 }
             });
         }

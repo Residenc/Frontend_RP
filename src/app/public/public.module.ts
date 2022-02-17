@@ -18,8 +18,14 @@ import { ConfirmationdialogcustomerComponent } from './register/components/confi
 import { ConfirmationdialogvendorComponent } from './register/components/confirmation-dialog-vendor/confirmation-dialog-vendor.component';
 import { ViewproductComponent } from './products-views/view-product/view-product.component';
 import { AllproductsComponent } from './products-views/all-products/all-products.component';
-import { WidgetproductComponent } from './home/components/widget-product/widget-product.component';
 import { BusinessComponent } from './products-views/business/business.component';
+import { WidgetcategoriesComponent } from './home/components/widget-categories/widget-categories.component';
+import { WidgetsuscriptionComponent } from './home/components/widget-suscription/widget-suscription.component';
+import { byDatePipe } from './home/components/widget-product/pipes/byDate.pipe';
+import { byNamePipe } from './home/components/widget-product/pipes/byName.pipe';
+import { productByDateComponent } from './home/components/widget-product/byDate/productByDate.component';
+import { productsByNameComponent } from './home/components/widget-product/byName/productsByName.component';
+import { orderByPipe } from './products-views/all-products/pipes/orderby.pipe';
 
 @NgModule({
     imports: [
@@ -48,8 +54,14 @@ import { BusinessComponent } from './products-views/business/business.component'
         ConfirmationdialogvendorComponent,
         ViewproductComponent,
         AllproductsComponent,
-        WidgetproductComponent,
-        BusinessComponent
+        WidgetcategoriesComponent,
+        WidgetsuscriptionComponent,
+        BusinessComponent,
+        productByDateComponent,
+        productsByNameComponent,
+        byDatePipe,
+        byNamePipe,
+        orderByPipe
     ],
     providers: [],
 })

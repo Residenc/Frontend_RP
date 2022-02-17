@@ -76,21 +76,17 @@
                         font-size: 14px;
                         color: rgb(150,150,150);
                         .product-subcategory > a, .product-seller > a{
-                            color: rgb(150,150,150);
                             transition: color .2s ease-in-out;
                             white-space: nowrap;
                             text-overflow: ellipsis;
                             display: block;
                             overflow: hidden;
-                            width: 10ch;
+                            width: 12ch;
+                            color: rgb(151, 151, 151);
                             &:hover{
-                                color: rgb(80,80,80);
+                                color: rgb(0, 0, 0);
+                                text-decoration: underline;
                             }
-                        }
-                        .product-seller > a{
-                            white-space: nowrap;
-                            text-overflow: ellipsis;
-                            overflow: hidden;
                         }
                     }
                 }

@@ -298,30 +298,41 @@
             <div class="col-12 col-xl-10 productsContenedor">
 
                 <div class="row d-flex justify-content-end mb-4 mt-3 orderContenedor">
+                    <div class="col-auto">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Ordenar Por:</mat-label>
+                            <mat-select [(ngModel)]="order">
+                              <mat-option *ngFor="let order of orders" [value]="order.value">
+                                {{order.viewValue}}
+                              </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
                     <!--<div class="col-auto d-block d-xl-none">
                         <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Filtros</button>
                     </div>-->
-                    <div class="col-auto d-block d-xl-none">
+                    <!--<div class="col-auto d-block d-xl-none">
                         <select class="form-select" id="selectOrder">
                             <option selected>Relevantes</option>
                             <option value="1">Mayor Precio</option>
                             <option value="2">Menor Precio</option>
                         </select>
-                    </div>
-                    <label for="selectOrder" class="col-auto col-form-label d-none d-xl-block">Ordenar Por:</label>
+                    </div>-->
+                    <!--<label for="selectOrder" class="col-auto col-form-label d-none d-xl-block">Ordenar Por:</label>
                     <div class="col-2 d-none d-xl-block">
                         <select class="form-select" id="selectOrder">
                             <option selected>Relevantes</option>
                             <option value="1">Mayor Precio</option>
                             <option value="2">Menor Precio</option>
                         </select>
-                    </div>
+
+                    </div>-->
                 </div>
 
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 productsContenido">
 
 
-                    <div class="col product animate__animated animate__fadeIn" *ngFor="let product of products | paginateAll:page">
+                    <div class="col product animate__animated animate__fadeIn" *ngFor="let product of products | orderBy:page:order">
                         <div class="card">
                             <a [routerLink]="['/viewproduct',product.product_id]" style="cursor: pointer;"><h5 class="card-header">{{product.product_name}}</h5></a>
                             <div class="row g-0 d-flex justify-content-center">
@@ -333,11 +344,13 @@
                                         <div class="description mb-4">
                                             <strong class="product-description-title">Descripcion:</strong>
                                             <p class="product-description mb-2">{{product.description}}</p>
-                                            <input type="number" class="form-control" name="cantidad" #cantidad value="1" min="1" max={{product.quantity}}>
                                         </div>
                                         <div class="description mb-4">
                                             <strong class="product-description-title">Cantidad:</strong>
-                                            <input appBlockWrite type="number" class="form-control" name="cantidad" #cantidad value="1" min="1" max={{product.quantity}}>
+                                            <input appBlockWrite type="number" class="form-control mb-2 text-center" name="cantidad" #cantidad value="1" min="1" max={{product.quantity}}>
+                                            <div class="text-center">
+                                                <small class="text-muted " style="font-size: 13px;">Disponible(s): {{product.quantity}}</small>
+                                            </div>
                                         </div>
                                         <div class="product-price mb-4">
                                             <span class="price d-block">${{product.price}}</span>
@@ -353,15 +366,15 @@
                                         </div> 
                                     </div>
                                 </div>
-                                <div class="product-info d-flex justify-content-between px-1 px-md-3 my-3">
-                                    <small class="product-subcategory"><a href="#">{{product.category}}</a></small>
-                                   <small class="product-seller">Vendido Por: <a [routerLink]="['/business']" style="cursor: pointer;">EMPRESA</a></small>
+                                <div class="product-info px-3 py-2 d-flex justify-content-between">
+                                    <small class="product-subcategory"><a [routerLink]="['/allproducts']" style="cursor: pointer;">{{product.category}}</a></small>
+                                   <small class="product-seller"><a [routerLink]="['/business']" style="cursor: pointer;">Empresa</a></small>
                                 </div>  
                             </div>
                         </div>
                     </div>
 
-                    <div class="p-5 mb-4 bg-light w-100 rounded-3" *ngIf="(products | paginateAll:page).length === 0">
+                    <div class="p-5 mb-4 bg-light w-100 rounded-3 animate__animated animate__bounceIn" *ngIf="(products | paginateAll:page).length === 0">
                         <div class="container-fluid py-5">
                             <div class="row d-flex justify-content-center">
                                 <div class="col-12">

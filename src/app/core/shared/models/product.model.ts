@@ -3,9 +3,9 @@ export interface Product{
     business_id: number | any;
     product_name: string | any;
     description: string | any;
-    price: string | any;
+    price: number | any;
     brand: string | any;
-    quantity: string | any;
+    quantity: number | any;
     category: string | any;
     image: string | any;
     registration_date: string | any;
