@@ -197,7 +197,7 @@ export class InsertproductComponent implements OnInit {
    console.log(this.imagenes);
     });
 
-  }
+  }*/
   //@ts-ignore
   deleteImg (id){ 
         
@@ -214,5 +214,5 @@ export class InsertproductComponent implements OnInit {
 
     });
   }
-});*/
-}
+});
+  }}
