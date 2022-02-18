@@ -164,40 +164,20 @@ export class InsertproductComponent implements OnInit {
   
   
   }
-  /*
-  agregar(){
-    if(this.newProduct.valid){
-      this.productService.addProducto(this.newProduct.value).subscribe((res:any) =>{
-      console.log(res);
-
-    })
-    }else{console.log('Not Valid')
-    }
-    }
+ 
 
     lastId(){
-      this.productService.getUltimo().subscribe(
+      this.productsService.getUltimo().subscribe(
         res=>{
           console.log(res);
-          this.ListarProducto=<any>res;
-          this.id_producto = this.ListarProducto
+          this.ListProduct=<any>res;
+          this.id_producto = this.ListProduct
         },
         err => console.log(err)
       );
     }
   
-  mostrarImg(){
-    
-    this.http.get<any>('http://localhost:3000/upload').subscribe(res => {
-    
-    this.imagenes = res;
-    const reader = new FileReader();
-    reader.onload = (this.imagenes);
-       
-   console.log(this.imagenes);
-    });
 
-  }*/
   //@ts-ignore
   deleteImg (id){ 
         
