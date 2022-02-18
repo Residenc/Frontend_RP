@@ -25,6 +25,7 @@ import { PaginatePipe } from './pipes/paginate.pipe';
 import { PaginateAllPipe } from './pipes/paginate-all.pipe';
 import { BlockCopyPasteDirective } from './directives/block-copy-paste.directive';
 import { BlockWriteDirective } from './directives/block-input.directive';
+import { CartoffcanvasComponent } from 'src/app/intranet/cart/cart-offcanvas/cart-offcanvas.component';
 
 @NgModule({
     imports: [
@@ -66,7 +67,8 @@ import { BlockWriteDirective } from './directives/block-input.directive';
         PaginatePipe,
         PaginateAllPipe,
         BlockCopyPasteDirective,
-        BlockWriteDirective
+        BlockWriteDirective,
+        CartoffcanvasComponent
     ],
     declarations: [
         FooterComponent,
@@ -79,7 +81,8 @@ import { BlockWriteDirective } from './directives/block-input.directive';
         PaginatePipe,
         PaginateAllPipe,
         BlockCopyPasteDirective,
-        BlockWriteDirective
+        BlockWriteDirective,
+        CartoffcanvasComponent
 
     ],
     providers: [],

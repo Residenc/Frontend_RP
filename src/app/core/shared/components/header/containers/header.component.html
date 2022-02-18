@@ -19,7 +19,7 @@
                 <div *ngIf="!logged">
                     <app-user-offline class="d-none d-xl-block mt-1"></app-user-offline>
                 </div>
-                <app-cart class="mt-1 ms-5 d-none d-xl-block"></app-cart>
+                <app-cart class="ms-4 d-none d-xl-block" style="margin-top: 4px;"></app-cart>
                 <button class="navbar-toggler d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -154,4 +154,5 @@
 
 </header>
 
+<app-cartoffcanvas></app-cartoffcanvas>
 <app-login></app-login>

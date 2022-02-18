@@ -96,17 +96,19 @@ export class AllproductsComponent implements OnInit {
                         toast: true,
                         position: 'top-end',
                         showConfirmButton: false,
-                        timer: 1500,
+                        timer: 800,
                         didOpen: (toast) => {
                           toast.addEventListener('mouseenter', Swal.stopTimer)
                           toast.addEventListener('mouseleave', Swal.resumeTimer)
                         }
-                      })
-                      
+                      });
                       Toast.fire({
                         icon: 'success',
                         title: 'Producto Agregado'
                       })
+                      .then(() => {
+                        this.reloadPage();
+                      });
                 }
             });
         }
@@ -128,20 +130,26 @@ export class AllproductsComponent implements OnInit {
                         toast: true,
                         position: 'top-end',
                         showConfirmButton: false,
-                        timer: 1500,
+                        timer: 800,
                         didOpen: (toast) => {
                           toast.addEventListener('mouseenter', Swal.stopTimer)
                           toast.addEventListener('mouseleave', Swal.resumeTimer)
                         }
-                      })
-                      
+                      });
                       Toast.fire({
                         icon: 'success',
                         title: 'Producto Agregado'
                       })
+                      .then(() => {
+                        this.reloadPage();
+                      });
                 }
             });
         }
 
+    }
+
+    reloadPage(){
+        window.location.reload();
     }
 }

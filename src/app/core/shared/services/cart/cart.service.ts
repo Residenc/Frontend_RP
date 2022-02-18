@@ -10,12 +10,12 @@ export class CartService {
 
     getCartCustomer(): Observable<any>{ 
         const cust_id = this.cookietoken.getUser().cust;
-        return this.http.get(`http://localhost/Backend_RP/`, cust_id);
+        return this.http.get(`http://localhost/Backend_RP/api php/routes-cartCustomer/getCartItemsCustomer?id=`+cust_id);
     }
 
     getCartVendor(): Observable<any>{ 
         const vendor_id = this.cookietoken.getUser().vend;
-        return this.http.get(`http://localhost/Backend_RP/`, vendor_id);
+        return this.http.get(`http://localhost/Backend_RP/api php/routes-cartVendor/getCartItemsVendor?id=`+vendor_id);
     }
 
     insertCartItemCustomer(cartItem:any): Observable<any>{ 
