@@ -41,7 +41,7 @@ import { EditaddressComponent } from './containers/profile/addresses/edit-addres
         InsertproductComponent,
         EditproductComponent,
         EditbusinessComponent,
-        EditaddressComponent
+        EditaddressComponent,
     ],
     providers: [],
 })
