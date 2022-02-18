@@ -112,7 +112,7 @@ export class InsertproductComponent implements OnInit {
        }
       this.images = file;
     }
-  }
+  }*/
   //@ts-ignore
   selectMultipleImage(event) {
     if (event.target.files.length > 0) {
@@ -120,6 +120,7 @@ export class InsertproductComponent implements OnInit {
       this.prueba = this.multipleImages
     }
   }
+  /*
 
   onSubmit() {
     this.agregar();
