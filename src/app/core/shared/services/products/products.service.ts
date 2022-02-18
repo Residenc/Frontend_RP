@@ -6,6 +6,7 @@ import { CookiesTokenService } from '../cookies-token/cookiestoken.service';
 
 @Injectable({providedIn: 'root'})
 export class ProductsService {
+    url = 'http://localhost:3000';
     constructor(private http: HttpClient, private cookietoken:CookiesTokenService) { }
 
     insertProduct(product:any): Observable<any>{ 
@@ -29,13 +30,17 @@ export class ProductsService {
     }
 
 
-    /*
+    
     //Obtener el ultimo producto ingresado
      getUltimo(){
       return this.http.get(this.url +'/productoimagen');
-    }*/
+    }
 
 
 
     
+}
+
+export interface Product{
+
 }

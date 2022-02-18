@@ -3,7 +3,7 @@ import { UsersService } from 'src/app/core/shared/services/users/users.service';
 import { Vendor } from 'src/app/core/shared/models/vendor.model';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProductsService } from 'src/app/core/shared/services/products/products.service';
+import { Product, ProductsService } from 'src/app/core/shared/services/products/products.service';
 import { CookiesTokenService } from 'src/app/core/shared/services/cookies-token/cookiestoken.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -23,7 +23,7 @@ interface Category {
 export class InsertproductComponent implements OnInit {
     
     constructor(private cookietoken:CookiesTokenService, private productsService:ProductsService ,private fb: FormBuilder,private http: HttpClient) { }
-    //ListarProducto: Producto [ ] | any;
+    ListProduct: Product [ ] | any;
     id_producto: any; 
     images: any = [];
     imgURL = '/assets/images/no-image/insert-img.png';
@@ -120,17 +120,14 @@ export class InsertproductComponent implements OnInit {
       this.prueba = this.multipleImages
     }
   }
-  /*
 
-  onSubmit() {
-    this.agregar();
 
-   
+  addImages() {
 
-    this.productService.getUltimo().subscribe(
-      res=>{
+    this.productsService.getUltimo().subscribe(
+        (res: any)=>{
         const formData = new FormData();
-        this.ListarProducto=<any>res;
+        this.ListProduct=<any>res;
         for (let x = 0; x < this.prueba.length; x++) {
           formData.append('files', this.prueba[x])
          }
@@ -161,13 +158,13 @@ export class InsertproductComponent implements OnInit {
                     })
     );
   },
-  err => console.log(err)
+        (err: any) => console.log(err)
 );
    this.imgURL = '/assets/noimage.png';
   
   
   }
-
+  /*
   agregar(){
     if(this.newProduct.valid){
       this.productService.addProducto(this.newProduct.value).subscribe((res:any) =>{
