@@ -26,7 +26,7 @@ export class InsertproductComponent implements OnInit {
     //ListarProducto: Producto [ ] | any;
     id_producto: any; 
     images: any = [];
-    //imgURL = '/assets/noimage.png';
+    imgURL = '/assets/images/no-image/insert-img.png';
     multipleImages = [];
     prueba:any = []
     imagenes: any = [];
@@ -101,7 +101,7 @@ export class InsertproductComponent implements OnInit {
         window.location.reload();
     }
 
- /*   //@ts-ignore
+    //@ts-ignore
   selectImage(event) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
@@ -112,7 +112,7 @@ export class InsertproductComponent implements OnInit {
        }
       this.images = file;
     }
-  }*/
+  }
   //@ts-ignore
   selectMultipleImage(event) {
     if (event.target.files.length > 0) {
