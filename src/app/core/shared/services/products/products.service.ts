@@ -29,6 +29,13 @@ export class ProductsService {
     }
 
 
+    /*
+    //Obtener el ultimo producto ingresado
+     getUltimo(){
+      return this.http.get(this.url +'/productoimagen');
+    }*/
+
+
 
     
 }

@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductsService } from 'src/app/core/shared/services/products/products.service';
 import { CookiesTokenService } from 'src/app/core/shared/services/cookies-token/cookiestoken.service';
+import { HttpClient } from '@angular/common/http';
 
 
 interface Category {
@@ -21,8 +22,15 @@ interface Category {
 
 export class InsertproductComponent implements OnInit {
     
-    constructor(private cookietoken:CookiesTokenService, private productsService:ProductsService ,private fb: FormBuilder) { }
-
+    constructor(private cookietoken:CookiesTokenService, private productsService:ProductsService ,private fb: FormBuilder,private http: HttpClient) { }
+    //ListarProducto: Producto [ ] | any;
+    id_producto: any; 
+    images: any = [];
+    //imgURL = '/assets/noimage.png';
+    multipleImages = [];
+    prueba:any = []
+    imagenes: any = [];
+    public archivos: any =[]
     insertProductForm : FormGroup | any;
 
 
@@ -92,4 +100,121 @@ export class InsertproductComponent implements OnInit {
     reloadPage(){
         window.location.reload();
     }
+
+ /*   //@ts-ignore
+  selectImage(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+       reader.readAsDataURL(file);
+       reader.onload = (event: any)=>{
+         this.imgURL = event.target.result;
+       }
+      this.images = file;
+    }
+  }
+  //@ts-ignore
+  selectMultipleImage(event) {
+    if (event.target.files.length > 0) {
+      this.multipleImages = event.target.files;
+      this.prueba = this.multipleImages
+    }
+  }
+
+  onSubmit() {
+    this.agregar();
+
+   
+
+    this.productService.getUltimo().subscribe(
+      res=>{
+        const formData = new FormData();
+        this.ListarProducto=<any>res;
+        for (let x = 0; x < this.prueba.length; x++) {
+          formData.append('files', this.prueba[x])
+         }
+ 
+      
+
+
+      console.log(formData)
+    
+    //formData.append('files', this.prueba);
+    
+
+    this.http.post<any>('http://localhost:3000/file', formData).subscribe(
+      (res) => console.log(res,  Swal.fire({
+                icon: 'success',
+                title: 'Imagen cargada!!',
+                text: 'La imagen se subio correctamente!'
+                }).then((result) => {
+                            if (result) {
+                                       location.reload();
+                          }
+               }) 
+         ),
+      (err) => Swal.fire({
+                      icon: 'error',
+                      title: 'Oops...',
+                      text: 'Parece que no subio nada!!' 
+                    })
+    );
+  },
+  err => console.log(err)
+);
+   this.imgURL = '/assets/noimage.png';
+  
+  
+  }
+
+  agregar(){
+    if(this.newProduct.valid){
+      this.productService.addProducto(this.newProduct.value).subscribe((res:any) =>{
+      console.log(res);
+
+    })
+    }else{console.log('Not Valid')
+    }
+    }
+
+    lastId(){
+      this.productService.getUltimo().subscribe(
+        res=>{
+          console.log(res);
+          this.ListarProducto=<any>res;
+          this.id_producto = this.ListarProducto
+        },
+        err => console.log(err)
+      );
+    }
+  
+  mostrarImg(){
+    
+    this.http.get<any>('http://localhost:3000/upload').subscribe(res => {
+    
+    this.imagenes = res;
+    const reader = new FileReader();
+    reader.onload = (this.imagenes);
+       
+   console.log(this.imagenes);
+    });
+
+  }
+  //@ts-ignore
+  deleteImg (id){ 
+        
+    Swal.fire({
+   icon: 'info',
+     title: 'Desea eliminar la imagen?',
+   showCancelButton: true,
+  confirmButtonText: `Eliminar`,
+  }).then((result) => {
+  if (result.isConfirmed) {
+      this.http.delete<any>(`http://localhost:3000/delete/${id}`).subscribe( res => {
+    
+    console.log(res, location.reload());
+
+    });
+  }
+});*/
 }
