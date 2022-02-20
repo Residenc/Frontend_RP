@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class WidgetcategoriesComponent implements OnInit {
+    category: string = 'Automotriz y Refacciones';
+
     constructor() { }
 
     ngOnInit() { }

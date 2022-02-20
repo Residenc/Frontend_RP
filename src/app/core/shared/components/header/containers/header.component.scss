@@ -1,121 +1,9 @@
 header {
-  .bar1 {
+  .bar{
     background: rgb(72, 10, 122);
-    .bar1-contenido {
-      display: flex;
-      justify-content: space-around;
-      .navbar-brand {
-        p {
-          color: rgb(255, 255, 255);
-        }
-      }
-      .input-group {
-        max-width: 50%;
-        justify-content: center;
-        .searchselect {
-          max-width: 12rem;
-          font-size: 1rem;
-          color: rgb(100, 100, 100);
-          &:focus {
-            border-color: rgb(200, 200, 200);
-            box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0);
-          }
-        }
-        .searchinput {
-          max-width: 50rem;
-          font-weight: 300;
-          &:focus {
-            border-color: rgb(200, 200, 200);
-            box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0);
-          }
-        }
-        .searchbtn {
-          background: rgb(103, 64, 209);
-          color: rgb(255, 255, 255);
-          &:hover {
-            background: rgb(89, 55, 182);
-          }
-          &:focus {
-            border-color: rgba(0, 0, 0, 0);
-            box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0);
-          }
-        }
-      }
-
-      .navbar-tool {
-        display: flex;
-        align-items: center;
-        .navbar-tool-icon-box {
-          position: relative;
-          width: 2.875rem;
-          height: 2.875rem;
-          line-height: 2.625rem;
-          text-align: center;
-        }
-        .navbar-tool-icon {
-          color: #ffffff;
-          font-size: 1.9rem;
-          line-height: 2.8rem;
-        }
-        .navbar-tool-text {
-          color: #ffffff;
-          flex-grow: 0;
-          flex-shrink: 0;
-          padding-left: 0.875rem;
-          font-size: 0.85rem;
-          text-decoration: none !important;
-          white-space: nowrap;
-          margin-left: -0.5rem !important;
-        }
-        .navbar-tool-label {
-          position: absolute;
-          top: -0.3rem;
-          right: -0.01rem;
-          width: 1.25rem;
-          height: 1.25rem;
-          border-radius: 50%;
-          background-color: #ff4b4b;
-          color: #fff;
-          font-size: 0.8rem;
-          font-weight: 500;
-          text-align: center;
-          line-height: 1.25rem;
-        }
-      }
-
-      .btn-accountOnline {
-        .navbar-tool-icon-box {
-          img {
-            border-radius: 100%;
-          }
-        }
-        .navbar-tool-text {
-          .dropdown {
-            #dropdownOnline {
-              background-color: none;
-              color: rgb(255, 255, 255);
-              font-size: 0.85rem;
-              &:focus {
-                box-shadow: 0 0 15px 0 rgba(60, 60, 60, 0.5);
-              }
-            }
-          }
-        }
-      }
-
-      .btn-notifications {
-        border: none;
-        background: none;
-        .navbar-tool-icon {
-          color: #ffffff;
-          font-size: 1.9rem;
-          line-height: 2.8rem;
-        }
-      }
-    }
   }
 
-  .navbar-collapse {
+  /*.navbar-collapse {
     .nav-item {
       .nav-link {
         color: rgb(255, 255, 255) !important;
@@ -142,9 +30,9 @@ header {
         }
       }
     }
-  }
+  }*/
 
-  .bar2 {
+  /*.bar2 {
     background: #232f3e;
     padding: 5px;
     .nav-item {
@@ -180,7 +68,7 @@ header {
         }
       }
     }
-  }
+  }*/
 }
 
 /*header{

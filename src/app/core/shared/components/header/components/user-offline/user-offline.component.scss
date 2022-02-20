@@ -38,3 +38,16 @@
     line-height: 1.25rem;
   }
 }
+
+@media (max-width: 456px) {
+  .navbar-tool {
+    .navbar-tool-icon {
+      font-size: 1.5rem;
+      line-height: 2.8rem;
+    }
+    .navbar-tool-text {
+      font-size: 0.8rem;
+    }
+
+  }
+}   

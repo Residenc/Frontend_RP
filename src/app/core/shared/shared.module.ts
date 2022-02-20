@@ -12,6 +12,10 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
+
 
 import { FooterComponent } from './components/footer/footer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -42,6 +46,8 @@ import { CartoffcanvasComponent } from 'src/app/intranet/cart/cart-offcanvas/car
         MatDialogModule,
         MatPaginatorModule,
         MatSlideToggleModule,
+        MatIconModule,
+        MatProgressSpinnerModule
     ],
     exports: [
         HttpClientModule,
@@ -57,6 +63,8 @@ import { CartoffcanvasComponent } from 'src/app/intranet/cart/cart-offcanvas/car
         MatDialogModule,
         MatPaginatorModule,
         MatSlideToggleModule,
+        MatIconModule,
+        MatProgressSpinnerModule,
         FooterComponent,
         NotFoundComponent,
         HeaderComponent,

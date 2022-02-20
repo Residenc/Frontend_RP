@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/core/shared/models/product.model';
 import { CartService } from 'src/app/core/shared/services/cart/cart.service';
 import { CookiesTokenService } from 'src/app/core/shared/services/cookies-token/cookiestoken.service';
@@ -15,13 +15,17 @@ import Swal from 'sweetalert2';
 })
 
 export class AllproductsComponent implements OnInit {
-    constructor(private productService:ProductsService, private router : Router, private cookietoken:CookiesTokenService, private fb:FormBuilder, private cartService: CartService) { }
+    constructor(private productService:ProductsService, private cookietoken:CookiesTokenService, private fb:FormBuilder, private cartService: CartService, private route: ActivatedRoute) { }
     products: Product | any;
+    
     cartCustomerForm: FormGroup | any;
     cartVendorForm: FormGroup | any;
+
     page: number = 0;
     order!: string;
     category!: string;
+    public search: string='';
+
     ngOnInit() {
         this.loadProducts()
     }
@@ -52,6 +56,11 @@ export class AllproductsComponent implements OnInit {
 
     filterBy(category: string){
         this.category = category;
+    }
+
+    onSearch(search: string){
+        this.search = search;
+        console.log(this.search);
     }
 
 

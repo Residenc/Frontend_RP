@@ -39,13 +39,16 @@
 					color: #343a40;
 					padding: 0;
 				}
+				.price-info-subtotal{
+					font-weight: 600;
+				}
 			}
 		}
 		.cart-total {
 			display: flex;
 			justify-content: space-between;
-			padding: .7rem 1rem;
-			font-size: 1rem;
+			padding: .7rem 3rem;
+			font-size: 1.25rem;
 			border-bottom: 1px solid #d4d4d4;
 			margin-top: .5rem;
 			margin-bottom: .5rem;
