@@ -14,6 +14,12 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatStepperModule} from '@angular/material/stepper';
+import {CdkStepperModule} from '@angular/cdk/stepper';
+import { MatInputModule } from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+
+
 
 
 
@@ -30,6 +36,7 @@ import { PaginateAllPipe } from './pipes/paginate-all.pipe';
 import { BlockCopyPasteDirective } from './directives/block-copy-paste.directive';
 import { BlockWriteDirective } from './directives/block-input.directive';
 import { CartoffcanvasComponent } from 'src/app/intranet/cart/cart-offcanvas/cart-offcanvas.component';
+import { CartcheckoutComponent } from 'src/app/intranet/cart/cart-checkout/cart-checkout.component';
 
 @NgModule({
     imports: [
@@ -47,7 +54,11 @@ import { CartoffcanvasComponent } from 'src/app/intranet/cart/cart-offcanvas/car
         MatPaginatorModule,
         MatSlideToggleModule,
         MatIconModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        MatStepperModule,
+        CdkStepperModule,
+        MatInputModule,
+        MatButtonModule
     ],
     exports: [
         HttpClientModule,
@@ -65,6 +76,10 @@ import { CartoffcanvasComponent } from 'src/app/intranet/cart/cart-offcanvas/car
         MatSlideToggleModule,
         MatIconModule,
         MatProgressSpinnerModule,
+        MatStepperModule,
+        CdkStepperModule,
+        MatInputModule,
+        MatButtonModule,
         FooterComponent,
         NotFoundComponent,
         HeaderComponent,
@@ -76,7 +91,8 @@ import { CartoffcanvasComponent } from 'src/app/intranet/cart/cart-offcanvas/car
         PaginateAllPipe,
         BlockCopyPasteDirective,
         BlockWriteDirective,
-        CartoffcanvasComponent
+        CartoffcanvasComponent,
+        CartcheckoutComponent
     ],
     declarations: [
         FooterComponent,
@@ -90,7 +106,8 @@ import { CartoffcanvasComponent } from 'src/app/intranet/cart/cart-offcanvas/car
         PaginateAllPipe,
         BlockCopyPasteDirective,
         BlockWriteDirective,
-        CartoffcanvasComponent
+        CartoffcanvasComponent,
+        CartcheckoutComponent
 
     ],
     providers: [],

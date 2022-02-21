@@ -19,7 +19,6 @@ export class CartoffcanvasComponent implements OnInit {
     ngOnInit() { 
         this.loadCartItems();
         this.isLogged = this.cookietoken.isLogged();
-        this.getTotalPrice();
     }
 
     loadCartItems(){
@@ -114,9 +113,6 @@ export class CartoffcanvasComponent implements OnInit {
       }
     }
 
-    getTotalPrice(){
-
-    }
 
     reloadPage(){
       window.location.reload()

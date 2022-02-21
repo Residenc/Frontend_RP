@@ -15,23 +15,26 @@ import Swal from 'sweetalert2';
 })
 
 export class AllproductsComponent implements OnInit {
-    constructor(private productService:ProductsService, private cookietoken:CookiesTokenService, private fb:FormBuilder, private cartService: CartService, private route: ActivatedRoute) { }
+    constructor(private productService:ProductsService, private cookietoken:CookiesTokenService, private fb:FormBuilder, private cartService: CartService, private route: ActivatedRoute, private router: Router) { }
     products: Product | any;
     
     cartCustomerForm: FormGroup | any;
     cartVendorForm: FormGroup | any;
 
     page: number = 0;
-    order!: string;
-    category!: string;
+    order: string | any;
+    category: string | any;
     public search: string='';
 
     ngOnInit() {
-        this.loadProducts()
+        this.loadProducts();
     }
 
     loadProducts(){
-        this.productService.getAllProducts().subscribe(products =>this.products = products)
+        this.productService.getAllProducts().subscribe(products =>this.products = products);
+        if(this.route.snapshot.paramMap.get('search') != null){
+            this.category = this.route.snapshot.paramMap.get('search');
+        }
     }
 
     nextPage(){
@@ -50,6 +53,10 @@ export class AllproductsComponent implements OnInit {
         this.page = 0; 
     }
 
+    allProducts(){
+        this.router.navigate(['/allproducts']);
+    }
+
     orderBy(order: string){
         this.order = order;
     }
@@ -60,7 +67,6 @@ export class AllproductsComponent implements OnInit {
 
     onSearch(search: string){
         this.search = search;
-        console.log(this.search);
     }
 
 

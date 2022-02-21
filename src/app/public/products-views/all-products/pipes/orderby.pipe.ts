@@ -8,7 +8,7 @@ import { filter } from 'underscore';
 export class orderByPipe implements PipeTransform {
   transform( products: Product[], page: number = 0, order: string = '', category: string = '', search: string = ''): Product[] {
 
-    if(search.length === 0){
+    if(search.length === null){
       //si tiene category entonces regresalos en el orden que se seleccione
       if (category.length != 0) {
         if (order == 'abc') {
@@ -109,7 +109,7 @@ export class orderByPipe implements PipeTransform {
       }
     }
 
-    if(search.length  != 0){
+    if(search.length  != null){
       //si tiene category entonces regresalos en el orden que se seleccione
       if (category.length != 0) {
         if (order == 'abc') {
