@@ -12,6 +12,16 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatStepperModule} from '@angular/material/stepper';
+import {CdkStepperModule} from '@angular/cdk/stepper';
+import { MatInputModule } from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+
+
+
+
 
 import { FooterComponent } from './components/footer/footer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -25,6 +35,8 @@ import { PaginatePipe } from './pipes/paginate.pipe';
 import { PaginateAllPipe } from './pipes/paginate-all.pipe';
 import { BlockCopyPasteDirective } from './directives/block-copy-paste.directive';
 import { BlockWriteDirective } from './directives/block-input.directive';
+import { CartoffcanvasComponent } from 'src/app/intranet/cart/cart-offcanvas/cart-offcanvas.component';
+import { CartcheckoutComponent } from 'src/app/intranet/cart/cart-checkout/cart-checkout.component';
 
 @NgModule({
     imports: [
@@ -41,6 +53,12 @@ import { BlockWriteDirective } from './directives/block-input.directive';
         MatDialogModule,
         MatPaginatorModule,
         MatSlideToggleModule,
+        MatIconModule,
+        MatProgressSpinnerModule,
+        MatStepperModule,
+        CdkStepperModule,
+        MatInputModule,
+        MatButtonModule
     ],
     exports: [
         HttpClientModule,
@@ -56,6 +74,12 @@ import { BlockWriteDirective } from './directives/block-input.directive';
         MatDialogModule,
         MatPaginatorModule,
         MatSlideToggleModule,
+        MatIconModule,
+        MatProgressSpinnerModule,
+        MatStepperModule,
+        CdkStepperModule,
+        MatInputModule,
+        MatButtonModule,
         FooterComponent,
         NotFoundComponent,
         HeaderComponent,
@@ -66,7 +90,9 @@ import { BlockWriteDirective } from './directives/block-input.directive';
         PaginatePipe,
         PaginateAllPipe,
         BlockCopyPasteDirective,
-        BlockWriteDirective
+        BlockWriteDirective,
+        CartoffcanvasComponent,
+        CartcheckoutComponent
     ],
     declarations: [
         FooterComponent,
@@ -79,7 +105,9 @@ import { BlockWriteDirective } from './directives/block-input.directive';
         PaginatePipe,
         PaginateAllPipe,
         BlockCopyPasteDirective,
-        BlockWriteDirective
+        BlockWriteDirective,
+        CartoffcanvasComponent,
+        CartcheckoutComponent
 
     ],
     providers: [],

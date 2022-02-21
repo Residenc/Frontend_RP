@@ -10,6 +10,17 @@
     }
 }
 
+.form-control{
+  &:focus {
+    border-color: rgb(121, 20, 204);;
+    box-shadow: none;
+  }
+  &:checked {
+    border: none;
+    background-color: none;
+  }
+}
+
 .productsContenedor{
     .orderContenedor{
         label{
@@ -59,10 +70,14 @@
                                     text-align: justify;
                                     margin-bottom: 0;
                                     font-size: 15px;
-                                    white-space: nowrap;
-                                    text-overflow: ellipsis;
                                     display: block;
+
                                     overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    display: -webkit-box;
+                                    -webkit-line-clamp: 3; /* number of lines to show */
+                                            line-clamp: 3; 
+                                    -webkit-box-orient: vertical;
                                 }
                             }
                             .product-price{

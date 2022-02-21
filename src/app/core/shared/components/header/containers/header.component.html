@@ -1,53 +1,32 @@
 <header>
-    <nav class="navbar navbar-expand-sm|md|lg|-xl navbar-dark bar1">
-        <div class="container-fluid bar1-contenido py-2 px-lg-5">
+    <nav class=" bar d-flex justify-content-around align-items-center py-3">
+        
+        <a  class="navbar-brand" routerLink="/">
+            <img src="https://picsum.photos/200/300" alt="" width="60" height="54" class="d-none d-lg-inline me-3 align-middle">
+            <img src="https://picsum.photos/200/300" alt="" width="30" height="24" class="d-inline d-lg-none me-3 align-middle">
+            <p class="d-none d-lg-inline align-middle text-white">Bootstrap</p>
+        </a>
 
-            <a  class="navbar-brand d-inline" routerLink="/">
-                <img src="https://picsum.photos/200/300" alt="" width="50" height="44" class="d-inline me-3 align-middle">
-                <p class="d-inline align-middle">Bootstrap</p>
-            </a>
-            
-            <div class="input-group d-none d-lg-flex">
-                <input type="text" class="form-control searchinput" placeholder="Buscar Algo...">
-                <a href="#" routerLink="/generalview"><button class="btn searchbtn" type="submit"><i class="bi bi-search"></i></button></a>
+        <div class="widgets">
+            <div *ngIf="logged">
+                <app-user-online class="d-xl-block mt-1" ></app-user-online>
             </div>
+            <div *ngIf="!logged">
+                <app-user-offline class="d-xl-block mt-1"></app-user-offline>
+            </div>
+        </div>
 
-            <div class="widgets d-flex justify-content-between">
-                <div *ngIf="logged">
-                    <app-user-online class="d-none d-xl-block mt-1" ></app-user-online>
-                </div>
-                <div *ngIf="!logged">
-                    <app-user-offline class="d-none d-xl-block mt-1"></app-user-offline>
-                </div>
-                <app-cart class="mt-1 ms-5 d-none d-xl-block"></app-cart>
-                <button class="navbar-toggler d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
+        <div class="widgets">
+            <app-cart class="d-xl-block ms-5" style="margin-top: 4px;"></app-cart>
+        </div>
 
-            <div class="collapse navbar-collapse d-xl-none" id="collapsibleNavId">
-                <ul class="navbar-nav mt-2 mt-lg-0 text-end p-2">
-                    <li class="nav-item d-flex justify-content-end mb-2">
-                        <div *ngIf="logged">
-                            <app-user-online></app-user-online>
-                        </div>
-                        <div *ngIf="!logged">
-                            <app-user-offline></app-user-offline>
-                        </div>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <app-cart class="d-inline"></app-cart>
-                        <small class="d-inline" style="color: #ffffff; flex-grow: 0; flex-shrink: 0; padding-left: 2.3rem; font-size: 0.85rem; text-decoration: none !important; white-space: nowrap; margin-left: -0.25rem !important;">Mi Carrito</small>
-                    </li>
-                </ul>
-                <form class="d-flex d-lg-none p-2">
-                    <div class="input-group group2">
-                        <input type="text" class="form-control searchinput2" placeholder="Buscar">
-                        <button class="btn searchbtn2" type="submit"><i class="bi bi-search"></i></button>
-                    </div>
-                </form>
-            </div>
-      </div>
+        <!--<div class="widgets">
+            <button class="navbar-toggler d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>-->
+
+
     </nav>
 
 
@@ -154,4 +133,5 @@
 
 </header>
 
+<app-cartoffcanvas></app-cartoffcanvas>
 <app-login></app-login>

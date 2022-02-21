@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/core/shared/models/product.model';
 import { CartService } from 'src/app/core/shared/services/cart/cart.service';
 import { CookiesTokenService } from 'src/app/core/shared/services/cookies-token/cookiestoken.service';
@@ -15,19 +15,26 @@ import Swal from 'sweetalert2';
 })
 
 export class AllproductsComponent implements OnInit {
-    constructor(private productService:ProductsService, private router : Router, private cookietoken:CookiesTokenService, private fb:FormBuilder, private cartService: CartService) { }
+    constructor(private productService:ProductsService, private cookietoken:CookiesTokenService, private fb:FormBuilder, private cartService: CartService, private route: ActivatedRoute, private router: Router) { }
     products: Product | any;
+    
     cartCustomerForm: FormGroup | any;
     cartVendorForm: FormGroup | any;
+
     page: number = 0;
-    order!: string;
-    category!: string;
+    order: string | any;
+    category: string | any;
+    public search: string='';
+
     ngOnInit() {
-        this.loadProducts()
+        this.loadProducts();
     }
 
     loadProducts(){
-        this.productService.getAllProducts().subscribe(products =>this.products = products)
+        this.productService.getAllProducts().subscribe(products =>this.products = products);
+        if(this.route.snapshot.paramMap.get('search') != null){
+            this.category = this.route.snapshot.paramMap.get('search');
+        }
     }
 
     nextPage(){
@@ -46,12 +53,20 @@ export class AllproductsComponent implements OnInit {
         this.page = 0; 
     }
 
+    allProducts(){
+        this.router.navigate(['/allproducts']);
+    }
+
     orderBy(order: string){
         this.order = order;
     }
 
     filterBy(category: string){
         this.category = category;
+    }
+
+    onSearch(search: string){
+        this.search = search;
     }
 
 
@@ -96,17 +111,19 @@ export class AllproductsComponent implements OnInit {
                         toast: true,
                         position: 'top-end',
                         showConfirmButton: false,
-                        timer: 1500,
+                        timer: 800,
                         didOpen: (toast) => {
                           toast.addEventListener('mouseenter', Swal.stopTimer)
                           toast.addEventListener('mouseleave', Swal.resumeTimer)
                         }
-                      })
-                      
+                      });
                       Toast.fire({
                         icon: 'success',
                         title: 'Producto Agregado'
                       })
+                      .then(() => {
+                        this.reloadPage();
+                      });
                 }
             });
         }
@@ -128,20 +145,26 @@ export class AllproductsComponent implements OnInit {
                         toast: true,
                         position: 'top-end',
                         showConfirmButton: false,
-                        timer: 1500,
+                        timer: 800,
                         didOpen: (toast) => {
                           toast.addEventListener('mouseenter', Swal.stopTimer)
                           toast.addEventListener('mouseleave', Swal.resumeTimer)
                         }
-                      })
-                      
+                      });
                       Toast.fire({
                         icon: 'success',
                         title: 'Producto Agregado'
                       })
+                      .then(() => {
+                        this.reloadPage();
+                      });
                 }
             });
         }
 
+    }
+
+    reloadPage(){
+        window.location.reload();
     }
 }

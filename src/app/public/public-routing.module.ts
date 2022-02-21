@@ -33,6 +33,7 @@ const routes : Routes = [
             },
             { path: 'contactus', component: ContactusComponent },
             { path: "viewproduct/:id", component: ViewproductComponent },
+            { path: "allproducts/:search" , component: AllproductsComponent},
             { path: "allproducts" , component: AllproductsComponent},
             { path: "business" , component: BusinessComponent}
         ]

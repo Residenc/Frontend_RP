@@ -22,8 +22,9 @@
             </div>
             <div class="row mb-4 d-flex justify-content-center">
                 <div class="col-4 mb-4">
-                    <h5>Descripción:</h5>
-                    <p>{{product.description}}</p>
+                    <strong class="product-description-title">Descripcion:</strong>
+                    <p class="product-description mb-3">{{product.description}}</p>
+                    <strong style="font-size: 15px;">Disponible(s): <small class="fw-normal" style="font-size: 15px;">{{product.quantity}}</small></strong>
                 </div>
             </div>
             <div class="row mb-4 d-flex justify-content-center">
@@ -33,7 +34,7 @@
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-secondary mb-2 d-block w-100">Agregar Al Carrito</button>
+                    <button type="submit" class="btn btn-secondary mb-2 d-block w-100" (click)="addCart(product.product_id, '1')">Agregar Al Carrito</button>
                     <button type="submit" class="btn btn-primary d-block w-100">Comprar Ahora</button>
                 </div>
             </div>

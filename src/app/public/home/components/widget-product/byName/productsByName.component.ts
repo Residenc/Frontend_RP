@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/core/shared/models/product.model';
 import { ProductsService } from 'src/app/core/shared/services/products/products.service';
 
@@ -12,7 +13,7 @@ export class productsByNameComponent implements OnInit {
 
     products: Product | any;
 
-    constructor(private productService: ProductsService) { }
+    constructor(private productService: ProductsService, private router: Router) { }
 
     ngOnInit() {
         this.loadProducts();
@@ -20,5 +21,9 @@ export class productsByNameComponent implements OnInit {
 
     loadProducts(){
         this.productService.getAllProducts().subscribe(products => this.products = products);
+    }
+
+    allProducts(){
+        this.router.navigate(['/allproducts']);
     }
 }

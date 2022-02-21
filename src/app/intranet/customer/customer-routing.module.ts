@@ -15,7 +15,7 @@ const routes : Routes = [
       { path: 'editaddress/:id', component: EditaddressComponent  },
       { path: 'shoppinghistory', component: ShoppinghistoryComponent, 
         children: [
-          { path: 'pruchase-details', component: PurchasedetailComponent }
+          { path: 'purchase-details', component: PurchasedetailComponent }
         ] 
       }
     ]
