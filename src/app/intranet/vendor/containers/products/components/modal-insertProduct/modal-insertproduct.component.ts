@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product, ProductsService } from 'src/app/core/shared/services/products/products.service';
 import { CookiesTokenService } from 'src/app/core/shared/services/cookies-token/cookiestoken.service';
 import { HttpClient } from '@angular/common/http';
+import { any } from 'underscore';
 
 
 interface Category {
@@ -65,18 +66,18 @@ export class InsertproductComponent implements OnInit {
         {value: 'Otros', viewValue: 'Otros'},
     ];
 
-    ngOnInit() {    
-        this.insertProductForm = this.fb.group ({
-            vendor_id: this.cookietoken.getUser().vend,
-            product_name: ['', Validators.required ],
-            description: ['', Validators.required ],
-            price: ['', Validators.required ],
-            brand: ['', Validators.required ],
-            quantity: ['', Validators.required ],
-            category: ['', Validators.required ],
-            image: ['', Validators.required ],
-        });
-    }
+  ngOnInit() {    
+      this.insertProductForm = this.fb.group ({
+          vendor_id: this.cookietoken.getUser().vend,
+          product_name: ['', Validators.required ],
+          description: ['', Validators.required ],
+          price: ['', Validators.required ],
+          brand: ['', Validators.required ],
+          quantity: ['', Validators.required ],
+          category: ['', Validators.required ],
+          image: ['', Validators.required ],
+      });
+  }
 
     insertProduct(){
         this.productsService.insertProduct(this.insertProductForm.value).subscribe(result =>{
@@ -87,6 +88,41 @@ export class InsertproductComponent implements OnInit {
                 })
             }
             else{
+              const vendor_id = this.cookietoken.getUser().vend;
+              this.productsService.getUltimo(vendor_id).subscribe(
+                res=>{
+                  const formData = new FormData();
+                  //this.ListProduct=<any>res;
+                  for (let x = 0; x < this.prueba.length; x++) {
+                    formData.append('files', this.prueba[x])
+                   }
+
+                console.log(formData)
+              
+              //formData.append('files', this.prueba);
+              
+          
+              this.http.post<any>('http://localhost:3000/file', formData).subscribe(
+                (res) => console.log(res,  Swal.fire({
+                          icon: 'success',
+                          title: 'Imagen cargada!!',
+                          text: 'La imagen se subio correctamente!'
+                          }).then((result) => {
+                                      if (result) {
+                                                 location.reload();
+                                    }
+                         }) 
+                   ),
+                (err) => Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Parece que no subio nada!!' 
+                              })
+              );
+            },
+            err => console.log(err)
+          );
+             
                 Swal.fire({
                     title: 'Producto Agregado!',
                     icon:'success'
@@ -123,8 +159,8 @@ export class InsertproductComponent implements OnInit {
 
 
   addImages() {
-
-    this.productsService.getUltimo().subscribe(
+    const vendor_id = this.cookietoken.getUser().vend;
+    this.productsService.getUltimo(vendor_id).subscribe(
         (res: any)=>{
         const formData = new FormData();
         this.ListProduct=<any>res;
@@ -160,13 +196,13 @@ export class InsertproductComponent implements OnInit {
   },
         (err: any) => console.log(err)
 );
-   this.imgURL = '/assets/noimage.png';
+
   
   
   }
  
 
-    lastId(){
+  /*  lastId(){
       this.productsService.getUltimo().subscribe(
         res=>{
           console.log(res);
@@ -175,7 +211,7 @@ export class InsertproductComponent implements OnInit {
         },
         err => console.log(err)
       );
-    }
+    }*/
   
 
   //@ts-ignore
