@@ -38,6 +38,11 @@ export class ProductsService {
       return this.http.get(this.url +'/productoimagen/'+vendor_id);
     }
 
+    listImgVend(vendor_id:string, product_id:string):Observable<any>{
+        
+        return this.http.get(this.url+'/listavendor/'+vendor_id +'/'+ product_id)
+    }
+
 }
 
 export interface Product{

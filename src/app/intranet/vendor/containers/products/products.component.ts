@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/core/shared/models/product.model';
 import { Vendor } from 'src/app/core/shared/models/vendor.model';
+import { CookiesTokenService } from 'src/app/core/shared/services/cookies-token/cookiestoken.service';
 import { ProductsService } from 'src/app/core/shared/services/products/products.service';
 import { UsersService } from 'src/app/core/shared/services/users/users.service';
 import Swal from 'sweetalert2';
@@ -12,16 +14,35 @@ import Swal from 'sweetalert2';
 })
 
 export class ProductsComponent implements OnInit {
-    constructor(private productService:ProductsService) { }
+    constructor(private productService:ProductsService, private route : ActivatedRoute,private cookietoken:CookiesTokenService) { }
     products: Product | any;
     page: number = 0;
+    imagenes: any = [];
+    product_id:any |string;
     ngOnInit() {
-        this.loadProducts()
+        this.loadProducts();
+     //   this.loadImages();
     }
 
     loadProducts(){
         this.productService.getAllProductsOfVendor().subscribe(products =>this.products = products)
+        console.log(this.products)
+        const reader = new FileReader();
+        reader.onload =(this.products)
     }
+
+ /*   loadImages(){
+        const vendor_id = this.cookietoken.getUser().vend;
+
+       // this.product_id = this.route.snapshot.paramMap.get('id');
+        this.productService.listImgVend(vendor_id, this.products.product_id).subscribe(res=>{ this.imagenes = res;
+            console.log(res)
+            const reader = new FileReader();
+            reader.onload = (this.imagenes);
+            
+        })
+        console.log(this.imagenes);
+    }*/
 
     nextPage(){
         if(this.products != null){
