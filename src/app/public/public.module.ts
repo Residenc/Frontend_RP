@@ -26,6 +26,8 @@ import { byNamePipe } from './home/components/widget-product/pipes/byName.pipe';
 import { productByDateComponent } from './home/components/widget-product/byDate/productByDate.component';
 import { productsByNameComponent } from './home/components/widget-product/byName/productsByName.component';
 import { orderByPipe } from './products-views/all-products/pipes/orderby.pipe';
+import { ViewserviceComponent } from './products-views/view-servics/view-service.component';
+import { createticketComponent } from './products-views/view-servics/createTicket/createTicket.component';
 
 @NgModule({
     imports: [
@@ -35,7 +37,9 @@ import { orderByPipe } from './products-views/all-products/pipes/orderby.pipe';
     exports: [        
         ViewproductComponent,
         AllproductsComponent,
-        BusinessComponent
+        BusinessComponent,
+        ViewserviceComponent,
+        createticketComponent,
     ],
     declarations: [
         PublicComponent,
@@ -53,6 +57,8 @@ import { orderByPipe } from './products-views/all-products/pipes/orderby.pipe';
         ConfirmationdialogcustomerComponent,
         ConfirmationdialogvendorComponent,
         ViewproductComponent,
+        ViewserviceComponent,
+        createticketComponent,
         AllproductsComponent,
         WidgetcategoriesComponent,
         WidgetsuscriptionComponent,

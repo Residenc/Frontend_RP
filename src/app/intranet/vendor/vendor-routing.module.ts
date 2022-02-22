@@ -9,8 +9,12 @@ import { EditaddressComponent } from './containers/profile/addresses/edit-addres
 import { ProfileComponent } from './containers/profile/profile.component';
 import { SaledetailsComponent } from './containers/saleshistory/sale-details/sale-details.component';
 import { SalesComponent } from './containers/saleshistory/saleshistory.component';
+import { EditservicsComponent } from './containers/servics/components/edit-servics/editservics.component';
+import { ServicsComponent } from './containers/servics/servics.component';
 import { PurchasedetailComponent } from './containers/shoppinghistory/purchase-detail/purchasedetail.component';
 import { ShoppinghistoryComponent } from './containers/shoppinghistory/shoppinghistory.component';
+import { TicketsrequestComponent } from './containers/tickets-request/tickets-request.component';
+import { TicketsserviceComponent } from './containers/tickets-services/tickets-services.component';
 
 const routes : Routes = [
   { path: '', component: AccountComponent, children:
@@ -31,6 +35,10 @@ const routes : Routes = [
         { path: 'sale-details', component: SaledetailsComponent }
       ] 
       },
+      { path: 'servics', component: ServicsComponent },
+      { path: 'editservics/:id', component: EditservicsComponent },
+      { path: 'ticketsservice', component: TicketsserviceComponent },
+      { path: 'ticketsrequest', component: TicketsrequestComponent },
     ]
   }
 ];

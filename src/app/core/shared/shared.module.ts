@@ -37,6 +37,7 @@ import { BlockCopyPasteDirective } from './directives/block-copy-paste.directive
 import { BlockWriteDirective } from './directives/block-input.directive';
 import { CartoffcanvasComponent } from 'src/app/intranet/cart/cart-offcanvas/cart-offcanvas.component';
 import { CartcheckoutComponent } from 'src/app/intranet/cart/cart-checkout/cart-checkout.component';
+import { PaginateServicesPipe } from './pipes/paginateservice.pipe';
 
 @NgModule({
     imports: [
@@ -89,6 +90,7 @@ import { CartcheckoutComponent } from 'src/app/intranet/cart/cart-checkout/cart-
         LoginComponent,
         PaginatePipe,
         PaginateAllPipe,
+        PaginateServicesPipe,
         BlockCopyPasteDirective,
         BlockWriteDirective,
         CartoffcanvasComponent,
@@ -104,6 +106,7 @@ import { CartcheckoutComponent } from 'src/app/intranet/cart/cart-checkout/cart-
         LoginComponent,
         PaginatePipe,
         PaginateAllPipe,
+        PaginateServicesPipe,
         BlockCopyPasteDirective,
         BlockWriteDirective,
         CartoffcanvasComponent,

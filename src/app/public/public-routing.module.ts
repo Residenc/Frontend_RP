@@ -15,6 +15,7 @@ import { RegisterComponent } from './register/containers/register.component';
 import { ViewproductComponent } from './products-views/view-product/view-product.component';
 import { AllproductsComponent } from './products-views/all-products/all-products.component';
 import { BusinessComponent } from './products-views/business/business.component';
+import { ViewserviceComponent } from './products-views/view-servics/view-service.component';
 
 const routes : Routes = [
     { path: '', component: PublicComponent, children:
@@ -33,6 +34,7 @@ const routes : Routes = [
             },
             { path: 'contactus', component: ContactusComponent },
             { path: "viewproduct/:id", component: ViewproductComponent },
+            { path: "viewservice/:id", component: ViewserviceComponent },
             { path: "allproducts/:search" , component: AllproductsComponent},
             { path: "allproducts" , component: AllproductsComponent},
             { path: "business" , component: BusinessComponent}

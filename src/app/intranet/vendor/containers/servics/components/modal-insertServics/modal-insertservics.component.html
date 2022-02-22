@@ -1,17 +1,17 @@
-<div class="modal fade" id="modal-insertproduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-insertproductLabel" aria-hidden="true">
+<div class="modal fade" id="modal-insertservice" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal-insertserviceLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modal-insertproductLabel">Agregar Producto</h5>
+        <h5 class="modal-title" id="modal-insertservicioLabel">Agregar Servicio</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form  [formGroup]="insertProductForm" (ngSubmit)="insertProduct()">
+        <form  [formGroup]="insertServiceForm" (ngSubmit)="insertService()">
               <div class="col-12">
                   <div class="row mb-5 d-flex justify-content-center align-items-center">
                       <div class="col-12 col-md-6">
                           <label class="user-label">Nombre</label>
-                          <input appBlockCopyPaste type="text" class="form-control" name="product_name" formControlName="product_name">
+                          <input appBlockCopyPaste type="text" class="form-control" name="product_name" formControlName="service_name">
                       </div>
                       <div class="col-12 col-md-6">
                         <label class="user-label">Descripcion</label>
@@ -22,30 +22,25 @@
 
                   <div class="row mb-5 d-flex justify-content-center align-items-center">
 
-                    <div class="col-12 col-md-4">
-                      <label class="user-label">Precio</label>
-                      <input appBlockCopyPaste type="number" name="price" class="form-control" formControlName="price">
+                    <div class="col-12 col-md-6 col-lg-3">
+                      <label class="user-label">Precio Min Aprox</label>
+                      <input appBlockCopyPaste type="number" name="minprice" class="form-control" formControlName="minprice">
                     </div>
-                    <div class="col-12 col-md-4">
-                      <label class="user-label">Marca</label>
-                      <input appBlockCopyPaste type="text" name="brand" class="form-control" formControlName="brand">
+                    <div class="col-12 col-md-6 col-lg-3">
+                      <label class="user-label">Precio Max Aprox</label>
+                      <input appBlockCopyPaste type="number" name="maxprice" class="form-control" formControlName="maxprice">
                     </div>
-                    <div class="col-12 col-md-4">
-                      <label class="user-label">Cantidad</label>
-                      <input appBlockCopyPaste type="number" name="quantity" class="form-control" formControlName="quantity">
+                    <div class="col-12 col-lg-6 mt-5 mt-lg-0">
+                      <mat-label class="user-label">Categoria</mat-label>
+                      <mat-select  name="category" class="form-control" formControlName="category">
+                        <mat-option *ngFor="let category of categories" [value]="category.value">{{category.viewValue}}</mat-option>
+                      </mat-select>
                     </div>
-
                 </div>
 
                   <div class="row mb-5 d-flex justify-content-center align-items-center">
-                      <div class="col-12 col-md-4">
-                        <mat-label class="user-label">Categoria</mat-label>
-                        <mat-select  name="category" class="form-control" formControlName="category">
-                          <mat-option *ngFor="let category of categories" [value]="category.value">{{category.viewValue}}</mat-option>
-                        </mat-select>
-                      </div>
                       <div class="col-12 col-md-8">
-                          <label for="formFile" class="form-label">Agregar Imagen</label>
+                          <label for="formFile" class="form-label">Imagen Descriptiva</label>
                           <input class="form-control" type="file" id="formFile" name="image" formControlName="image">
                       </div>
                   </div>

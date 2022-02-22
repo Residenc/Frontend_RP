@@ -12,6 +12,11 @@ import { InsertproductComponent } from './containers/products/components/modal-i
 import { EditproductComponent } from './containers/products/components/edit-product/editproduct.component';
 import { EditbusinessComponent } from './containers/edit-business/edit-business.component';
 import { EditaddressComponent } from './containers/profile/addresses/edit-address/edit-address.component';
+import { ServicsComponent } from './containers/servics/servics.component';
+import { InsertservicsComponent } from './containers/servics/components/modal-insertServics/modal-insertservics.component';
+import { EditservicsComponent } from './containers/servics/components/edit-servics/editservics.component';
+import { TicketsrequestComponent } from './containers/tickets-request/tickets-request.component';
+import { TicketsserviceComponent } from './containers/tickets-services/tickets-services.component';
 
 @NgModule({
     imports: [
@@ -28,7 +33,12 @@ import { EditaddressComponent } from './containers/profile/addresses/edit-addres
         InsertproductComponent,
         EditproductComponent,
         EditbusinessComponent,
-        EditaddressComponent
+        EditaddressComponent,
+        ServicsComponent,
+        InsertservicsComponent,
+        EditservicsComponent,
+        TicketsrequestComponent,
+        TicketsserviceComponent
     ],
     declarations: [
         MyaccountComponent,
@@ -42,6 +52,11 @@ import { EditaddressComponent } from './containers/profile/addresses/edit-addres
         EditproductComponent,
         EditbusinessComponent,
         EditaddressComponent,
+        ServicsComponent,
+        InsertservicsComponent,
+        EditservicsComponent,
+        TicketsrequestComponent,
+        TicketsserviceComponent
     ],
     providers: [],
 })

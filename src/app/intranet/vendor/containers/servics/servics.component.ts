@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/core/shared/models/product.model';
-import { Vendor } from 'src/app/core/shared/models/vendor.model';
-import { ProductsService } from 'src/app/core/shared/services/products/products.service';
-import { UsersService } from 'src/app/core/shared/services/users/users.service';
+import { Servics } from 'src/app/core/shared/models/service.model';
+import { ServicsService } from 'src/app/core/shared/services/servics/servics.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,19 +10,19 @@ import Swal from 'sweetalert2';
 })
 
 export class ServicsComponent implements OnInit {
-    constructor(private productService:ProductsService) { }
-    products: Product | any;
+    constructor(private servicsService: ServicsService) { }
+    services: Servics | any;
     page: number = 0;
     ngOnInit() {
-        this.loadProducts()
+        this.loadServices()
     }
 
-    loadProducts(){
-        this.productService.getAllProductsOfVendor().subscribe(products =>this.products = products)
+    loadServices(){
+        this.servicsService.getAllServicesOfVendor().subscribe(services =>this.services = services)
     }
 
     nextPage(){
-        if(this.products != null){
+        if(this.services != null){
             this.page += 5; 
         }
     }
@@ -39,8 +37,8 @@ export class ServicsComponent implements OnInit {
         this.page = 0; 
     }
 
-    deleteProduct(product_id : string){
-        this.productService.deleteProduct(product_id).subscribe(result =>{
+    deleteService(service_id : string){
+        this.servicsService.deleteService(service_id).subscribe(result =>{
             if(!result['delete']){
                 Swal.fire({
                     title: 'Error Intenta De Nuevo',
@@ -49,7 +47,7 @@ export class ServicsComponent implements OnInit {
             }
             else{
                 Swal.fire({
-                    title: 'Producto Eliminado',
+                    title: 'Servicio Eliminado',
                     icon:'success'
                 }).then(() => {
                     this.reloadPage();

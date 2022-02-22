@@ -6,6 +6,7 @@ import { EditaddressComponent } from './containers/profile/addresses/edit-addres
 import { ProfileComponent } from './containers/profile/profile.component';
 import { PurchasedetailComponent } from './containers/shoppinghistory/purchase-detail/purchasedetail.component';
 import { ShoppinghistoryComponent } from './containers/shoppinghistory/shoppinghistory.component';
+import { TicketsserviceComponent } from './containers/tickets-services/tickets-services.component';
 
 const routes : Routes = [
   { path: '', component: AccountComponent, children:
@@ -17,7 +18,8 @@ const routes : Routes = [
         children: [
           { path: 'purchase-details', component: PurchasedetailComponent }
         ] 
-      }
+      },
+      { path: 'ticketsservice', component: TicketsserviceComponent },
     ]
   }
 ];

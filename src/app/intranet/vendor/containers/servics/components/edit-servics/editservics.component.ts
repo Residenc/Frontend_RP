@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Product } from 'src/app/core/shared/models/product.model';
-import { ProductsService } from 'src/app/core/shared/services/products/products.service';
+import { Servics } from 'src/app/core/shared/models/service.model';
+import { ServicsService } from 'src/app/core/shared/services/servics/servics.service';
 import Swal from 'sweetalert2';
 
 interface Category {
@@ -17,66 +17,55 @@ interface Category {
 })
 
 export class EditservicsComponent implements OnInit {
-    constructor(private productService: ProductsService, private route: ActivatedRoute, private fb: FormBuilder, private router: Router) { }
-    currentProduct: Product | any;
-    productID: string | any;
+    constructor(private servicsService: ServicsService, private route: ActivatedRoute, private fb: FormBuilder, private router: Router) { }
+    currentService: Servics | any;
+    serviceID: string | any;
 
     categories: Category[] = [
-        {value: 'Accesorios de Telefonia y Tablets', viewValue: 'Accesorios de Telefonia y Tablets'},
-        {value: 'Accesorios y Perifericos Computacionales', viewValue: 'Accesorios y Perifericos Computacionales'},
-        {value: 'Audifonos y Bocinas', viewValue: 'Audifonos y Bocinas'},
-        {value: 'Automotriz y Refacciones', viewValue: 'Automotriz y Refacciones'},
-        {value: 'Belleza y Cuidado Personal', viewValue: 'Belleza y Cuidado Personal'},
-        {value: 'Calzado', viewValue: 'Calzado'},
-        {value: 'Celulares', viewValue: 'Celulares'},
-        {value: 'Cocina y Electrodomesticos', viewValue: 'Cocina y Electrodomesticos'},
-        {value: 'Computadoras', viewValue: 'Computadoras'},
-        {value: 'Electronica', viewValue: 'Electronica'},
-        {value: 'Ferreteria y Mejoras Del Hogar', viewValue: 'Ferreteria y Mejoras Del Hogar'},
-        {value: 'Fiestas', viewValue: 'Fiestas'},
-        {value: 'Juguetes', viewValue: 'Juguetes'},
-        {value: 'Linea Blanca', viewValue: 'Linea Blanca'},
-        {value: 'Maletas y Mochilas', viewValue: 'Maletas y Mochilas'},
-        {value: 'Mascotas', viewValue: 'Mascotas'},
-        {value: 'Materia Prima', viewValue: 'Materia Prima'},
-        {value: 'Muebleria', viewValue: 'Muebleria'},
-        {value: 'Ropa Para Caballero', viewValue: 'Ropa Para Caballero'},
-        {value: 'Ropa Para Dama', viewValue: 'Ropa Para Dama'},
-        {value: 'Ropa Para Niño', viewValue: 'Ropa Para Niño'},
-        {value: 'Ropa Para Niña', viewValue: 'Ropa Para Niña'},
-        {value: 'Ropa Para Bebe', viewValue: 'Ropa Para Bebe'},
+        {value: 'Arquitectura e Ingenieria', viewValue: 'Arquitectura e Ingeniería'},
+        {value: 'Audiovisual', viewValue: 'Audiovisual'},
+        {value: 'Comunicacion', viewValue: 'Comunicacion'},
+        {value: 'Contabilidad', viewValue: 'Contabilidad'},
+        {value: 'Distribucion', viewValue: 'Distribucion'},
+        {value: 'Enseñanza', viewValue: 'Enseñanza'},
+        {value: 'Energia', viewValue: 'Energia'},
+        {value: 'Financiero', viewValue: 'Financiero'},
+        {value: 'Informatica y Computacion', viewValue: 'Informatica y Computacion'},
+        {value: 'Juridico', viewValue: 'Juridico'},
+        {value: 'Logistico', viewValue: 'Logistico'},
+        {value: 'Mantenimiento', viewValue: 'Mantenimiento'},
+        {value: 'Postal y Mensajeria', viewValue: 'Postal y Mensajeria'},
+        {value: 'Reparacion', viewValue: 'Reparacion'},
+        {value: 'Turismo', viewValue: 'Turismo'},
+        {value: 'Transporte', viewValue: 'Transporte'},
+        {value: 'Social', viewValue: 'Social'},
         {value: 'Salud', viewValue: 'Salud'},
-        {value: 'Servicio', viewValue: 'Servicio'},
-        {value: 'Tablets', viewValue: 'Tablets'},
-        {value: 'Videojuegos y Consolas', viewValue: 'Videojuegos y Consolas'},
-        {value: 'Otros', viewValue: 'Otros'},
     ];
 
-    updateProductForm : FormGroup | any;
+    updateServiceForm : FormGroup | any;
 
     ngOnInit() { 
-        this.productID = this.route.snapshot.paramMap.get('id');
-        this.loadCurrentProduct();
-        this.updateProductForm = this.fb.group ({
-            product_id: this.productID,
-            product_name: ['', Validators.required ],
+        this.serviceID = this.route.snapshot.paramMap.get('id');
+        this.loadCurrentService();
+        this.updateServiceForm = this.fb.group ({
+            service_id: this.serviceID,
+            service_name: ['', Validators.required ],
             description: ['', Validators.required ],
-            price: ['', Validators.required ],
-            brand: ['', Validators.required ],
-            quantity: ['', Validators.required ],
+            minprice: ['', Validators.required ],
+            maxprice: ['', Validators.required ],
             category: ['', Validators.required ],
             image: ['', Validators.required ],
         });
     }
 
-    loadCurrentProduct(){
-        this.productService.getProduct(this.productID).subscribe(res=>{
-            this.currentProduct = res[0];
+    loadCurrentService(){
+        this.servicsService.getService(this.serviceID).subscribe(res=>{
+            this.currentService = res[0];
         });
     }
 
-    updateProduct(){
-        this.productService.updateProduct(this.updateProductForm.value).subscribe(result =>{
+    updateService(){
+        this.servicsService.updateService(this.updateServiceForm.value).subscribe(result =>{
             if(!result['update']){
                 Swal.fire({
                     title: 'No Se Detecto Ningun Cambio',
@@ -85,10 +74,10 @@ export class EditservicsComponent implements OnInit {
             }
             else{
                 Swal.fire({
-                    title: 'Producto Actualizado!',
+                    title: 'Servicio Actualizado!',
                     icon:'success'
                 }).then(() => {
-                    this.router.navigate(['/account-vendor/products']);
+                    this.router.navigate(['/account-vendor/servics']);
                 });
             }
         });
