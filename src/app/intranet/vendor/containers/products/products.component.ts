@@ -25,10 +25,12 @@ export class ProductsComponent implements OnInit {
     }
 
     loadProducts(){
-        this.productService.getAllProductsOfVendor().subscribe(products =>this.products = products)
-        console.log(this.products)
-        const reader = new FileReader();
-        reader.onload =(this.products)
+        this.productService.getAllProductsOfVendor().subscribe(products =>{
+            this.products = products;
+            console.log(this.products);
+            const reader = new FileReader();
+            reader.onload =(this.products);
+        })
     }
 
  /*   loadImages(){

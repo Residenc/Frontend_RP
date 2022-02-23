@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/core/shared/models/product.model';
 import { CartService } from 'src/app/core/shared/services/cart/cart.service';
 import { CookiesTokenService } from 'src/app/core/shared/services/cookies-token/cookiestoken.service';
+import { LoadScriptsService } from 'src/app/core/shared/services/load-scripts/load-scripts.service';
 import { ProductsService } from 'src/app/core/shared/services/products/products.service';
 import Swal from 'sweetalert2';
 
@@ -16,7 +17,9 @@ import Swal from 'sweetalert2';
 })
 
 export class ViewproductComponent implements OnInit {
-    constructor(private route : ActivatedRoute, private productService : ProductsService, private http: HttpClient, private cookietoken:CookiesTokenService, private fb:FormBuilder, private cartService: CartService) { }
+    constructor(private route : ActivatedRoute, private productService : ProductsService, private loadScript:LoadScriptsService, private http: HttpClient, private cookietoken:CookiesTokenService, private fb:FormBuilder, private cartService: CartService) {
+      loadScript.loadS(["changeimg/change"]);
+    }
     product : Product | any;
     product_id: string | any;
     title = 'fileUpload';

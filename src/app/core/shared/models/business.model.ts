@@ -5,5 +5,5 @@ export interface Business{
     about: string | any;
     phone: string | any;
     email: string | any;
-    image: string | any;
+    path: string | any;
 }

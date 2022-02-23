@@ -9,7 +9,6 @@ export interface Product{
     brand: string | any;
     quantity: number | any;
     category: string | any;
-    image: string | any;
     path: string | any;
     registration_date: string | any;
 }

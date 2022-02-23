@@ -8,6 +8,6 @@ export interface Servics{
     minprice: number | any;
     maxprice: number | any;
     category: string | any;
-    image: string | any;
+    path: string | any;
     registration_date: string | any;
 }
