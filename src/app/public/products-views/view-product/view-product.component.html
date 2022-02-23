@@ -28,10 +28,27 @@
                             <p class="about">{{product.description}}</p>
                             <div class="cart mt-5 d-flex justify-content-center align-items-center"> <button class="btn btn-outline-success text-uppercase mr-2 px-4"  (click)="addCart(product.product_id, '1')">Agregar Al Carrito</button> </div>
                         </div>
-                    </div>
+
+        <!--<div class="col-auto me-0 me-md-2 mb-4 mb-md-0 ">
+            <div class="row d-flex justify-content-center">
+                <div class="col-auto border border-1 py-3" *ngFor="let imagen of this.imagenes">
+                    <img  src="http://localhost:3000/{{imagen.path}}">
                 </div>
             </div>
         </div>
+        <div class="col-12 col-lg-6 rounded-3 border border-1 py-5 border-0">
+            <div class="row mb-4 d-flex justify-content-center">
+                <div class="col-4 mb-4">
+                    <h3 class="display-6">{{product.product_name}}</h3>
+                    <div class="info">
+                        <small class="d-block text-end">{{product.category}}</small>
+                        <small class="d-block text-end">Vendedor</small>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+
     </div>
 </div>
 
