@@ -7,10 +7,21 @@
                 <ul class="nav flex-column filters mt-3">
                     <h4>Buscador</h4>
                     <hr>
-                    <div class="input-group d-none d-lg-flex">
+                    <div class="input-group d-flex py-3">
                         <input #txtSearch type="text" class="form-control" placeholder="Buscar algun producto..." aria-label="Buscar algun producto..." aria-describedby="button-search">
-                        <button class="btn btn-purple" (click)="initPage()" (click)="onSearch(txtSearch.value)" type="submit" id="button-search"><i class="bi bi-search"></i></button>
+                        <button class="btn btn-purple" (click)="initPage()" (click)="onSearch(txtSearch.value)" type="button" id="button-search"><i class="bi bi-search"></i></button>
                     </div>
+                </ul>
+
+                <ul class="nav flex-column filters mt-3">
+                    <h4>Catalogo De:</h4>
+                    <hr>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="allProducts()"><span><i class="fas fa-tshirt me-4"></i>Productos</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="allServices()"><span><i class="bi bi-magic me-4"></i>Servicios</span></a>
+                    </li>
                 </ul>
 
 
@@ -38,8 +49,7 @@
                     <h4>Categorias:</h4>
                     <hr>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="allProducts()"><span>Todos</span></a>
-                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)=" initPage()" (click)="filterBy('Servicio')"><span>Servicios</span></a>
+                        <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="allProducts()"><span>Todos Los Productos</span></a>
                         <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)=" initPage()" (click)="filterBy('Accesorios de Telefonia y Tablets')"><span>Accesorios de Telefonia y Tablets</span></a>
                         <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)=" initPage()" (click)="filterBy('Accesorios y Perifericos Computacionales')"><span>Accesorios y Perifericos Computacionales</span></a>
                         <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)=" initPage()" (click)="filterBy('Audifonos y Bocinas')"><span>Audifonos y Bocinas</span></a>
@@ -83,12 +93,24 @@
                     <ul class="nav flex-column filters mt-3">
                         <h4>Buscador</h4>
                         <hr>
-                        <div class="input-group d-flex">
-                        <input #txtSearch type="text" class="form-control" placeholder="Buscar algun producto..." aria-label="Buscar algun producto..." aria-describedby="button-search">
-                        <button class="btn btn-purple" (click)="initPage()" (click)="onSearch(txtSearch.value)" type="button" id="button-search"><i class="bi bi-search"></i></button>
+                        <div class="input-group d-flex py-3">
+                            <input #txtSearch type="text" class="form-control" placeholder="Buscar algun producto..." aria-label="Buscar algun producto..." aria-describedby="button-search">
+                            <button class="btn btn-purple" (click)="initPage()" (click)="onSearch(txtSearch.value)" type="button" id="button-search"><i class="bi bi-search"></i></button>
                         </div>
                     </ul>
-
+    
+                    <ul class="nav flex-column filters mt-3">
+                        <h4>Catalogo De:</h4>
+                        <hr>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="allProducts()"><span><i class="fas fa-tshirt me-4"></i>Productos</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="allServices()"><span><i class="bi bi-magic me-4"></i>Servicios</span></a>
+                        </li>
+                    </ul>
+    
+    
                     <ul class="nav flex-column filters mt-3">
                         <h4>Ordenar Por:</h4>
                         <hr>
@@ -113,8 +135,7 @@
                         <h4>Categorias:</h4>
                         <hr>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="allProducts()"><span>Todos</span></a>
-                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)=" initPage()" (click)="filterBy('Servicio')"><span>Servicios</span></a>
+                            <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)="allProducts()"><span>Todos Los Productos</span></a>
                             <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)=" initPage()" (click)="filterBy('Accesorios de Telefonia y Tablets')"><span>Accesorios de Telefonia y Tablets</span></a>
                             <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)=" initPage()" (click)="filterBy('Accesorios y Perifericos Computacionales')"><span>Accesorios y Perifericos Computacionales</span></a>
                             <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)=" initPage()" (click)="filterBy('Audifonos y Bocinas')"><span>Audifonos y Bocinas</span></a>
@@ -144,6 +165,7 @@
                             <a class="nav-link" data-bs-toggle="pill" style="cursor: pointer;" (click)=" initPage()" (click)="filterBy('Otros')"><span>Otros</span></a>
                         </li>
                     </ul>
+
                 </div>
             </div>
 
@@ -186,18 +208,16 @@
                                             <small class="shipment d-block">Envio: $99.99</small>
                                         </div>
                                         <div class="buttonsActions d-none d-xl-block">
-                                            <a class="btn btn-sm btn-purple w-100 mb-2 d-block" href="#">Comprar Ahora</a>
                                             <button class="btn btn-sm btn-outline-success w-100 d-block" type="button" (click)="addCart(product.product_id, '1')"><i class="bi bi-cart-plus me-1"></i>Agregar Al Carrito</button>
                                         </div>  
                                         <div class="buttonsActions d-block d-xl-none">
-                                            <a class="btn btn-sm btn-purple w-100 mb-2 d-block" href="#" >Comprar</a>
                                             <button class="btn btn-sm btn-outline-success w-100 d-block" type="button" (click)="addCart(product.product_id, '1')"><i class="bi bi-cart-plus me-1"></i>Agregar</button>
                                         </div> 
                                     </div>
                                 </div>
                                 <div class="product-info px-3 py-2 d-flex justify-content-between">
                                     <small class="product-subcategory">{{product.category}}</small>
-                                    <small class="product-seller"><a [routerLink]="['/business']" style="cursor: pointer;">Empresa</a></small>
+                                    <small class="product-seller"><a [routerLink]="['/business', product.vendor_id]" style="cursor: pointer;">{{product.business_name}}</a></small>
                                 </div>  
                             </div>
                         </div>
@@ -207,7 +227,7 @@
                         <div class="container-fluid py-5">
                             <div class="row d-flex justify-content-center">
                                 <div class="col-12">
-                                    <h1 class="display-6 fw-normal mb-5 text-center">Uff!!, Parece Que Se Terminaron</h1>
+                                    <h1 class="display-6 fw-normal mb-5 text-center">Vaya, Parece Que Se Terminaron</h1>
                                 </div>
                             </div>
                             <div class="row d-flex justify-content-center">

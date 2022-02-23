@@ -1,47 +1,37 @@
-<div class="container shadow rounded-3 p-3 p-md-5 my-md-5 my-4 animate__animated animate__fadeIn" style="background-color: white;">
-
+<div class="container-md mt-0 mb-0 mt-md-5 mb-md-5 px-0">
     <div class="row d-flex justify-content-center">
-
-        <div class="col-auto me-0 me-md-2 mb-4 mb-md-0 ">
-            <div class="row d-flex justify-content-center">
-                <div class="col-auto border border-1 py-3" *ngFor="let imagen of this.imagenes">
-                    <img  src="http://localhost:3000/{{imagen.path}}">
-                    <small class="d-block text-end">{{imagen.name}}</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg-6 rounded-3 border border-1 py-5 border-0">
-            <div class="row mb-4 d-flex justify-content-center">
-                <div class="col-4 mb-4">
-                    <h3 class="display-6">{{product.product_name}}</h3>
-                    <div class="info">
-                        <small class="d-block text-end">{{product.category}}</small>
-                        <small class="d-block text-end">Vendedor</small>
+        <div class="col-md-10">
+            <div class="card animate__animated animate__zoomIn animate__faster shadow rounded-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="images p-3">
+                            <div class="text-center p-4"> <img id="main-image" src="https://picsum.photos/200" width="250" /> </div>
+                            <div class="thumbnail text-center"> 
+                                <img onclick="change_image(this)" src="https://picsum.photos/300" width="70"> 
+                                <img onclick="change_image(this)" src="https://picsum.photos/600" width="70" class="ms-3"> 
+                                <img onclick="change_image(this)" src="https://picsum.photos/400" width="70" class="ms-3"> 
+                                <img onclick="change_image(this)" src="https://picsum.photos/100" width="70" class="ms-3"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" >
+                        <div class="product p-4" style="background: rgb(255,255,255)">
+                            <div class="mt-4 mb-3"> 
+                                <h5 class="text-uppercase">{{product.product_name}}</h5>
+                                <a class="text-uppercase text-muted brand text-decoration-none" [routerLink]="['/business', product.vendor_id]" >{{product.business_name}}</a>
+                                <div class="price d-flex flex-row align-items-center mt-3">
+                                    <strong>Precio:</strong>
+                                     <span class="ms-2">${{product.price}}</span>
+                                </div>
+                            </div>
+                            <strong>Descripcion</strong>
+                            <p class="about">{{product.description}}</p>
+                            <div class="cart mt-5 d-flex justify-content-center align-items-center"> <button class="btn btn-outline-success text-uppercase mr-2 px-4"  (click)="addCart(product.product_id, '1')">Agregar Al Carrito</button> </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row mb-4 d-flex justify-content-center">
-                <div class="col-4 mb-4">
-                    <strong class="product-description-title">Descripcion:</strong>
-                    <p class="product-description mb-3">{{product.description}}</p>
-                    <strong style="font-size: 15px;">Disponible(s): <small class="fw-normal" style="font-size: 15px;">{{product.quantity}}</small></strong>
-                </div>
-            </div>
-            <div class="row mb-4 d-flex justify-content-center">
-                <div class="col-4 mb-4">
-                    <h4>Precio: ${{product.price}}</h4>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-center">
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-secondary mb-2 d-block w-100" (click)="addCart(product.product_id, '1')">Agregar Al Carrito</button>
-                    <button type="submit" class="btn btn-primary d-block w-100">Comprar Ahora</button>
-                </div>
-            </div>
         </div>
-
     </div>
-
 </div>
-
 

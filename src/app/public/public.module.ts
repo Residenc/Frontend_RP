@@ -28,6 +28,12 @@ import { productsByNameComponent } from './home/components/widget-product/byName
 import { orderByPipe } from './products-views/all-products/pipes/orderby.pipe';
 import { ViewserviceComponent } from './products-views/view-servics/view-service.component';
 import { createticketComponent } from './products-views/view-servics/createTicket/createTicket.component';
+import { ServicsorderByPipe } from './products-views/all-servics/pipes/servics-orderby.pipe';
+import { AllservicsComponent } from './products-views/all-servics/all-servics.component';
+import { ProductsbusinessByDateComponent } from './products-views/business/components/widget-product/byDate/products-businessByDate.component';
+import { ServicesbusinessbyDatePipe } from './products-views/business/components/widget-service/pipes/services-businessbyDate.pipe';
+import { ServicesbusinessDateComponent } from './products-views/business/components/widget-service/byDate/services-businessByDate.component';
+import { ProductsbusinessbyDatePipe } from './products-views/business/components/widget-product/pipes/products-businessbyDate.pipe';
 
 @NgModule({
     imports: [
@@ -67,7 +73,13 @@ import { createticketComponent } from './products-views/view-servics/createTicke
         productsByNameComponent,
         byDatePipe,
         byNamePipe,
-        orderByPipe
+        orderByPipe,
+        ServicsorderByPipe,
+        AllservicsComponent,
+        ProductsbusinessByDateComponent,
+        ServicesbusinessDateComponent,
+        ServicesbusinessbyDatePipe,
+        ProductsbusinessbyDatePipe,
     ],
     providers: [],
 })

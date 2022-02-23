@@ -53,8 +53,13 @@ export class AllproductsComponent implements OnInit {
         this.page = 0; 
     }
 
+    allServices(){
+        this.router.navigate(['/allservics']);
+    }
+
     allProducts(){
         this.router.navigate(['/allproducts']);
+        this.reloadPage()
     }
 
     orderBy(order: string){
@@ -67,6 +72,7 @@ export class AllproductsComponent implements OnInit {
 
     onSearch(search: string){
         this.search = search;
+        this.page = 0; 
     }
 
 

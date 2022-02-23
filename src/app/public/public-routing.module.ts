@@ -16,6 +16,7 @@ import { ViewproductComponent } from './products-views/view-product/view-product
 import { AllproductsComponent } from './products-views/all-products/all-products.component';
 import { BusinessComponent } from './products-views/business/business.component';
 import { ViewserviceComponent } from './products-views/view-servics/view-service.component';
+import { AllservicsComponent } from './products-views/all-servics/all-servics.component';
 
 const routes : Routes = [
     { path: '', component: PublicComponent, children:
@@ -37,7 +38,9 @@ const routes : Routes = [
             { path: "viewservice/:id", component: ViewserviceComponent },
             { path: "allproducts/:search" , component: AllproductsComponent},
             { path: "allproducts" , component: AllproductsComponent},
-            { path: "business" , component: BusinessComponent}
+            { path: "allservics/:search" , component: AllservicsComponent},
+            { path: "allservics" , component: AllservicsComponent},
+            { path: "business/:id" , component: BusinessComponent}
         ]
     }
 ];

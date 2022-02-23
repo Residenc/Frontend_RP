@@ -39,6 +39,9 @@ export class UsersService {
         const vendor_id = this.cookietoken.getUser().vend;
         return this.http.get(`http://localhost/Backend_RP/api php/routes-vendors/getBusiness.php?id=`+vendor_id);
     }
+    getBusinessProfile(vendor_id:string): Observable<any>{ 
+        return this.http.get(`http://localhost/Backend_RP/api php/routes-vendors/getBusiness.php?id=`+vendor_id);
+    }
     getVendorDefaultAddress(): Observable<any>{ 
         const vendor_id = this.cookietoken.getUser().vend;
         return this.http.get(`http://localhost/Backend_RP/api php/routes-vendors/getVendorDefaultAddress.php?id=`+ vendor_id);

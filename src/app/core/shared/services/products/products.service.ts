@@ -19,6 +19,9 @@ export class ProductsService {
         const vendor_id = this.cookietoken.getUser().vend;
         return this.http.get(`http://localhost/Backend_RP/api php/routes-products/getProductsVendor.php?id=`+ vendor_id);
     }
+    getAllProductsOfBusiness(vendor_id:string): Observable<any>{ 
+        return this.http.get(`http://localhost/Backend_RP/api php/routes-products/getProductsVendor.php?id=`+ vendor_id);
+    }
     getProduct(product_id:string): Observable<any>{ 
         return this.http.get(`http://localhost/Backend_RP/api php/routes-products/getProductsGeneral.php?id=`+ product_id);
     }

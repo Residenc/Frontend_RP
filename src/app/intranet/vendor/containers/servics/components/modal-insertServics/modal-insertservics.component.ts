@@ -44,6 +44,7 @@ export class InsertservicsComponent implements OnInit {
         {value: 'Transporte', viewValue: 'Transporte'},
         {value: 'Social', viewValue: 'Social'},
         {value: 'Salud', viewValue: 'Salud'},
+        {value: 'Otros', viewValue: 'Otros'},
     ];
 
     ngOnInit() {    

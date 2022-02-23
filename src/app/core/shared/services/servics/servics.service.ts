@@ -19,6 +19,9 @@ export class ServicsService {
         const vendor_id = this.cookietoken.getUser().vend;
         return this.http.get(`http://localhost/Backend_RP/api php/routes-servics/getServicsVendor.php?id=`+ vendor_id);
     }
+    getAllServicesOfBusiness(vendor_id: string): Observable<any>{ 
+        return this.http.get(`http://localhost/Backend_RP/api php/routes-servics/getServicsVendor.php?id=`+ vendor_id);
+    }
     getService(service_id:string): Observable<any>{ 
         return this.http.get(`http://localhost/Backend_RP/api php/routes-servics/getServicsGeneral.php?id=`+ service_id);
     }
