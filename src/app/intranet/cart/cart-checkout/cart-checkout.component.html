@@ -1,61 +1,16 @@
-<div class="container p-0 p-lg-5 animate__animated animate__fadeIn">
+<div class="container-xl animate__animated animate__fadeIn">
   <mat-stepper linear #stepper [orientation]="(stepperOrientation | async)!" class="m-0 p-0 m-lg-5 p-lg-5">
     <mat-step label="Carrito">
-      
-      <div class="cart-product-wrapper">
-          <div class="cart-product p-4" *ngFor="let cartitem of cartItems">
-              <div class="d-flex align-items-center">
-                  <a  data-bs-dismiss="offcanvas">
-                      <img src="https://picsum.photos/2000/1500" alt="" class="rounded img-fluid cart-product-image">
-                  </a>
-                  <div class="w-100">
-                      <button class="btn-close close text-sm me-2 rounded-circle border border-2 p-2" type="button" (click)="deleteCartItem(cartitem.cartitem_id)" aria-label="Close"></button>
-                      <div class="ps-3">
-    
-    
-                          <a class="cart-product-link"  data-bs-dismiss="offcanvas">{{cartitem.product_name}}</a>
-                          <small class="text-muted d-block price-info">Cantidad: {{cartitem.quantity}}</small>
-                          <small class="text-muted d-block price-info">Precio: {{cartitem.price}}</small>
-                          <small class="text-muted d-block price-info-subtotal">Subtotal ${{cartitem.total}}</small>
-    
-              
-                      </div>
-                  </div>
-              </div>
-          </div>
-        
-      </div>
-      <div class="cart-total">
-          <span class="text-uppercase text-muted">Total</span>
-          <strong >$ {{totalpay}}</strong>
-      </div>
-  
-      <div class="d-flex justify-content-center mt-5">
-        <button matStepperNext class="btn btn-outline-purple">Confirmar Carrito</button>
-      </div>
+      <cart-items (cartData)="receivedCart($event)"></cart-items>
     </mat-step>
     <mat-step label="Datos De Envio">
-      DATOS SOBRE EL ENVIO
-      <div class="d-flex justify-content-center mt-5">
-        <button matStepperPrevious class="btn btn-back me-4"><i class="bi bi-arrow-left-circle-fill"></i></button>
-        <button matStepperNext class="btn btn-outline-purple ms-4">Continuar</button>
-      </div>
+      <cart-user (shipmentData)="receivedUser($event)"></cart-user>
     </mat-step>
     <mat-step label="RESUMEN">
-      CONFIRMAR COMPRA
-      <div class="d-flex justify-content-center mt-5">
-        <button matStepperPrevious class="btn btn-back me-4"><i class="bi bi-arrow-left-circle-fill"></i></button>
-        <button matStepperNext class="btn btn-success ms-4">Confirmar Compra</button>
-      </div>
+      <cart-resume></cart-resume>
     </mat-step>
     <mat-step>
-      <ng-template matStepLabel>Hecho</ng-template>
-      <p>Compra Realizada</p>
-      <div class="d-flex justify-content-center mt-5">
-        <button class="btn btn-outline-purple me-4" [routerLink]="['/account-vendor/shoppinghistory/purchase-details']">Ver Detalles VENDOR</button>
-        <button class="btn btn-outline-purple me-4" [routerLink]="['/account/shoppinghistory/purchase-details']">Ver Detalles CUSTOMER</button>
-        <button class="btn btn-primary ms-4" routerLink="../allproducts">Seguir Comprando</button>
-      </div>
+      <cart-complete></cart-complete>
     </mat-step>
   </mat-stepper>
 </div>

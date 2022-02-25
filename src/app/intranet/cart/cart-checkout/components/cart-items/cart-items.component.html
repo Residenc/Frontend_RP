@@ -1,0 +1,45 @@
+<form [formGroup]="userForm" (ngSubmit)="cartDataSend()">
+    <div formArrayName="userFormArray">
+        <div class="table-responsive my-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Producto</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let items of userGroupArray; let i = index" [formGroupName]="i">
+                    
+                    <td>{{i+1}}</td>
+                    <td><a class="text-decoration-none text-black" [routerLink]="['/viewproduct', productid.value]" style="cursor: pointer;">{{product_name.value}}</a></td>
+                    <td>${{price.value}}</td>
+                    <td>
+                        <input type="number" max={{stock.value}} value={{quantity.value}} min="1" #quantity class="form-control" formControlName="quantity"/>
+                        <small>Disponible: {{stock.value}}</small>
+                    </td>
+                    <td>${{total.value}}</td>
+                    <td class="text-center"><button type="button" class="btn icon-drop d-block d-md-inline" (click)="deleteCartItem(cartitemid.value)"><i class="bi bi-trash"></i></button></td>
+
+                    <input type="text" #cartitemid class="input-text d-none" formControlName="cartitem_id"/>
+                    <input type="text" #productid class="input-text d-none" formControlName="product_id"/>
+                    <input type="text" #stock class="input-text d-none" formControlName="stock"/>
+                    <input type="text" #total class="input-text d-none" formControlName="total"/>
+                    <input type="text" #price class="input-text d-none text-center" formControlName="price"/>
+                    <input type="text" #product_name class="input-text d-none" formControlName="product_name"/>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-auto">
+            <button matStepperNext type="submit" class="btn btn-outline-purple">Confirmar Carrito</button>
+        </div>
+    </div>
+</form>
+  
+<!--<pre>{{ userForm.getRawValue() | json }}</pre>-->

@@ -55,7 +55,6 @@ export class EditservicsComponent implements OnInit {
             minprice: ['', Validators.required ],
             maxprice: ['', Validators.required ],
             category: ['', Validators.required ],
-            image: ['', Validators.required ],
         });
     }
 

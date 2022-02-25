@@ -4,6 +4,7 @@ export interface cartItem{
     vendor_id: number | any;
     product_name: string | any;
     price: number | any;
+    stock: number | any;
     quantity: number | any;
     total: string | any;
 }

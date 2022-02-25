@@ -6,7 +6,8 @@ import * as _ from 'underscore';
 })
 export class ServicsorderByPipe implements PipeTransform {
   transform( services: Servics[], page: number = 0, order: string = '', category: string = '', search: string = ''): Servics[] {
-
+    if(!services)
+    return services
     if(search.length === null){
       //si tiene category entonces regresalos en el orden que se seleccione
       if (category.length != 0) {

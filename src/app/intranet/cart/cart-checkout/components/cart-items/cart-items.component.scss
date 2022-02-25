@@ -1,0 +1,24 @@
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+   opacity: 1 !important;
+}
+
+.icon-drop{
+   font-size: 20px;
+   color: rgb(210,210,210);
+   transition: color .2s ease-in-out;
+   &:hover{
+       color: rgb(182, 1, 1);
+   }
+}
+
+.input-text{
+   border: none !important;
+   cursor:default;
+}
+
+@media (max-width: 900px) {
+   .icon-drop{
+       font-size: 18px !important;
+   }
+}

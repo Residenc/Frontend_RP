@@ -7,6 +7,9 @@ import { filter } from 'underscore';
 })
 export class orderByPipe implements PipeTransform {
   transform( products: Product[], page: number = 0, order: string = '', category: string = '', search: string = ''): Product[] {
+    if(!products)
+    return products
+
 
     if(search.length === null){
       //si tiene category entonces regresalos en el orden que se seleccione
