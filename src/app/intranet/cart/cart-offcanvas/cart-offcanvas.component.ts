@@ -27,7 +27,6 @@ export class CartoffcanvasComponent implements OnInit {
         if(this.cookietoken.getUser().vend != null){
           this.cartService.getCartVendor().subscribe(cartItems => {
             this.cartItems = cartItems;
-            console.log(this.cartItems);
             this.allitems = cartItems.length;
             let Total = 0;
             this.cartItems.map((a:any)=>{
@@ -39,7 +38,6 @@ export class CartoffcanvasComponent implements OnInit {
         if(this.cookietoken.getUser().cust != null){
           this.cartService.getCartCustomer().subscribe(cartItems => {
             this.cartItems = cartItems;
-            console.log(this.cartItems);
             this.allitems = cartItems.length;
             let Total = 0;
             this.cartItems.map((a:any)=>{
