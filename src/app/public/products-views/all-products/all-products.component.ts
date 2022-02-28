@@ -31,7 +31,9 @@ export class AllproductsComponent implements OnInit {
     }
 
     loadProducts(){
-        this.productService.getAllProducts().subscribe(products =>this.products = products);
+        this.productService.getAllProducts().subscribe(products =>{this.products = products
+            const reader = new FileReader();
+            reader.onload =(this.products);});
         if(this.route.snapshot.paramMap.get('search') != null){
             this.category = this.route.snapshot.paramMap.get('search');
         }

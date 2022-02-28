@@ -187,7 +187,7 @@
                             <a [routerLink]="['/viewproduct',product.product_id]" style="cursor: pointer;"><h5 class="card-header">{{product.product_name}}</h5></a>
                             <div class="row g-0 d-flex justify-content-center">
                                 <div class="col-5 align-self-center img-column">
-                                    <a [routerLink]="['/viewproduct',product.product_id]" style="cursor: pointer;"><img class="img-fluid img-product p-3" src="https://picsum.photos/200" alt=""></a>
+                                    <a [routerLink]="['/viewproduct',product.product_id]" style="cursor: pointer;"><img class="img-fluid img-product p-3" src="http://localhost:3000/{{product.path}}" alt=""></a>
                                 </div>
                                 <div class="col-7 align-self-center product-column">
                                     <div class="card-body">

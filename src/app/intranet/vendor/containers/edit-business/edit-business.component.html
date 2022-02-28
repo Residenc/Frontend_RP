@@ -27,8 +27,15 @@
         </div>
         <div class="mb-4">
             <label for="formFile" class="form-label user-label">Imagen De Perfil</label>
-            <input class="form-control" type="file" id="formFile" name="image" formControlName="image">
+            <input class="form-control" type="file"  id="fileUpload" accept="image/*" name="image" formControlName="image" (change)="selectMultipleImage($event)">
         </div>
+      <!--  <div >
+        <div class="card-body" >
+            <img class="card-img-top" src="http://localhost:3000/{{currentBusiness.path}}" alt="" id="imagen">
+          </div>
+          <button class="btn btn-outline-danger btn-block " id="{{currentBusiness.business_id}}"
+            (click)="deleteImg(currentBusiness.business_id)">Eliminar</button>
+        </div>-->
 
     
         <div class="row d-flex justify-content-center">

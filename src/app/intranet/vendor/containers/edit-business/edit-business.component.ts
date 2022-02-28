@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Directive, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Business } from 'src/app/core/shared/models/business.model';
@@ -18,11 +19,17 @@ import Swal from 'sweetalert2';
 export class EditbusinessComponent implements OnInit {
 
 
-    constructor(private fb:FormBuilder, private userService: UsersService, private cookietoken: CookiesTokenService) { }
+    constructor(private fb:FormBuilder, private userService: UsersService, private cookietoken: CookiesTokenService, private http: HttpClient) { }
 
     currentVendor: Vendor | any;
     currentBusiness: Business | any;
     businessInfoForm : FormGroup | any;
+
+    images: any = [];
+    imgURL = '/assets/images/no-image/insert-img.png';
+    multipleImages = [];
+    prueba:any = []
+    imagenes: any = [];
 
 
     ngOnInit() {
@@ -48,6 +55,36 @@ export class EditbusinessComponent implements OnInit {
                 })
             }
             else{
+                this.userService.getUltimoBus(this.currentBusiness.business_id).subscribe(
+                  res=>{
+                    const formData = new FormData();
+                    for (let x = 0; x < this.prueba.length; x++) {
+                      formData.append('files', this.prueba[x])
+                     }
+  
+                  console.log(formData)
+                
+                this.http.post<any>('http://localhost:3000/filebus', formData).subscribe(
+                  (res) => console.log(res,  Swal.fire({
+                            icon: 'success',
+                            title: 'Imagen cargada!!',
+                            text: 'La imagen se subio correctamente!'
+                            }).then((result) => {
+                                        if (result) {
+                                                   location.reload();
+                                      }
+                           }) 
+                     ),
+                  (err) => Swal.fire({
+                                  icon: 'error',
+                                  title: 'Oops...',
+                                  text: 'Parece que no subio nada!!' 
+                                })
+                );
+              },
+              err => console.log(err)
+            );
+                   
                 Swal.fire({
                     title: 'Datos Empresariales Actualizados',
                     icon:'success'
@@ -60,13 +97,58 @@ export class EditbusinessComponent implements OnInit {
 
 
     loadCurrentBusiness(){
-        this.userService.getBusiness().subscribe(business => this.currentBusiness = business[0]);
+        this.userService.getBusiness().subscribe(business => {
+        this.currentBusiness = business[0];
+        const reader = new FileReader();
+        reader.onload =(this.currentVendor);
+        });
+
     }
 
 
     reloadPage(){
         window.location.reload();
     }
+
+    
+    //@ts-ignore
+  selectImage(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+       reader.readAsDataURL(file);
+       reader.onload = (event: any)=>{
+         this.imgURL = event.target.result;
+       }
+      this.images = file;
+    }
+  }
+  //@ts-ignore
+  selectMultipleImage(event) {
+    if (event.target.files.length > 0) {
+      this.multipleImages = event.target.files;
+      this.prueba = this.multipleImages
+    }
+  }
+ 
+  //@ts-ignore
+  deleteImg (id){ 
+        
+    Swal.fire({
+   icon: 'info',
+     title: 'Desea eliminar la imagen?',
+   showCancelButton: true,
+  confirmButtonText: `Eliminar`,
+  }).then((result) => {
+  if (result.isConfirmed) {
+      this.http.delete<any>(`http://localhost:3000/delete/${id}`).subscribe( res => {
+    
+    console.log(res, location.reload());
+
+    });
+  }
+});
+  }
 
 
 }

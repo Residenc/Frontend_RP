@@ -21,6 +21,9 @@ export class ServicesbusinessDateComponent implements OnInit {
     }
 
     loadServices(){
-        this.servicsService.getAllServicesOfBusiness(this.businessID).subscribe(services => this.services = services);
+        this.servicsService.getAllServicesOfBusiness(this.businessID).subscribe(services =>{ 
+            this.services = services
+            const reader = new FileReader();
+            reader.onload =(this.services)});
     }
 }
