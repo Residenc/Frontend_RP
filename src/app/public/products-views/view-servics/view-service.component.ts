@@ -12,7 +12,10 @@ import { ServicsService } from 'src/app/core/shared/services/servics/servics.ser
 })
 
 export class ViewserviceComponent implements OnInit {
-    
+    images = '';
+    //imgURL = '/assets/noimage.png';
+    multipleImages = [];
+    imagenes: any = [];
     serviceID:string | any;
     currentService: Servics | any;
 
@@ -22,6 +25,9 @@ export class ViewserviceComponent implements OnInit {
 
     ngOnInit() { 
         this.serviceID = this.route.snapshot.paramMap.get('id');
-        this.servicsService.getService(this.serviceID).subscribe(res => this.currentService = res[0]);
+        this.servicsService.getService(this.serviceID).subscribe(res => {
+            this.currentService = res[0]
+            const reader = new FileReader();
+            reader.onload = (this.imagenes);
+            console.log(this.imagenes);})};
     }
-}

@@ -14,7 +14,7 @@ export class UsersService {
 
     constructor(private http: HttpClient, private cookietoken: CookiesTokenService) { }
 
-
+    url = 'http://localhost:3000'
     //todo INSERT PARA REGISTRO
     insertCustomer(user:any): Observable<any>{ 
         return this.http.post(`http://localhost/Backend_RP/api php/routes-customers/insertCustomer.php`,JSON.stringify(user));
@@ -140,6 +140,11 @@ export class UsersService {
     updateCredentialsCustomer(user:any): Observable<any>{
         return this.http.put(`http://localhost/Backend_RP/api php/routes-customers/updateCredentials.php`, JSON.stringify(user));
     }
+
+
+    getUltimoBus(business_id:string):Observable<any>{
+        return this.http.get(this.url +'/businessimagen/'+business_id);
+      }
 
 
 

@@ -8,7 +8,7 @@ import { CookiesTokenService } from '../cookies-token/cookiestoken.service';
 export class ServicsService {
 
     constructor(private http: HttpClient, private cookietoken:CookiesTokenService) { }
-
+    url = 'http://localhost:3000';
     insertService(service:any): Observable<any>{ 
         return this.http.post(`http://localhost/Backend_RP/api php/routes-servics/insertServics.php`,JSON.stringify(service));
     }
@@ -31,5 +31,8 @@ export class ServicsService {
     deleteService(service_id:string): Observable<any>{ 
         return this.http.delete(`http://localhost/Backend_RP/api php/routes-servics/delete.php?id=`+service_id);
     }
-    
+
+    getUltimo(vendor_id:string):Observable<any>{
+        return this.http.get(this.url +'/servicioimagen/'+vendor_id);
+      }
 }

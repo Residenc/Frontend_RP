@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductsService } from 'src/app/core/shared/services/products/products.service';
 import { CookiesTokenService } from 'src/app/core/shared/services/cookies-token/cookiestoken.service';
 import { ServicsService } from 'src/app/core/shared/services/servics/servics.service';
+import { HttpClient } from '@angular/common/http';
 
 
 interface Category {
@@ -20,9 +21,14 @@ interface Category {
 
 export class InsertservicsComponent implements OnInit {
     
-    constructor(private cookietoken:CookiesTokenService, private servicsService:ServicsService ,private fb: FormBuilder) { }
-
+    constructor(private cookietoken:CookiesTokenService, private servicsService:ServicsService ,private fb: FormBuilder, private http: HttpClient) { }
+    prueba:any = []
+    imagenes: any = [];
     insertServiceForm : FormGroup | any;
+    images: any = [];
+    multipleImages = [];
+    imgURL = '/assets/images/no-image/insert-img.png';
+
 
 
     categories: Category[] = [
@@ -65,22 +71,71 @@ export class InsertservicsComponent implements OnInit {
         this.servicsService.insertService(this.insertServiceForm.value).subscribe(result =>{
             if(!result['insert']){
                 Swal.fire({
-                    title: 'Error Al Agregar, Intent Nuevamente',
+                    title: 'Error Al Agregar, Intente Nuevamente',
                     icon:'error'
                 })
             }
             else{
+                const vendor_id = this.cookietoken.getUser().vend;
+                this.servicsService.getUltimo(vendor_id).subscribe(
+                    res=>{
+                        const formData = new FormData();
+                        for (let x = 0; x < this.prueba.length; x++) {
+                            formData.append('files', this.prueba[x])
+                           }
+                           this.http.post<any>('http://localhost:3000/fileserv', formData).subscribe(
+                            (res) => console.log(res,  Swal.fire({ 
+                                icon: 'success',
+                          title: 'Imagen cargada!!',
+                          text: 'La imagen se subio correctamente!'
+                        }).then((result) => {          
+                            if (result) {
+                                location.reload();
+                   }
+                }) 
+                ),
+                (err) => Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Parece que no subio nada!!' 
+                  })
+                  );
+                },
+                err => console.log(err)
+              );
                 Swal.fire({
                     title: 'Servicio Agregado!',
                     icon:'success'
-                }).then(() => {
+                }).then(() => {     //finaliza swal
                     this.reloadPage();
-                });
-            }
+                });// finaliza then 
+            }// finializa else
         });
     }
 
     reloadPage(){
         window.location.reload();
     }
+
+     //@ts-ignore
+  selectImage(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+       reader.readAsDataURL(file);
+       reader.onload = (event: any)=>{
+         this.imgURL = event.target.result;
+       }
+      this.images = file;
+    }
+  }
+  //@ts-ignore
+  selectMultipleImage(event) {
+    if (event.target.files.length > 0) {
+      this.multipleImages = event.target.files;
+      this.prueba = this.multipleImages
+    }
+  }
+
+
 }

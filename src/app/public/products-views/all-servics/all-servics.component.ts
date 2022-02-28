@@ -24,7 +24,11 @@ export class AllservicsComponent implements OnInit {
     }
 
     loadServics(){
-        this.servicsService.getAllServices().subscribe(services =>this.services = services);
+        this.servicsService.getAllServices().subscribe(services =>{
+            this.services = services
+            const reader = new FileReader();
+            reader.onload =(this.services);
+        });
         if(this.route.snapshot.paramMap.get('search') != null){
             this.category = this.route.snapshot.paramMap.get('search');
         }

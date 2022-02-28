@@ -32,7 +32,6 @@ export class ProductsService {
         return this.http.delete(`http://localhost/Backend_RP/api php/routes-products/delete.php?id=`+product_id);
     }
     showImg(product_id:string):Observable<any>{
-       // return this.http.get('http://localhost:3000/upload')
        return this.http.get(`http://localhost:3000/listaimagen/`+product_id)
     }
 
@@ -42,8 +41,7 @@ export class ProductsService {
     }
 
     listImgVend(vendor_id:string, product_id:string):Observable<any>{
-        
-        return this.http.get(this.url+'/listavendor/'+vendor_id +'/'+ product_id)
+    return this.http.get(this.url+'/listavendor/'+vendor_id +'/'+ product_id)
     }
 
 }

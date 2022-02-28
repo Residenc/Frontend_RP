@@ -20,6 +20,9 @@ export class ProductsbusinessByDateComponent implements OnInit {
     }
 
     loadProducts(){
-        this.productService.getAllProductsOfBusiness(this.businessID).subscribe(products => this.products = products);
+        this.productService.getAllProductsOfBusiness(this.businessID).subscribe(products =>{
+        this.products = products});
+        const reader = new FileReader();
+        reader.onload =(this.products);
     }
 }

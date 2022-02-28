@@ -92,16 +92,12 @@ export class InsertproductComponent implements OnInit {
               this.productsService.getUltimo(vendor_id).subscribe(
                 res=>{
                   const formData = new FormData();
-                  //this.ListProduct=<any>res;
                   for (let x = 0; x < this.prueba.length; x++) {
                     formData.append('files', this.prueba[x])
                    }
 
                 console.log(formData)
               
-              //formData.append('files', this.prueba);
-              
-          
               this.http.post<any>('http://localhost:3000/file', formData).subscribe(
                 (res) => console.log(res,  Swal.fire({
                           icon: 'success',
@@ -156,64 +152,7 @@ export class InsertproductComponent implements OnInit {
       this.prueba = this.multipleImages
     }
   }
-
-
-  addImages() {
-    const vendor_id = this.cookietoken.getUser().vend;
-    this.productsService.getUltimo(vendor_id).subscribe(
-        (res: any)=>{
-        const formData = new FormData();
-        this.ListProduct=<any>res;
-        for (let x = 0; x < this.prueba.length; x++) {
-          formData.append('files', this.prueba[x])
-         }
  
-      
-
-
-      console.log(formData)
-    
-    //formData.append('files', this.prueba);
-    
-
-    this.http.post<any>('http://localhost:3000/file', formData).subscribe(
-      (res) => console.log(res,  Swal.fire({
-                icon: 'success',
-                title: 'Imagen cargada!!',
-                text: 'La imagen se subio correctamente!'
-                }).then((result) => {
-                            if (result) {
-                                       location.reload();
-                          }
-               }) 
-         ),
-      (err) => Swal.fire({
-                      icon: 'error',
-                      title: 'Oops...',
-                      text: 'Parece que no subio nada!!' 
-                    })
-    );
-  },
-        (err: any) => console.log(err)
-);
-
-  
-  
-  }
- 
-
-  /*  lastId(){
-      this.productsService.getUltimo().subscribe(
-        res=>{
-          console.log(res);
-          this.ListProduct=<any>res;
-          this.id_producto = this.ListProduct
-        },
-        err => console.log(err)
-      );
-    }*/
-  
-
   //@ts-ignore
   deleteImg (id){ 
         
