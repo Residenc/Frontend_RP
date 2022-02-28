@@ -13,12 +13,18 @@ export class ServicsComponent implements OnInit {
     constructor(private servicsService: ServicsService) { }
     services: Servics | any;
     page: number = 0;
+    iamgenes: any =[];
     ngOnInit() {
         this.loadServices()
     }
 
     loadServices(){
-        this.servicsService.getAllServicesOfVendor().subscribe(services =>this.services = services)
+        this.servicsService.getAllServicesOfVendor().subscribe(services =>{
+        this.services = services;
+        console.log(this.services);
+        const reader = new FileReader();
+        reader.onload =(this.services);
+    })
     }
 
     nextPage(){

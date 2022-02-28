@@ -41,7 +41,7 @@
                   <div class="row mb-5 d-flex justify-content-center align-items-center">
                       <div class="col-12 col-md-8">
                           <label for="formFile" class="form-label">Imagen Descriptiva</label>
-                          <input class="form-control" type="file" id="formFile" name="image" formControlName="image">
+                          <input  type="file" class="form-control-file" id="fileUpload" accept="image/*" name="image" formControlName="image" (change)="selectMultipleImage($event)">
                       </div>
                   </div>
 
