@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { cartItem } from 'src/app/core/shared/models/cart-item.model';
 import { CartService } from 'src/app/core/shared/services/cart/cart.service';
 import { CookiesTokenService } from 'src/app/core/shared/services/cookies-token/cookiestoken.service';
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 
 export class CartoffcanvasComponent implements OnInit {
-    constructor(private cookietoken: CookiesTokenService, private cartService: CartService) { }
+    constructor(private cookietoken: CookiesTokenService, private cartService: CartService, private router: Router) { }
     cartItems: cartItem | any;
     allitems!:number;
     totalpay:string = '';
@@ -111,6 +112,10 @@ export class CartoffcanvasComponent implements OnInit {
           
         })        
       }
+    }
+
+    goToCheckout(){
+      this.router.navigate(['checkout']);
     }
 
 

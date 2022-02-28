@@ -31,6 +31,17 @@ export class CartService {
 
 
 
+    updateCartItemCustomer(cartitem: string): Observable<any>{
+        return this.http.put(`http://localhost/Backend_RP/api php/routes-cartCustomer/updateCartItemCustomer.php`, JSON.stringify(cartitem));
+    }
+    updateCartItemVendor(cartitem: string): Observable<any>{
+        return this.http.put(`http://localhost/Backend_RP/api php/routes-cartVendor/updateCartItemVendor.php`, JSON.stringify(cartitem));
+    }
+
+
+    
+
+
     deleteCartItemCustomer(cartitem_id: string): Observable<any>{
         return this.http.delete(`http://localhost/Backend_RP/api php/routes-cartCustomer/deleteCartItemCustomer?id=` + cartitem_id);
     }

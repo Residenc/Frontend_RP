@@ -65,7 +65,6 @@ export class EditproductComponent implements OnInit {
             brand: ['', Validators.required ],
             quantity: ['', Validators.required ],
             category: ['', Validators.required ],
-            image: ['', Validators.required ],
         });
     }
 

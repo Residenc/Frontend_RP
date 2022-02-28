@@ -18,8 +18,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {CdkStepperModule} from '@angular/cdk/stepper';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-
-
+import {MatRadioModule} from '@angular/material/radio';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -30,14 +30,20 @@ import { UserofflineComponent } from './components/header/components/user-offlin
 import { UseronlineComponent } from './components/header/components/user-online/user-online.component';
 import { CartComponent } from './components/header/components/cart/cart.component';
 import { LoginComponent } from 'src/app/public/login/containers/login.component';
+import { CartItemsComponent } from 'src/app/intranet/cart/cart-checkout/components/cart-items/cart-items.component';
+import { UserInfoComponent } from 'src/app/intranet/cart/cart-checkout/components/user-info/user-info.component';
+import { ResumeComponent } from 'src/app/intranet/cart/cart-checkout/components/resume/resume.component';
+import { CompleteComponent } from 'src/app/intranet/cart/cart-checkout/components/complete/complete.component';
+import { CartoffcanvasComponent } from 'src/app/intranet/cart/cart-offcanvas/cart-offcanvas.component';
+import { CartcheckoutComponent } from 'src/app/intranet/cart/cart-checkout/cart-checkout.component';
 
 import { PaginatePipe } from './pipes/paginate.pipe';
 import { PaginateAllPipe } from './pipes/paginate-all.pipe';
+import { PaginateServicesPipe } from './pipes/paginateservice.pipe';
+
 import { BlockCopyPasteDirective } from './directives/block-copy-paste.directive';
 import { BlockWriteDirective } from './directives/block-input.directive';
-import { CartoffcanvasComponent } from 'src/app/intranet/cart/cart-offcanvas/cart-offcanvas.component';
-import { CartcheckoutComponent } from 'src/app/intranet/cart/cart-checkout/cart-checkout.component';
-import { PaginateServicesPipe } from './pipes/paginateservice.pipe';
+
 
 @NgModule({
     imports: [
@@ -59,7 +65,9 @@ import { PaginateServicesPipe } from './pipes/paginateservice.pipe';
         MatStepperModule,
         CdkStepperModule,
         MatInputModule,
-        MatButtonModule
+        MatButtonModule,
+        MatRadioModule,
+        MatTableModule
     ],
     exports: [
         HttpClientModule,
@@ -81,6 +89,8 @@ import { PaginateServicesPipe } from './pipes/paginateservice.pipe';
         CdkStepperModule,
         MatInputModule,
         MatButtonModule,
+        MatRadioModule,
+        MatTableModule,
         FooterComponent,
         NotFoundComponent,
         HeaderComponent,
@@ -94,7 +104,11 @@ import { PaginateServicesPipe } from './pipes/paginateservice.pipe';
         BlockCopyPasteDirective,
         BlockWriteDirective,
         CartoffcanvasComponent,
-        CartcheckoutComponent
+        CartcheckoutComponent,
+        CartItemsComponent,
+        UserInfoComponent,
+        ResumeComponent,
+        CompleteComponent
     ],
     declarations: [
         FooterComponent,
@@ -110,7 +124,11 @@ import { PaginateServicesPipe } from './pipes/paginateservice.pipe';
         BlockCopyPasteDirective,
         BlockWriteDirective,
         CartoffcanvasComponent,
-        CartcheckoutComponent
+        CartcheckoutComponent,
+        CartItemsComponent,
+        UserInfoComponent,
+        ResumeComponent,
+        CompleteComponent
 
     ],
     providers: [],

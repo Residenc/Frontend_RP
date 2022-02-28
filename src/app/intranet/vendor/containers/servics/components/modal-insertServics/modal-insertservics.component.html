@@ -15,7 +15,7 @@
                       </div>
                       <div class="col-12 col-md-6">
                         <label class="user-label">Descripcion</label>
-                        <textarea appBlockCopyPaste name="description" class="form-control" formControlName="description" rows="6"></textarea>
+                        <textarea name="description" class="form-control" formControlName="description" rows="6"></textarea>
                       </div>
 
                   </div>
@@ -25,10 +25,22 @@
                     <div class="col-12 col-md-6 col-lg-3">
                       <label class="user-label">Precio Min Aprox</label>
                       <input appBlockCopyPaste type="number" name="minprice" class="form-control" formControlName="minprice">
+                                          <!--<mat-form-field appearance="fill" floatLabel="always">
+                      <mat-label>Precio Min Aprox</mat-label>
+                      <input matInput type="number" appBlockCopyPaste type="number" name="minprice" class="form-control example-right-align" placeholder="0"  formControlName="minprice">
+                      <span matPrefix>$&nbsp;</span>
+                      <span matSuffix>.00</span>
+                    </mat-form-field>-->
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
                       <label class="user-label">Precio Max Aprox</label>
                       <input appBlockCopyPaste type="number" name="maxprice" class="form-control" formControlName="maxprice">
+                                          <!--<mat-form-field appearance="fill" floatLabel="always">
+                      <mat-label>Precio Min Aprox</mat-label>
+                      <input matInput type="number" appBlockCopyPaste type="number" name="minprice" class="form-control example-right-align" placeholder="0"  formControlName="minprice">
+                      <span matPrefix>$&nbsp;</span>
+                      <span matSuffix>.00</span>
+                    </mat-form-field>-->
                     </div>
                     <div class="col-12 col-lg-6 mt-5 mt-lg-0">
                       <mat-label class="user-label">Categoria</mat-label>
