@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { cartItem } from 'src/app/core/shared/models/cart-item.model';
+import { cartItemCustomer } from 'src/app/core/shared/models/cart-item-customer.model';
+import { cartItemVendor } from 'src/app/core/shared/models/cart-item-vendor.model';
 import { CartService } from 'src/app/core/shared/services/cart/cart.service';
 import { CookiesTokenService } from 'src/app/core/shared/services/cookies-token/cookiestoken.service';
 import Swal from 'sweetalert2';
@@ -15,14 +16,17 @@ import Swal from 'sweetalert2';
 export class CartItemsComponent implements OnInit {
 
  /*@Output() cartData = new EventEmitter<any>();*/
-  cart:cartItem | any;
+  cartVendor:cartItemVendor | any;
+  cartCustomer:cartItemCustomer | any;
   updateItemFormC: FormGroup | any;
   updateItemFormV: FormGroup | any;
+  roleLogged: string | any;
     
   constructor(private cartService: CartService, private cookietoken: CookiesTokenService,  private fb: FormBuilder) {}
     
   ngOnInit() {
     this.loadCartItems();
+    this.roleLogged = this.cookietoken.getUser().role;
   }
 
 
@@ -31,12 +35,12 @@ export class CartItemsComponent implements OnInit {
     if(this.cookietoken.isLogged()){
       if(this.cookietoken.getUser().vend != null){
         this.cartService.getCartVendor().subscribe(cartItems => {
-          this.cart = cartItems;
+          this.cartVendor = cartItems;
         });
       }
       if(this.cookietoken.getUser().cust != null){
         this.cartService.getCartCustomer().subscribe(cartItems => {
-          this.cart = cartItems;
+          this.cartCustomer = cartItems;
         });
       }
     }

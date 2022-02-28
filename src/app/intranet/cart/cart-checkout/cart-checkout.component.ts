@@ -25,22 +25,15 @@ export class CartcheckoutComponent implements OnInit {
     }
 
     @Input() userToResume: any;
-    /*@Input() cartToResume: any;*/
-    
+
     ngOnInit() { 
 
     }
 
     receivedUser(data:any){
         this.userToResume = data;
-        //console.log(this.userToResume)
         this.resume.initUserInfo(this.userToResume);
     }
 
-    /*receivedCart(data:any){
-        this.cartToResume = data;
-        //console.log(this.cartToResume)
-        this.resume.initCartInfo(this.cartToResume);
-    }*/
 
 }

@@ -76,7 +76,7 @@ export class AllproductsComponent implements OnInit {
     }
 
 
-    addCart(product_id:string, quantity:string){
+    addCart(product_id:string, seller:string, quantity:string){
 
         if(!this.cookietoken.isLogged()){
             let modalButton : HTMLElement = document.getElementById('modalButton') as HTMLElement;
@@ -103,6 +103,7 @@ export class AllproductsComponent implements OnInit {
             this.cartCustomerForm = this.fb.group ({
                 cust_id: this.cookietoken.getUser().cust,
                 product_id: product_id,
+                seller_id: seller,
                 quantity: quantity
             });
             this.cartService.insertCartItemCustomer(this.cartCustomerForm.value).subscribe(result =>{
@@ -117,7 +118,7 @@ export class AllproductsComponent implements OnInit {
                         toast: true,
                         position: 'top-end',
                         showConfirmButton: false,
-                        timer: 800,
+                        timer: 2500,
                         didOpen: (toast) => {
                           toast.addEventListener('mouseenter', Swal.stopTimer)
                           toast.addEventListener('mouseleave', Swal.resumeTimer)
@@ -125,7 +126,7 @@ export class AllproductsComponent implements OnInit {
                       });
                       Toast.fire({
                         icon: 'success',
-                        title: 'Producto Agregado'
+                        title: 'Producto Agregado. Podras Cambiar La Cantidad En El Checkout'
                       })
                       .then(() => {
                         this.reloadPage();
@@ -137,6 +138,7 @@ export class AllproductsComponent implements OnInit {
             this.cartVendorForm = this.fb.group ({
                 vendor_id: this.cookietoken.getUser().vend,
                 product_id: product_id,
+                seller_id: seller,
                 quantity: quantity
             });
             this.cartService.insertCartItemVendor(this.cartVendorForm.value).subscribe(result =>{
@@ -151,7 +153,7 @@ export class AllproductsComponent implements OnInit {
                         toast: true,
                         position: 'top-end',
                         showConfirmButton: false,
-                        timer: 800,
+                        timer: 2500,
                         didOpen: (toast) => {
                           toast.addEventListener('mouseenter', Swal.stopTimer)
                           toast.addEventListener('mouseleave', Swal.resumeTimer)
@@ -159,7 +161,7 @@ export class AllproductsComponent implements OnInit {
                       });
                       Toast.fire({
                         icon: 'success',
-                        title: 'Producto Agregado'
+                        title: 'Producto Agregado. Podras Cambiar La Cantidad En El Checkout'
                       })
                       .then(() => {
                         this.reloadPage();

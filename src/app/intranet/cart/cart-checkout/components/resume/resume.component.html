@@ -91,20 +91,42 @@
                     </div>
                 </div>
                 <div class="col-md-7">
-                    <div class="card right-card mb-5" *ngFor="let product of cart">
-                        <div class="card-header ">
-                            <div class="row align-middle">
-                                <a [routerLink]="['/viewproduct', product.product_id]" style="cursor: pointer;" class="text-decoration-none text-black">
-                                    <img class="img-fluid img-product img-thumbnail d-none d-xl-inline" src="https://picsum.photos/200" alt="img-product">
-                                    <h3 class="font-weight d-inline ms-xl-3 ms-0 text-end"><b>{{product.product_name}}</b></h3>
-                                </a>
-                            </div>
-                            <div class="row mt-2">
-                                <h6 class="text-muted"><b>Cantidad : {{product.quantity}}</b></h6>
-                                <h6 class="text-muted"><b>Subtotal : ${{product.total}}</b></h6>
+
+
+                    <div *ngIf="roleLogged == 'Vendor'">
+                        <div class="card right-card mb-5" *ngFor="let product of cartVendor">
+                            <div class="card-header ">
+                                <div class="row align-middle">
+                                    <a [routerLink]="['/viewproduct', product.product_id]" style="cursor: pointer;" class="text-decoration-none text-black">
+                                        <img class="img-fluid img-product img-thumbnail d-none d-xl-inline" src="https://picsum.photos/200" alt="img-product">
+                                        <h3 class="font-weight d-inline ms-xl-3 ms-0 text-end"><b>{{product.product_name}}</b></h3>
+                                    </a>
+                                </div>
+                                <div class="row mt-2">
+                                    <h6 class="text-muted"><b>Cantidad : {{product.quantity}}</b></h6>
+                                    <h6 class="text-muted"><b>Subtotal : ${{product.total}}</b></h6>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <div *ngIf="roleLogged == 'Customer'">
+                        <div class="card right-card mb-5" *ngFor="let product of cartCustomer">
+                            <div class="card-header ">
+                                <div class="row align-middle">
+                                    <a [routerLink]="['/viewproduct', product.product_id]" style="cursor: pointer;" class="text-decoration-none text-black">
+                                        <img class="img-fluid img-product img-thumbnail d-none d-xl-inline" src="https://picsum.photos/200" alt="img-product">
+                                        <h3 class="font-weight d-inline ms-xl-3 ms-0 text-end"><b>{{product.product_name}}</b></h3>
+                                    </a>
+                                </div>
+                                <div class="row mt-2">
+                                    <h6 class="text-muted"><b>Cantidad : {{product.quantity}}</b></h6>
+                                    <h6 class="text-muted"><b>Subtotal : ${{product.total}}</b></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <div class="row d-flex border-bottom border-top py-4">
                         <h2 class="text-center d-inline">Total A Pagar: $<h2 class="d-inline">{{totalpay}}</h2></h2>
@@ -112,7 +134,7 @@
 
                     <div class="row">
                         <div id="paypal-button-container"></div>
-                        <input type="text" id="paypal-total" value={{totalPaypal}}>
+                        <input type="text" id="paypal-total" class="d-none" value={{totalPaypal}}>
                         <button matStepperNext class="d-none" id="btn-step">Compra Confirmada</button>
                     </div>
 

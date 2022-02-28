@@ -1,5 +1,6 @@
 import { AfterContentInit, Component, OnInit } from '@angular/core';
-import { cartItem } from 'src/app/core/shared/models/cart-item.model';
+import { cartItemCustomer } from 'src/app/core/shared/models/cart-item-customer.model';
+import { cartItemVendor } from 'src/app/core/shared/models/cart-item-vendor.model';
 import { CartService } from 'src/app/core/shared/services/cart/cart.service';
 import { CookiesTokenService } from 'src/app/core/shared/services/cookies-token/cookiestoken.service';
 
@@ -11,7 +12,8 @@ declare var paypal: any;
   styleUrls: ['./resume.component.scss'],
 })
 export class ResumeComponent implements OnInit, AfterContentInit {
-  cart: cartItem | any;
+  cartVendor: cartItemVendor | any;
+  cartCustomer: cartItemCustomer | any;
   totalpay: string = '';
   totalPaypal: number | any;
   name: string | any;
@@ -21,64 +23,67 @@ export class ResumeComponent implements OnInit, AfterContentInit {
   phone1: string | any;
   phone2: string | any;
   address: string | any;
+  roleLogged: string | any;
 
   constructor(private cookietoken: CookiesTokenService,private cartService: CartService) {}
 
   ngOnInit() {
     this.loadCartItems();
+    this.roleLogged = this.cookietoken.getUser().role;
+    /*
+      sb-0yfah14129450@personal.example.com
+      F|5*hgD<
+    */
   }
 
   ngAfterContentInit(): void {
-    /*Promise.resolve().then(() => this.loadPaypalButton.loadPaypalView());*/
     Promise.resolve().then(() => {
       paypal.Buttons({
-          createOrder: function (data: any, actions: any) {
-            var paypalTotal = (<HTMLInputElement>document.getElementById('paypal-total')).value;
-            return actions.order.create({
-              purchase_units: [
-                {
-                  amount: {
-                    value: paypalTotal
-                  },
-                },
-              ],
-            });
-          },
-          onApprove: function (data: any, actions: any) {
-            return actions.order.capture().then(function (orderData: any) {
-              console.log(
-                'Capture result',
-                orderData,
-                JSON.stringify(orderData, null, 2)
-              );
-              var transaction =
-                orderData.purchase_units[0].payments.captures[0];
-              console.log(data);
-              console.log(transaction.id)
-              console.log(transaction.status)
-              let confirmButton : HTMLElement = document.getElementById('btn-step') as HTMLElement;
-              confirmButton.click();
-            });
-          },
-
-          onCancel: function (data: any) {
-            var paypalTotal = (<HTMLInputElement>document.getElementById('paypal-total')).value;
-            alert('Proceso Cancelado');
-            console.log(data);
-            console.log(paypalTotal)
-          },
-        })
-        .render('#paypal-button-container');
+        createOrder: function (data: any, actions: any) {
+          var paypalTotal = (<HTMLInputElement>document.getElementById('paypal-total')).value;
+          return actions.order.create({
+            purchase_units: [
+              {
+                amount: {
+                  value: paypalTotal
+                }
+              },
+            ],
+          });
+        },
+        onApprove: function (data: any, actions: any) {
+          return actions.order.capture().then(function (orderData: any) {
+            console.log(
+              'Capture result',
+              orderData,
+              JSON.stringify(orderData, null, 2)
+            );
+            var transaction =
+              orderData.purchase_units[0].payments.captures[0];
+            console.log(data.orderID)
+            console.log(transaction.id)
+            console.log(transaction.status)
+            let confirmButton : HTMLElement = document.getElementById('btn-step') as HTMLElement;
+            confirmButton.click();
+          });
+        },
+    
+        onCancel: function (data: any) {
+          alert('Proceso Cancelado');
+          console.log(data);
+        }
+      }).render('#paypal-button-container');
     });
   }
+
 
   loadCartItems() {
     if (this.cookietoken.isLogged()) {
       if (this.cookietoken.getUser().vend != null) {
         this.cartService.getCartVendor().subscribe((cartItems) => {
-          this.cart = cartItems;
+          this.cartVendor = cartItems;
           let Total = 0;
-          this.cart.map((a: any) => {
+          this.cartVendor.map((a: any) => {
             Total += parseInt(a.total);
           });
           this.totalPaypal = Total;
@@ -90,9 +95,9 @@ export class ResumeComponent implements OnInit, AfterContentInit {
       }
       if (this.cookietoken.getUser().cust != null) {
         this.cartService.getCartCustomer().subscribe((cartItems) => {
-          this.cart = cartItems;
+          this.cartCustomer = cartItems;
           let Total = 0;
-          this.cart.map((a: any) => {
+          this.cartCustomer.map((a: any) => {
             Total += parseInt(a.total);
           });
           this.totalPaypal = Total;
@@ -108,19 +113,10 @@ export class ResumeComponent implements OnInit, AfterContentInit {
   initUserInfo(data: any) {
     this.name = data.name;
     this.paternal = data.paternal;
+    this.maternal = data.maternal;
     this.email = data.email;
     this.phone1 = data.phone1;
     this.phone2 = data.phone2;
     this.address = data.address;
   }
-
-  /*initCartInfo(data:any){
-        console.log('resume cart info:', data)
-        this.products = data;
-        let Total = 0;
-        this.products.map((a:any)=>{
-         Total += parseInt(a.total);
-        })
-        this.totalpay = Total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }*/
 }

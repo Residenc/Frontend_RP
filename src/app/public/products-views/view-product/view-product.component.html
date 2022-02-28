@@ -17,16 +17,16 @@
                     <div class="col-md-6" >
                         <div class="product p-4" style="background: rgb(255,255,255)">
                             <div class="mt-4 mb-3"> 
-                                <h5 class="text-uppercase">{{product.product_name}}</h5>
-                                <a class="text-uppercase text-muted brand text-decoration-none" [routerLink]="['/business', product.vendor_id]" >{{product.business_name}}</a>
+                                <h5 class="text-uppercase">{{product?.product_name}}</h5>
+                                <a class="text-uppercase text-muted brand text-decoration-none" [routerLink]="['/business', product?.vendor_id]" >{{product?.business_name}}</a>
                                 <div class="price d-flex flex-row align-items-center mt-3">
                                     <strong>Precio:</strong>
-                                     <span class="ms-2">${{product.price}}</span>
+                                     <span class="ms-2">${{product?.price}}</span>
                                 </div>
                             </div>
                             <strong>Descripcion</strong>
-                            <p class="about">{{product.description}}</p>
-                            <div class="cart mt-5 d-flex justify-content-center align-items-center"> <button class="btn btn-outline-success text-uppercase mr-2 px-4"  (click)="addCart(product.product_id, '1')">Agregar Al Carrito</button> </div>
+                            <p class="about">{{product?.description}}</p>
+                            <div class="cart mt-5 d-flex justify-content-center align-items-center"> <button class="btn btn-outline-success text-uppercase mr-2 px-4"  (click)="addCart(product?.product_id, product?.vendor_id, '1')">Agregar Al Carrito</button> </div>
                         </div>
 
         <!--<div class="col-auto me-0 me-md-2 mb-4 mb-md-0 ">

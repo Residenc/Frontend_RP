@@ -17,15 +17,15 @@
                     <div class="col-md-6" >
                         <div class="product p-4" style="background: rgb(255,255,255)">
                             <div class="mt-4 mb-3"> 
-                                <h5 class="text-uppercase">{{currentService.service_name}}</h5>
-                                <a class="text-uppercase text-muted brand text-decoration-none" [routerLink]="['/business', currentService.vendor_id]" >{{currentService.business_name}}</a>
+                                <h5 class="text-uppercase">{{currentService?.service_name}}</h5>
+                                <a class="text-uppercase text-muted brand text-decoration-none" [routerLink]="['/business', currentService?.vendor_id]" >{{currentService?.business_name}}</a>
                                 <div class="price d-flex flex-row align-items-center mt-3">
                                     <strong>Precio Min:</strong>
-                                     <span class="ms-2">${{currentService.minprice}}</span>
+                                     <span class="ms-2">${{currentService?.minprice}}</span>
                                 </div>
                                 <div class="price d-flex flex-row align-items-center">
                                     <strong>Precio Max:</strong>
-                                    <span class="ms-2">${{currentService.maxprice}}</span>
+                                    <span class="ms-2">${{currentService?.maxprice}}</span>
                                </div>
                             </div>
                             <strong>Descripcion</strong>
