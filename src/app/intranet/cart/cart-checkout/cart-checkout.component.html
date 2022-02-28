@@ -1,7 +1,7 @@
-<div class="container-xl animate__animated animate__fadeIn">
+<div class="container-xl animate__animated animate__fadeIn rounded-3 py-5">
   <mat-stepper linear #stepper [orientation]="(stepperOrientation | async)!" class="m-0 p-0 m-lg-5 p-lg-5">
     <mat-step label="Carrito">
-      <cart-items (cartData)="receivedCart($event)"></cart-items>
+      <cart-items></cart-items>
     </mat-step>
     <mat-step label="Datos De Envio">
       <cart-user (shipmentData)="receivedUser($event)"></cart-user>

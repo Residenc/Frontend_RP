@@ -4,6 +4,7 @@ import {StepperOrientation} from '@angular/material/stepper';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import { ResumeComponent } from './components/resume/resume.component';
+import { CookiesTokenService } from 'src/app/core/shared/services/cookies-token/cookiestoken.service';
 
 @Component({
     selector: 'app-checkout',
@@ -13,7 +14,7 @@ import { ResumeComponent } from './components/resume/resume.component';
 
 export class CartcheckoutComponent implements OnInit {
     @ViewChild(ResumeComponent, { static: true })
-    resume: ResumeComponent = new ResumeComponent;
+    resume!: ResumeComponent;
 
     stepperOrientation: Observable<StepperOrientation>;
 
@@ -24,7 +25,7 @@ export class CartcheckoutComponent implements OnInit {
     }
 
     @Input() userToResume: any;
-    @Input() cartToResume: any;
+    /*@Input() cartToResume: any;*/
     
     ngOnInit() { 
 
@@ -36,10 +37,10 @@ export class CartcheckoutComponent implements OnInit {
         this.resume.initUserInfo(this.userToResume);
     }
 
-    receivedCart(data:any){
+    /*receivedCart(data:any){
         this.cartToResume = data;
         //console.log(this.cartToResume)
         this.resume.initCartInfo(this.cartToResume);
-    }
+    }*/
 
 }

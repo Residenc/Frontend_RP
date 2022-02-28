@@ -14,10 +14,8 @@ import Swal from 'sweetalert2';
 
 export class CartItemsComponent implements OnInit {
 
-  @Output() cartData = new EventEmitter<any>();
+ /*@Output() cartData = new EventEmitter<any>();*/
   cart:cartItem | any;
-  allitems!:number;
-  totalpay:string = '';
   updateItemFormC: FormGroup | any;
   updateItemFormV: FormGroup | any;
     
@@ -34,39 +32,32 @@ export class CartItemsComponent implements OnInit {
       if(this.cookietoken.getUser().vend != null){
         this.cartService.getCartVendor().subscribe(cartItems => {
           this.cart = cartItems;
-          this.allitems = cartItems.length;
-          let Total = 0;
-          this.cart.map((a:any)=>{
-           Total += parseInt(a.total);
-          })
-          this.totalpay = Total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         });
       }
       if(this.cookietoken.getUser().cust != null){
         this.cartService.getCartCustomer().subscribe(cartItems => {
           this.cart = cartItems;
-          this.allitems = cartItems.length;
-          let Total = 0;
-          this.cart.map((a:any)=>{
-           Total += parseInt(a.total);
-          })
-          this.totalpay = Total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         });
       }
     }
   }
 
 
-  updateCartItem(cartitem_id:string, quantity:string){
+  updateCartItem(cartitem_id:string, quantity:string, stock:string){
+    const stockproduct = parseInt(stock);
     if(this.cookietoken.isLogged()){
+
+
       if(this.cookietoken.getUser().vend != null){
         this.updateItemFormV = this.fb.group({
             cartitem_id: cartitem_id,
             vendor_id: this.cookietoken.getUser().vend,
-            quantity: quantity
+            quantity: [quantity, Validators.required],
         });
-        console.log(this.updateItemFormV.value)
-        this.cartService.updateCartItemVendor(this.updateItemFormV.value).subscribe(result =>{
+
+
+        if(this.updateItemFormV.controls['quantity'].value <= stockproduct ){
+          this.cartService.updateCartItemVendor(this.updateItemFormV.value).subscribe(result =>{
             if(!result['update']){
                 Swal.fire({
                     title: 'No Se Detecto Ningun Cambio',
@@ -81,16 +72,30 @@ export class CartItemsComponent implements OnInit {
                     this.reloadPage();
                 });
             }
-        });
+          });
+        }
+
+        else{
+          Swal.fire({
+            title: 'Cantidad No Disponible En El Stock',
+            icon:'error'
+          })
+        }
+
       }
+
+
+
       if(this.cookietoken.getUser().cust != null){
         this.updateItemFormC = this.fb.group({
             cartitem_id: cartitem_id,
             cust_id: this.cookietoken.getUser().cust,
-            quantity: quantity
+            quantity: [quantity, Validators.required],
         });
-        console.log(this.updateItemFormC.value)
-        this.cartService.updateCartItemCustomer(this.updateItemFormC.value).subscribe(result =>{
+
+
+        if(this.updateItemFormC.controls['quantity'].value <= stockproduct ){
+          this.cartService.updateCartItemCustomer(this.updateItemFormC.value).subscribe(result =>{
             if(!result['update']){
                 Swal.fire({
                     title: 'No Se Detecto Ningun Cambio',
@@ -105,7 +110,15 @@ export class CartItemsComponent implements OnInit {
                     this.reloadPage();
                 });
             }
-        });
+          });
+        }
+        else{
+          Swal.fire({
+            title: 'Cantidad No Disponible En El Stock',
+            icon:'error'
+          })
+        }
+
       }
     }
   }
@@ -180,9 +193,9 @@ export class CartItemsComponent implements OnInit {
 
 
 
-  cartDataSend(){
+  /*cartDataSend(){
     this.cartData.emit(this.cart);
-  }
+  }*/
 
 
 
