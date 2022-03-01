@@ -10,7 +10,7 @@
               <div class="text-center p-4" >
                 <img
                   id="main-image"
-                  src="http://localhost:3000/{{currentService.path}}"
+                  src="http://localhost:3000/{{currentService?.path}}"
                   class="img-main img-fluid"
                 />
               </div>
@@ -60,7 +60,7 @@
               <div
                 class="cart mt-5 d-flex justify-content-center align-items-center"
               >
-                <button class="btn btn-purple text-uppercase mr-2 px-4">
+                <button class="btn btn-purple text-uppercase mr-2 px-4" data-bs-toggle="modal" data-bs-target="#modal-insertticket">
                   Crear Ticket
                 </button>
               </div>
@@ -85,3 +85,5 @@
     </div>
   </div>
 </div>
+
+<app-createticket></app-createticket>

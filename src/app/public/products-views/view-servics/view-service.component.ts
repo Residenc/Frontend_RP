@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Servics } from 'src/app/core/shared/models/service.model';
 import { LoadScriptsService } from 'src/app/core/shared/services/load-scripts/load-scripts.service';
 import { ServicsService } from 'src/app/core/shared/services/servics/servics.service';
+import { createticketComponent } from './createTicket/createTicket.component';
 
 @Component({
     selector: 'app-viewservice',
@@ -12,6 +13,7 @@ import { ServicsService } from 'src/app/core/shared/services/servics/servics.ser
 })
 
 export class ViewserviceComponent implements OnInit {
+
     images = '';
     //imgURL = '/assets/noimage.png';
     multipleImages = [];
@@ -29,5 +31,8 @@ export class ViewserviceComponent implements OnInit {
             this.currentService = res[0]
             const reader = new FileReader();
             reader.onload = (this.imagenes);
-            console.log(this.imagenes);})};
+        })
     }
+
+
+}
