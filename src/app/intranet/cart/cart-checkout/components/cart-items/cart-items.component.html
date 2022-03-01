@@ -16,7 +16,7 @@
                 <td class="fw-bolder">{{i+1}}</td>
                 <td class="text-center">
                     <a [routerLink]="['/viewproduct', item.product_id]" style="cursor: pointer;" class="text-decoration-none">
-                        <img class="img-fluid img-product img-thumbnail d-none d-xl-inline" src="https://picsum.photos/200" alt="img-product">
+                        <img class="img-fluid img-product img-thumbnail d-none d-xl-inline" src="http://localhost:3000/{{item.path}}" alt="img-product">
                         <p class="d-inline ms-xl-3 ms-0 product-link">{{item.product_name}}</p>
                     </a>
                 </td>
@@ -36,7 +36,7 @@
                 <td class="fw-bolder">{{i+1}}</td>
                 <td class="text-center">
                     <a [routerLink]="['/viewproduct', item.product_id]" style="cursor: pointer;" class="text-decoration-none">
-                        <img class="img-fluid img-product img-thumbnail d-none d-xl-inline" src="https://picsum.photos/200" alt="img-product">
+                        <img class="img-fluid img-product img-thumbnail d-none d-xl-inline" src="http://localhost:3000/{{item.path}}" alt="img-product">
                         <p class="d-inline ms-xl-3 ms-0 product-link">{{item.product_name}}</p>
                     </a>
                 </td>

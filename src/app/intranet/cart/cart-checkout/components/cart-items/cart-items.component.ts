@@ -36,11 +36,15 @@ export class CartItemsComponent implements OnInit {
       if(this.cookietoken.getUser().vend != null){
         this.cartService.getCartVendor().subscribe(cartItems => {
           this.cartVendor = cartItems;
+          const reader = new FileReader();
+            reader.onload =(this.cartVendor);
         });
       }
       if(this.cookietoken.getUser().cust != null){
         this.cartService.getCartCustomer().subscribe(cartItems => {
           this.cartCustomer = cartItems;
+          const reader = new FileReader();
+            reader.onload =(this.cartCustomer);
         });
       }
     }
