@@ -39,6 +39,15 @@ export class CartService {
     }
 
 
+    updateOrderCustomer(cartitem: string): Observable<any>{
+        return this.http.put(`http://localhost/Backend_RP/api php/routes-cartCustomer/updateOrderCustomer.php`, JSON.stringify(cartitem));
+    }
+    updateOrderVendor(cartitem: string): Observable<any>{
+        return this.http.put(`http://localhost/Backend_RP/api php/routes-cartVendor/updateOrderVendor.php`, JSON.stringify(cartitem));
+    }
+
+
+
     
 
 
@@ -49,5 +58,25 @@ export class CartService {
         return this.http.delete(`http://localhost/Backend_RP/api php/routes-cartVendor/deleteCartItemVendor?id=` + cartitem_id);
     }
 
+
+
+
+    getPurchasesCustomer(): Observable<any>{ 
+        const cust_id = this.cookietoken.getUser().cust;
+        return this.http.get(`http://localhost/Backend_RP/api php/routes-cartCustomer/getPurchasesCustomer?id=`+cust_id);
+    }
+    getPurchasesVendor(): Observable<any>{ 
+        const vendor_id = this.cookietoken.getUser().vend;
+        return this.http.get(`http://localhost/Backend_RP/api php/routes-cartVendor/getPurchasesVendor?id=`+vendor_id);
+    }
+
+    getSalesToVendors(): Observable<any>{ 
+        const vendor_id = this.cookietoken.getUser().vend;
+        return this.http.get(`http://localhost/Backend_RP/api php/routes-cartVendor/getSalesToVendors?id=`+vendor_id);
+    }
+    getSalesToCustomers(): Observable<any>{ 
+        const vendor_id = this.cookietoken.getUser().vend;
+        return this.http.get(`http://localhost/Backend_RP/api php/routes-cartVendor/getSalesToCustomers?id=`+vendor_id);
+    }
     
 }

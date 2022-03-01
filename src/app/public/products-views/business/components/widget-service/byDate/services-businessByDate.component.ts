@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Servics } from 'src/app/core/shared/models/service.model';
 import { ServicsService } from 'src/app/core/shared/services/servics/servics.service';
 
@@ -14,7 +15,7 @@ export class ServicesbusinessDateComponent implements OnInit {
 
     services: Servics | any;
 
-    constructor(private servicsService: ServicsService) { }
+    constructor(private servicsService: ServicsService, private router:Router) { }
 
     ngOnInit() {
         this.loadServices();
@@ -25,5 +26,15 @@ export class ServicesbusinessDateComponent implements OnInit {
             this.services = services
             const reader = new FileReader();
             reader.onload =(this.services)});
+    }
+
+    goToService(serviceid: any){
+        this.router.navigate(['/viewservice',serviceid]).then(() => {
+            this.reloadPage();
+          });
+    }
+
+    reloadPage(){
+        location.reload();
     }
 }

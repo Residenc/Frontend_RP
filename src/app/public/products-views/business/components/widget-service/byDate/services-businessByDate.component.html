@@ -8,7 +8,7 @@
         <div class="col-12 col-lg-3 col-md-4 col-sm-6 px-2 mb-3 align-items-center" *ngFor="let service of services | servicesbusinessbyDate">
             <div class="card product-card">
             
-                <a class="card-img-top d-block overflow-hidden" [routerLink]="['/viewservice',service.service_id]" style="cursor: pointer;"><img class="card-img-top" src="http://localhost:3000/{{service.path}}" alt="Product"></a>
+                <a class="card-img-top d-block overflow-hidden" (click)="goToService(service.service_id)" style="cursor: pointer;"><img class="card-img-top" src="http://localhost:3000/{{service.path}}" alt="Product"></a>
                
                 <div class="card-body pb-1">
                     <h3 class="product-title text-center">{{service.service_name}}</h3>

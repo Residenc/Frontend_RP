@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookiesTokenService } from 'src/app/core/shared/services/cookies-token/cookiestoken.service';
 
 @Component({
     selector: 'cart-complete',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class CompleteComponent implements OnInit {
-    constructor() { }
-
-    ngOnInit() { }
+    constructor(private cookietoken: CookiesTokenService) { }
+    roleLogged: string | any;
+    ngOnInit() {
+        this.roleLogged = this.cookietoken.getUser().role;
+    }
 
 }

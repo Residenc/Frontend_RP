@@ -1,7 +1,18 @@
 <ng-template matStepLabel>Hecho</ng-template>
-<p>Compra Realizada</p>
-<div class="d-flex justify-content-center mt-5">
-    <button class="btn btn-outline-purple me-4" [routerLink]="['/account-vendor/shoppinghistory/purchase-details']">Ver Detalles VENDOR</button>
-    <button class="btn btn-outline-purple me-4" [routerLink]="['/account/shoppinghistory/purchase-details']">Ver Detalles CUSTOMER</button>
-    <button class="btn btn-primary ms-4" routerLink="../allproducts">Seguir Comprando</button>
-</div>
+<div class="p-5 mt-5 mb-4 bg-success text-white w-100 rounded-3 animate__animated animate__bounceIn">
+    <div class="container-fluid py-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12">
+                <h1 class="display-5 fw-bold mb-5 text-center">Compra Realizada</h1>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center mt-5" *ngIf="roleLogged == 'Customer'">
+            <a class="me-4" [routerLink]="['/account/shoppinghistory']" style="cursor: pointer;">Ver Detalles</a>
+            <button class="btn btn-purple ms-4" routerLink="../allproducts">Seguir Comprando</button>
+        </div>
+        <div class="d-flex justify-content-center align-items-center mt-5" *ngIf="roleLogged == 'Vendor'">
+            <a class="me-4" [routerLink]="['/account-vendor/shoppinghistory']" style="cursor: pointer;">Ver Detalles</a>
+            <button class="btn btn-purple ms-4" routerLink="../allproducts">Seguir Comprando</button>
+        </div>
+    </div>
+</div>  

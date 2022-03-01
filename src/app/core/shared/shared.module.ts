@@ -44,6 +44,9 @@ import { PaginateServicesPipe } from './pipes/paginateservice.pipe';
 import { BlockCopyPasteDirective } from './directives/block-copy-paste.directive';
 import { BlockWriteDirective } from './directives/block-input.directive';
 
+import { NgxPayPalModule } from 'ngx-paypal';
+
+
 
 @NgModule({
     imports: [
@@ -67,7 +70,8 @@ import { BlockWriteDirective } from './directives/block-input.directive';
         MatInputModule,
         MatButtonModule,
         MatRadioModule,
-        MatTableModule
+        MatTableModule,
+        NgxPayPalModule
     ],
     exports: [
         HttpClientModule,
@@ -108,7 +112,8 @@ import { BlockWriteDirective } from './directives/block-input.directive';
         CartItemsComponent,
         UserInfoComponent,
         ResumeComponent,
-        CompleteComponent
+        CompleteComponent,
+        NgxPayPalModule
     ],
     declarations: [
         FooterComponent,

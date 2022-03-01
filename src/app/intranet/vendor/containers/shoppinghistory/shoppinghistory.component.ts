@@ -1,4 +1,7 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Purchase } from 'src/app/core/shared/models/purchase.model';
+import { CartService } from 'src/app/core/shared/services/cart/cart.service';
 
 @Component({
     selector: 'app-shoppinghistory',
@@ -7,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ShoppinghistoryComponent implements OnInit {
-    constructor() { }
-
-    ngOnInit() { }
+    constructor(private cartService: CartService) { }
+    purchases: Purchase | any;
+    ngOnInit() { 
+        this.cartService.getPurchasesVendor().subscribe(purchases => {this.purchases = purchases})
+    }
 }

@@ -18,6 +18,8 @@ import { EditservicsComponent } from './containers/servics/components/edit-servi
 import { TicketsrequestComponent } from './containers/tickets-request/tickets-request.component';
 import { TicketsserviceComponent } from './containers/tickets-services/tickets-services.component';
 import { SuscriptionComponent } from './containers/suscription/suscription.component';
+import { ShoppinghistoryComponent } from './containers/shoppinghistory/shoppinghistory.component';
+import { SalesComponent } from './containers/saleshistory/saleshistory.component';
 
 @NgModule({
     imports: [
@@ -40,7 +42,9 @@ import { SuscriptionComponent } from './containers/suscription/suscription.compo
         EditservicsComponent,
         TicketsrequestComponent,
         TicketsserviceComponent,
-        SuscriptionComponent
+        SuscriptionComponent,
+        ShoppinghistoryComponent,
+        SalesComponent
     ],
     declarations: [
         MyaccountComponent,
@@ -59,7 +63,9 @@ import { SuscriptionComponent } from './containers/suscription/suscription.compo
         EditservicsComponent,
         TicketsrequestComponent,
         TicketsserviceComponent,
-        SuscriptionComponent
+        SuscriptionComponent,
+        ShoppinghistoryComponent,
+        SalesComponent
     ],
     providers: [],
 })

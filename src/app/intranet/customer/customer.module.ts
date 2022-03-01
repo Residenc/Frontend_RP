@@ -9,6 +9,7 @@ import { CustomerRoutingModule } from './customer-routing.module';
 import { SharedModule } from 'src/app/core/shared/shared.module';
 import { EditaddressComponent } from './containers/profile/addresses/edit-address/edit-address.component';
 import { TicketsserviceComponent } from './containers/tickets-services/tickets-services.component';
+import { ShoppinghistoryComponent } from './containers/shoppinghistory/shoppinghistory.component';
 
 @NgModule({
     imports: [
@@ -22,7 +23,8 @@ import { TicketsserviceComponent } from './containers/tickets-services/tickets-s
         AddressesComponent,
         EditcredentialsComponent,
         EditaddressComponent,
-        TicketsserviceComponent
+        TicketsserviceComponent,
+        ShoppinghistoryComponent
     ],
     declarations: [
         MyaccountComponent,
@@ -32,7 +34,8 @@ import { TicketsserviceComponent } from './containers/tickets-services/tickets-s
         EditcredentialsComponent,
         AccountComponent,
         EditaddressComponent,
-        TicketsserviceComponent
+        TicketsserviceComponent,
+        ShoppinghistoryComponent
     ],
     providers: [],
 })

@@ -34,5 +34,5 @@ export class ServicsService {
 
     getUltimo(vendor_id:string):Observable<any>{
         return this.http.get(this.url +'/servicioimagen/'+vendor_id);
-      }
+    }
 }
