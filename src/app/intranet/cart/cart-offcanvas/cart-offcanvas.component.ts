@@ -32,6 +32,8 @@ export class CartoffcanvasComponent implements OnInit {
           this.roleLogged = this.cookietoken.getUser().role;
           this.cartService.getCartVendor().subscribe(cartItems => {
             this.cartItemsVendor = cartItems;
+            const reader = new FileReader();
+            reader.onload =(this.cartItemsVendor);
             this.allitems = cartItems.length;
             let Total = 0;
             this.cartItemsVendor.map((a:any)=>{
@@ -44,6 +46,8 @@ export class CartoffcanvasComponent implements OnInit {
           this.roleLogged = this.cookietoken.getUser().role;
           this.cartService.getCartCustomer().subscribe(cartItems => {
             this.cartItemsCustomer = cartItems;
+            const reader = new FileReader();
+            reader.onload =(this.cartItemsVendor);
             this.allitems = cartItems.length;
             let Total = 0;
             this.cartItemsCustomer.map((a:any)=>{
