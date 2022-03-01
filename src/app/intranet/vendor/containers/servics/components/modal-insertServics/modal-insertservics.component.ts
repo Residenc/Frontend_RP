@@ -61,7 +61,6 @@ export class InsertservicsComponent implements OnInit {
             minprice: ['', Validators.required ],
             maxprice: ['', Validators.required ],
             category: ['', Validators.required ],
-            image: ['', Validators.required ],
         });
     }
 
@@ -86,8 +85,7 @@ export class InsertservicsComponent implements OnInit {
                            this.http.post<any>('http://localhost:3000/fileserv', formData).subscribe(
                             (res) => console.log(res,  Swal.fire({ 
                                 icon: 'success',
-                          title: 'Imagen cargada!!',
-                          text: 'La imagen se subio correctamente!'
+                                title: 'Servicio Agregado!',
                         }).then((result) => {          
                             if (result) {
                                 location.reload();

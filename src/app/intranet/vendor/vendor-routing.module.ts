@@ -13,6 +13,7 @@ import { EditservicsComponent } from './containers/servics/components/edit-servi
 import { ServicsComponent } from './containers/servics/servics.component';
 import { PurchasedetailComponent } from './containers/shoppinghistory/purchase-detail/purchasedetail.component';
 import { ShoppinghistoryComponent } from './containers/shoppinghistory/shoppinghistory.component';
+import { SuscriptionComponent } from './containers/suscription/suscription.component';
 import { TicketsrequestComponent } from './containers/tickets-request/tickets-request.component';
 import { TicketsserviceComponent } from './containers/tickets-services/tickets-services.component';
 
@@ -21,6 +22,7 @@ const routes : Routes = [
     [
       { path: 'account-home', component: MyaccountComponent },
       { path: 'editprofile', component: ProfileComponent },
+      { path: 'suscription', component: SuscriptionComponent },
       { path: 'editaddress/:id', component: EditaddressComponent  },
       { path: 'editbusiness', component: EditbusinessComponent },
       { path: 'shoppinghistory', component: ShoppinghistoryComponent, 

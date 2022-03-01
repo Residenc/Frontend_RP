@@ -101,8 +101,7 @@ export class InsertproductComponent implements OnInit {
               this.http.post<any>('http://localhost:3000/file', formData).subscribe(
                 (res) => console.log(res,  Swal.fire({
                           icon: 'success',
-                          title: 'Imagen cargada!!',
-                          text: 'La imagen se subio correctamente!'
+                          title: 'Producto Agregado!',
                           }).then((result) => {
                                       if (result) {
                                                  location.reload();

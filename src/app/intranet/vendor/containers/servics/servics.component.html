@@ -28,7 +28,7 @@
                 </div>
             </li>
         </ol>
-        <div class="p-5 mb-4 bg-light w-100 rounded-3 animate__animated animate__bounceIn" *ngIf="(services | paginateservices:page).length === 0">
+        <div class="p-5 mb-4 bg-light w-100 rounded-3 animate__animated animate__bounceIn" *ngIf="(services | paginateservices:page)?.length === 0">
             <div class="container-fluid py-5">
                 <div class="row d-flex justify-content-center">
                     <div class="col-12">
@@ -47,7 +47,7 @@
                 <button class="btn btn-outline-purple" aria-label="Previous" (click)="prevPage()" *ngIf="page != 0">Anterior</button>
             </div>
             <div class="col-auto p-0 ms-3">
-                <button class="btn btn-outline-purple" aria-label="Next" (click)="nextPage()" *ngIf="(services | paginateservices:page).length != 0">Siguiente</button>
+                <button class="btn btn-outline-purple" aria-label="Next" (click)="nextPage()" *ngIf="(services | paginateservices:page)?.length != 0">Siguiente</button>
             </div>
         </div>
 

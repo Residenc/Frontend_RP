@@ -55,7 +55,7 @@ export class EditbusinessComponent implements OnInit {
                 })
             }
             else{
-                this.userService.getUltimoBus(this.currentBusiness.business_id).subscribe(
+                this.userService.getUltimoBus(this.cookietoken.getUser().vend).subscribe(
                   res=>{
                     const formData = new FormData();
                     for (let x = 0; x < this.prueba.length; x++) {
@@ -67,8 +67,7 @@ export class EditbusinessComponent implements OnInit {
                 this.http.post<any>('http://localhost:3000/filebus', formData).subscribe(
                   (res) => console.log(res,  Swal.fire({
                             icon: 'success',
-                            title: 'Imagen cargada!!',
-                            text: 'La imagen se subio correctamente!'
+                            title: 'Datos Empresariales Actualizados',
                             }).then((result) => {
                                         if (result) {
                                                    location.reload();

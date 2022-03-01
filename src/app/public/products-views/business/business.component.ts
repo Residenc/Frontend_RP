@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Business } from 'src/app/core/shared/models/business.model';
-import { ProductsService } from 'src/app/core/shared/services/products/products.service';
-import { ServicsService } from 'src/app/core/shared/services/servics/servics.service';
 import { UsersService } from 'src/app/core/shared/services/users/users.service';
 
 @Component({
@@ -16,9 +14,9 @@ export class BusinessComponent implements OnInit {
     vendorID: string | any;
     totalProducts: string | any;
     totalServices: string | any;
-    currentBusiness: Business | any;
+    currentBusiness!: Business;
 
-    constructor(private route: ActivatedRoute, private userService: UsersService, private productsService: ProductsService, private servicsService:ServicsService) { }
+    constructor(private route: ActivatedRoute, private userService: UsersService) { }
 
     ngOnInit() { 
         this.vendorID = this.route.snapshot.paramMap.get('id');
@@ -26,9 +24,7 @@ export class BusinessComponent implements OnInit {
     }
 
     loadBusiness(){
-        this.userService.getBusinessProfile(this.vendorID).subscribe(res => console.log(this.currentBusiness = res[0]));
-        this.productsService.getAllProductsOfBusiness(this.vendorID).subscribe(res => console.log(this.totalProducts = res.length));
-        this.servicsService.getAllServicesOfBusiness(this.vendorID).subscribe(res => console.log(this.totalServices = res.length));
+        this.userService.getBusinessProfile(this.vendorID).subscribe(res => this.currentBusiness = res[0]);
     }
 
 }

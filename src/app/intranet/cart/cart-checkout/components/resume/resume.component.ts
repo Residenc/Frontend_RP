@@ -31,8 +31,10 @@ export class ResumeComponent implements OnInit, AfterContentInit {
     this.loadCartItems();
     this.roleLogged = this.cookietoken.getUser().role;
     /*
-      sb-0yfah14129450@personal.example.com
-      F|5*hgD<
+
+      sb-ew9qg12492308@personal.example.com
+      {rN?P5f8
+
     */
   }
 

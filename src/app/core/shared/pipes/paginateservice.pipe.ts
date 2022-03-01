@@ -7,6 +7,9 @@ import { Servics } from '../models/service.model';
 
 export class PaginateServicesPipe implements PipeTransform {
     transform(services: Servics[], page: number = 0): Servics[] {
+        if(!services){
+            return services
+        }
         return services.slice(page, page+5);
     }
 }

@@ -1,7 +1,7 @@
 <section class="animate__animated animate__zoomIn animate__faster">
     <div class="row d-flex justify-content-end mb-4">
         <div class="col-auto">
-            <a class="enlaceAdd" [routerLink]="['/business', currentBusiness?.business_id]" style="cursor: pointer;"><i class="bi bi-eye-fill me-2"></i>Ver Perfil Empresarial</a>
+            <a class="enlaceAdd" [routerLink]="['/business', currentBusiness.business_id]" style="cursor: pointer;"><i class="bi bi-eye-fill me-2"></i>Ver Perfil Empresarial</a>
         </div>
     </div>
     <form class="py-5 px-0 px-sm-1 px-md-2 px-lg-3 px-xl-5 animate__animated animate__fadeIn" [formGroup]="businessInfoForm" (ngSubmit)="updateBusiness()">

@@ -17,6 +17,7 @@ import { InsertservicsComponent } from './containers/servics/components/modal-in
 import { EditservicsComponent } from './containers/servics/components/edit-servics/editservics.component';
 import { TicketsrequestComponent } from './containers/tickets-request/tickets-request.component';
 import { TicketsserviceComponent } from './containers/tickets-services/tickets-services.component';
+import { SuscriptionComponent } from './containers/suscription/suscription.component';
 
 @NgModule({
     imports: [
@@ -38,7 +39,8 @@ import { TicketsserviceComponent } from './containers/tickets-services/tickets-s
         InsertservicsComponent,
         EditservicsComponent,
         TicketsrequestComponent,
-        TicketsserviceComponent
+        TicketsserviceComponent,
+        SuscriptionComponent
     ],
     declarations: [
         MyaccountComponent,
@@ -56,7 +58,8 @@ import { TicketsserviceComponent } from './containers/tickets-services/tickets-s
         InsertservicsComponent,
         EditservicsComponent,
         TicketsrequestComponent,
-        TicketsserviceComponent
+        TicketsserviceComponent,
+        SuscriptionComponent
     ],
     providers: [],
 })
