@@ -9,4 +9,5 @@ export interface cartItemVendor{
     stock: number | any;
     quantity: number | any;
     total: string | any;
+    path: string | any;
 }
