@@ -19,11 +19,11 @@ declare var paypal: {
     styleUrls: ['./suscription.component.scss']
 })
 export class SuscriptionComponent implements OnInit {
-    @ViewChild('paypal',{static:true}) paypalElement : ElementRef | undefined;
+    /*@ViewChild('paypal',{static:true}) paypalElement : ElementRef | undefined;*/
     constructor() { }
 
     ngOnInit() { 
-        paypal.Buttons({
+        /*paypal.Buttons({
             style: {
                 shape: 'rect',
                 color: 'gold',
@@ -33,19 +33,17 @@ export class SuscriptionComponent implements OnInit {
             createSubscription: function(data: any, actions: {
                     subscription: {
                         create: (arg0: {
-                            /* Creates the subscription */
                             plan_id: string;
                         }) => any;
                     };
                 }) {
               return actions.subscription.create({
-                /* Creates the subscription */
                 plan_id: 'P-2CP58777X60503724MIO2ECQ'
               });
             },
             onApprove: function(data: { subscriptionID: any; }, actions: any) {
-              alert(data.subscriptionID); // You can add optional success message for the subscriber here
+              alert(data.subscriptionID); 
             }
-        }).render(this.paypalElement?.nativeElement); // Renders the PayPal button
+        }).render(this.paypalElement?.nativeElement); */
 }
 }
