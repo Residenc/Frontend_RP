@@ -20,6 +20,8 @@ import { TicketsserviceComponent } from './containers/tickets-services/tickets-s
 import { SuscriptionComponent } from './containers/suscription/suscription.component';
 import { ShoppinghistoryComponent } from './containers/shoppinghistory/shoppinghistory.component';
 import { SalesComponent } from './containers/saleshistory/saleshistory.component';
+import { ViewTicketRequestCustomerComponent } from './containers/tickets-request/view-ticket-request-customer/modal-ticketcustomer.component';
+import { ViewTicketRequestVendorComponent } from './containers/tickets-request/view-ticket-request-vendor/modal-ticketvendor.component';
 
 @NgModule({
     imports: [
@@ -44,7 +46,9 @@ import { SalesComponent } from './containers/saleshistory/saleshistory.component
         TicketsserviceComponent,
         SuscriptionComponent,
         ShoppinghistoryComponent,
-        SalesComponent
+        SalesComponent,
+        ViewTicketRequestCustomerComponent,
+        ViewTicketRequestVendorComponent
     ],
     declarations: [
         MyaccountComponent,
@@ -65,7 +69,9 @@ import { SalesComponent } from './containers/saleshistory/saleshistory.component
         TicketsserviceComponent,
         SuscriptionComponent,
         ShoppinghistoryComponent,
-        SalesComponent
+        SalesComponent,
+        ViewTicketRequestCustomerComponent,
+        ViewTicketRequestVendorComponent
     ],
     providers: [],
 })

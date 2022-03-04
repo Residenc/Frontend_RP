@@ -15,6 +15,8 @@ import { PurchasedetailComponent } from './containers/shoppinghistory/purchase-d
 import { ShoppinghistoryComponent } from './containers/shoppinghistory/shoppinghistory.component';
 import { SuscriptionComponent } from './containers/suscription/suscription.component';
 import { TicketsrequestComponent } from './containers/tickets-request/tickets-request.component';
+import { ViewTicketRequestCustomerComponent } from './containers/tickets-request/view-ticket-request-customer/modal-ticketcustomer.component';
+import { ViewTicketRequestVendorComponent } from './containers/tickets-request/view-ticket-request-vendor/modal-ticketvendor.component';
 import { TicketsserviceComponent } from './containers/tickets-services/tickets-services.component';
 
 const routes : Routes = [
@@ -39,6 +41,8 @@ const routes : Routes = [
       },
       { path: 'servics', component: ServicsComponent },
       { path: 'editservics/:id', component: EditservicsComponent },
+      { path: 'viewticketrequestcustomer/:id', component: ViewTicketRequestCustomerComponent },
+      { path: 'viewticketrequestvendor/:id', component: ViewTicketRequestVendorComponent },
       { path: 'ticketsservice', component: TicketsserviceComponent },
       { path: 'ticketsrequest', component: TicketsrequestComponent },
     ]

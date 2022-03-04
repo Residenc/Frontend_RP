@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Servics } from 'src/app/core/shared/models/service.model';
 import { CookiesTokenService } from 'src/app/core/shared/services/cookies-token/cookiestoken.service';
 import { ServicsService } from 'src/app/core/shared/services/servics/servics.service';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-createticket',
@@ -14,7 +15,7 @@ import { ServicsService } from 'src/app/core/shared/services/servics/servics.ser
 
 export class createticketComponent implements OnInit {
     
-    constructor(private cookietoken:CookiesTokenService, private fb: FormBuilder, private route: ActivatedRoute, private servicsServices: ServicsService) { }
+    constructor(private cookietoken:CookiesTokenService, private fb: FormBuilder, private route: ActivatedRoute, private servicsServices: ServicsService, private router:Router) { }
     insertTicketCustomerForm : FormGroup | any;
     insertTicketVendorForm : FormGroup | any;
     isLogged: boolean | any;
@@ -25,7 +26,6 @@ export class createticketComponent implements OnInit {
     ngOnInit() {
 
         this.routeSub = this.route.params.subscribe(params => {
-            console.log(params['id'])
             this.service_id = params['id']
             this.servicsServices.getService(this.service_id).subscribe(res => this.currentService = res[0])
         });
@@ -34,9 +34,9 @@ export class createticketComponent implements OnInit {
         this.roleLogged = this.cookietoken.getUser().role;
     
 
-        this.insertTicketCustomerForm = this.fb.group ({
-            cust_id: ['', Validators.required],
-            service_id: ['', Validators.required],
+        this.insertTicketVendorForm = this.fb.group ({
+            vendor_id: this.cookietoken.getUser().vend,
+            service_id: this.service_id,
             seller_id: ['', Validators.required],
             name: ['', Validators.required],
             phone: ['', Validators.required],
@@ -44,9 +44,9 @@ export class createticketComponent implements OnInit {
             comment: ['', Validators.required],
         });
 
-        this.insertTicketVendorForm = this.fb.group ({
-            vendor_id: ['', Validators.required],
-            service_id: ['', Validators.required],
+        this.insertTicketCustomerForm = this.fb.group ({
+            cust_id: this.cookietoken.getUser().cust,
+            service_id: this.service_id,
             seller_id: ['', Validators.required],
             name: ['', Validators.required],
             phone: ['', Validators.required],
@@ -59,28 +59,46 @@ export class createticketComponent implements OnInit {
     insertTicket(){
         var orderValue = (<HTMLInputElement>document.getElementById('seller')).value;
         if(this.cookietoken.getUser().vend != null){
-            this.insertTicketVendorForm = this.fb.group ({
-                vendor_id: this.cookietoken.getUser().vend,
-                service_id: this.service_id,
-                seller_id: orderValue,
-                name: ['', Validators.required],
-                phone: ['', Validators.required],
-                email: ['', Validators.required],
-                comment: ['', Validators.required],
+            this.insertTicketVendorForm.patchValue({
+                seller_id: orderValue.toString()
             });
-            console.log(this.insertTicketVendorForm.value)
+            this.servicsServices.createTicketVendor(this.insertTicketVendorForm.value).subscribe(result =>{
+                if(!result['insert']){
+                    Swal.fire({
+                        title: 'Error, Inteta De Nuevo',
+                        icon:'error'
+                    })
+                }
+                else{
+                  Swal.fire({
+                      title: 'Ticket Enviado, Espera A Que El Vendedor Se Ponga En Contacto Contigo',
+                      icon:'success'
+                  }).then(() => {
+                        this.router.navigate(['/account-vendor/ticketsservice']);
+                    });
+                }
+            })
         }
         if(this.cookietoken.getUser().cust != null){
-            this.insertTicketCustomerForm = this.fb.group ({
-                cust_id: this.cookietoken.getUser().cust,
-                service_id: this.service_id,
-                seller_id: orderValue,
-                name: ['', Validators.required],
-                phone: ['', Validators.required],
-                email: ['', Validators.required],
-                comment: ['', Validators.required],
+            this.insertTicketCustomerForm.patchValue({
+                seller_id: orderValue.toString()
             });
-            console.log(this.insertTicketCustomerForm.value)
+            this.servicsServices.createTicketCustomer(this.insertTicketCustomerForm.value).subscribe(result =>{
+                if(!result['insert']){
+                    Swal.fire({
+                        title: 'Error, Inteta De Nuevo',
+                        icon:'error'
+                    })
+                }
+                else{
+                  Swal.fire({
+                      title: 'Ticket Enviado, Espera A Que El Vendedor Se Ponga En Contacto Contigo',
+                      icon:'success'
+                  }).then(() => {
+                        this.router.navigate(['/account/ticketsservice']);
+                    });
+                }
+            })
         }
     }
 

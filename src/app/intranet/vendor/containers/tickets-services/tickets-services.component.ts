@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Ticket } from 'src/app/core/shared/models/ticket.model';
+import { ServicsService } from 'src/app/core/shared/services/servics/servics.service';
 
 @Component({
     selector: 'app-ticketservice',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class TicketsserviceComponent implements OnInit {
-    constructor() { }
+    constructor(private servicsServices: ServicsService) { }
 
-    ngOnInit() { }
+    tickets : Ticket | any;
+
+    ngOnInit() { 
+        this.loadTickets()
+    }
+
+    loadTickets(){
+        this.servicsServices.getTicketsVendor().subscribe( tickets => { this.tickets = tickets })
+    }
 }

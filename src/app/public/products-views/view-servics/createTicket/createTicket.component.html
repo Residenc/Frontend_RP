@@ -2,23 +2,21 @@
     <div class="modal-dialog modal-dialog-centered modal-xl">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modal-insertproductLabel">Crear Ticket</h5>
+          <h1 class="modal-title" id="modal-insertproductLabel">Solicitar Servicio</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body" *ngIf="roleLogged === 'Customer'" >
+        <div class="modal-body p-0 p-lg-5" *ngIf="roleLogged === 'Customer'" >
             <form  [formGroup]="insertTicketCustomerForm" (ngSubmit)="insertTicket()" >
-                <input type="text" id="seller" class="d-block" value={{currentService.vendor_id}}>
+                <input type="text" id="seller" class="d-none" value={{currentService?.vendor_id}}>
                 
                 <div class="col-12">
                         <div class="row mb-5 d-flex justify-content-center align-items-center">
                             <div class="col-12">
                                 <label class="user-label">Nombre</label>
-                                <input appBlockCopyPaste type="text" class="form-control" name="product_name" formControlName="product_name">
+                                <input appBlockCopyPaste type="text" class="form-control" name="name" formControlName="name">
                             </div>
                         </div>
-    
                         <div class="row mb-5 d-flex justify-content-center align-items-center">
-                            <h2>Informacion De Contacto</h2>
                             <div class="col-12 col-md-6">
                                 <label class="user-label">Telefono</label>
                                 <input appBlockCopyPaste type="text" name="phone" class="form-control" formControlName="phone">
@@ -38,15 +36,15 @@
     
                         <div class="row justify-content-center mt-3">
                             <div class="col-auto">
-                                <button type="submit" class="btn btn-outline-purple d-block d-xl-inline mr-5 mb-3 mb-xl-0">Crear Ticket</button>
+                                <button type="submit" class="btn btn-outline-purple d-block d-xl-inline mr-5 mb-3 mb-xl-0" data-bs-dismiss="modal">Crear Ticket</button>
                             </div>
                         </div>
                 </div>
             </form>
         </div>
-        <div class="modal-body" *ngIf="roleLogged === 'Vendor'" >
+        <div class="modal-body p-0 p-lg-5" *ngIf="roleLogged === 'Vendor'" >
             <form  [formGroup]="insertTicketVendorForm" (ngSubmit)="insertTicket()" *ngIf="roleLogged === 'Vendor'">
-                <input type="text" id="seller" class="d-block" value={{currentService.vendor_id}}>
+                <input type="text" id="seller" class="d-none" value={{currentService?.vendor_id}}>
                 <div class="col-12">
                     <div class="row mb-5 d-flex justify-content-center align-items-center">
                         <div class="col-12">
@@ -56,7 +54,6 @@
                     </div>
 
                     <div class="row mb-5 d-flex justify-content-center align-items-center">
-                        <h2>Informacion De Contacto</h2>
                         <div class="col-12 col-md-6">
                             <label class="user-label">Telefono</label>
                             <input appBlockCopyPaste type="text" name="phone" class="form-control" formControlName="phone">
@@ -76,7 +73,7 @@
 
                     <div class="row justify-content-center mt-3">
                         <div class="col-auto">
-                            <button type="submit" class="btn btn-outline-purple d-block d-xl-inline mr-5 mb-3 mb-xl-0">Crear Ticket</button>
+                            <button type="submit" class="btn btn-outline-purple d-block d-xl-inline mr-5 mb-3 mb-xl-0" data-bs-dismiss="modal">Crear Ticket</button>
                         </div>
                     </div>
                 </div>
